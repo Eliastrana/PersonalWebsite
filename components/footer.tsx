@@ -21,10 +21,10 @@ const Footer = () => {
               View my projects on GitHub
             </a>
             <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+              href={`https://github.com/Eliastrana/nextjsportfolio`}
               className="mx-3 font-bold hover:underline"
             >
-              View on GitHub
+              Code for this site
             </a>
           </div>
         </div>
