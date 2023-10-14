@@ -1,19 +1,28 @@
 ---
-title: 'IDATT1002: Private Banking Software'
+title: 'IDATT1002: Private Budgeting Software'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
 coverImage: '/assets/blog/pbs/pbs_forside.png'
 date: '2023-05-10T05:35:07.322Z'
 author:
   name: Elias Trana
-  picture: '/assets/blog/authors/logo.png'
+  picture: '/assets/blog/authors/logotriangle.png'
 ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
+  url: '/assets/blog/hello-world/logotriangle.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+## Private Budgeting Software
 
-Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+#### **WORK:** TEAM SCHOOL PROJECT
+#### **GRADE:** B
 
-## Lorem Ipsum
+### The Task
 
-Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+This was 45% of the grade for the course "Systemutvikling 1". The focus was on working as a team to develop a private budgeting software that a user can utilize to gain a larger control over their own finances. The code is available at the [GitHub repository](https://github.com/Eliastrana/PBS).
+The total work also includes a 160 page report, which is not included in this portfolio. It contains everything from the development process, notes from meetings, the improvements of the code, the strategies used, as well as all the functionality of the software.
+
+## PBS - Private Budgeting Software
+
+![Lacrosse Image](/assets/blog/pbs/logo_small.jpeg)
+
+
+
