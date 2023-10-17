@@ -2,7 +2,7 @@
 title: 'PHOTO: Utmatrikulering'
 excerpt: 'Photographing the celebration for the end of the studies for students.'
 coverImage: '/assets/blog/utmat/forside_cropped.png'
-date: '2023-10-14T05:35:07.322Z'
+date: '2023-06-20T05:35:07.322Z'
 author:
     name: Elias Trana
     picture: '/assets/blog/authors/logotriangle.png'

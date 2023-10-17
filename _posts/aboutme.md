@@ -2,7 +2,7 @@
 title: 'INFO: About Me'
 excerpt: 'A short introduction to who I am and what I do.'
 coverImage: '/assets/blog/aboutme/forside_aboutme.jpg'
-date: '2023-10-14T05:35:07.322Z'
+date: '2023-08-14T05:35:07.322Z'
 author:
   name: Elias Trana
   picture: '/assets/blog/authors/logotriangle.png'
