@@ -1,5 +1,5 @@
 const imageUrls = [
-  'public/assets/archive/photos/fridglassdome.jpeg',
+  'photos/fridglassdome.jpeg',
   'photos/imm016_N16.jpeg',
   'photos/DSCF7107.JPG',
   'photos/DSCF4302.JPG',
