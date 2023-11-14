@@ -1,0 +1,36 @@
+/* components/Intro.module.css */
+
+
+.font-change-on-hover {
+    transition: font-family 0.5s ease-in-out; /* Adjust the transition duration and easing function as needed */
+}
+
+
+.highlight-animation {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%; /* Initially positioned outside the element on the right */
+    width: 0; /* Initially set to zero width */
+    height: 100%;
+    background-color: yellow;
+    transition: width 0.3s ease-in-out, right 0.3s ease-in-out; /* Adjust the transition durations and easing functions as needed */
+    z-index: -1; /* Ensure the highlight is behind the text */
+}
+
+.highlight-animation:hover::before {
+    right: 0; /* Move from right to left on hover */
+    width: 100%; /* Expand to full width */
+}
+
+/* Reverse the animation when not hovering */
+.highlight-animation:not(:hover)::before {
+    right: 100%; /* Move from left to right when not hovering */
+    width: 0; /* Collapse to zero width when not hovering */
+}
+
