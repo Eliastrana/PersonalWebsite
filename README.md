@@ -2,6 +2,4 @@
 
 ## This website is written with Next.js, using mainly TypeScript
 
-### Hello
-
 
