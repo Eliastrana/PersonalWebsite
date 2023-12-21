@@ -3,12 +3,12 @@
   "short_name": "Next.js",
   "icons": [
     {
-      "src": "/favicons/logotriangle.png",
+      "src": "/favicons/logoai.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/favicons/logotriangle.png",
+      "src": "/favicons/logoai.png",
       "sizes": "512x512",
       "type": "image/png"
     }

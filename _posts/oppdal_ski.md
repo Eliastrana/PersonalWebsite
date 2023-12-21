@@ -5,7 +5,7 @@ coverImage: '/assets/blog/oppdal_ski/forside_oppdal.png'
 date: '2023-03-06T05:35:07.322Z'
 author:
   name: Elias Trana
-  picture: '/assets/blog/authors/logotriangle.png'
+  picture: '/assets/blog/authors/logoai.png'
 ogImage:
   url: 'assets/blog/authors/logo.png'
 tags:

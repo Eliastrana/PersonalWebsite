@@ -5,7 +5,7 @@ coverImage: '/assets/blog/utmat/forside_cropped.png'
 date: '2023-06-20T05:35:07.322Z'
 author:
     name: Elias Trana
-    picture: '/assets/blog/authors/logotriangle.png'
+    picture: '/assets/blog/authors/logoai.png'
 ogImage:
     url: 'assets/blog/authors/logo.png'
 tags:

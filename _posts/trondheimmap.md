@@ -5,7 +5,7 @@ coverImage: '/assets/blog/trondheimmap/hd_forside_trondheimkart.png'
 date: '2023-08-16T05:35:07.322Z'
 author:
   name: Elias Trana
-  picture: '/assets/blog/authors/logotriangle.png'
+  picture: '/assets/blog/authors/logoai.png'
 ogImage:
   url: 'assets/blog/authors/logo.png'
 tags:

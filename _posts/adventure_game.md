@@ -5,7 +5,7 @@ coverImage: '/assets/blog/adventuregame/adventuregamecover.png'
 date: '2023-05-22T05:35:07.322Z'
 author:
   name: Elias Trana
-  picture: '/assets/blog/authors/logotriangle.png'
+  picture: '/assets/blog/authors/logoai.png'
 ogImage:
   url: 'assets/blog/authors/logo.png'
 
