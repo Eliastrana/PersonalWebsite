@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ski Game</title>
+    <style>
+        body {
+            background-image: url('DSCF5297.jpeg'); /* Add your background image path here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Optional: Makes the background fixed during scroll */
+            margin: 0; /* Remove default margin */
+            height: 100vh; /* Optional: Set to the full height of the viewport */
+        }
+
+        #gameCanvas {
+            display: block;
+            margin: 0 auto;
+        }
+        #startButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 60px;
+            cursor: pointer;
+            color: #fcfbfb;
+            background-color: #a6c9c9;
+            border-radius: 15px; /* Rounded corners */
+            border: none; /* Remove default border */
+            outline: none; /* Remove focus outline */
+        }
+
+
+        #score {
+            display: block;
+            font-family: sans-serif;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 100px;
+            cursor: pointer;
+            text-align: center; /* Center text */
+
+        }
+    </style>
+</head>
+<body>
+<button id="startButton">Start Game</button>
+<canvas id="gameCanvas"></canvas>
+<div id="score">Score: 0</div>
+
+<script src="minigame.js"></script>
+</body>
+</html>
