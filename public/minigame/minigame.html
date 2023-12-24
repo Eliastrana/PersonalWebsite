@@ -5,15 +5,14 @@
     <title>Ski Game</title>
     <style>
         body {
-            background-image: url('DSCF5297.jpeg'); /* Add your background image path here */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-attachment: fixed; /* Optional: Makes the background fixed during scroll */
-            margin: 0; /* Remove default margin */
-            height: 100vh; /* Optional: Set to the full height of the viewport */
+            background-image: url('DSCF5297.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
         }
-
         #gameCanvas {
             display: block;
             margin: 0 auto;
@@ -26,21 +25,23 @@
             cursor: pointer;
             color: #fcfbfb;
             background-color: #a6c9c9;
-            border-radius: 15px; /* Rounded corners */
-            border: none; /* Remove default border */
-            outline: none; /* Remove focus outline */
+            border-radius: 15px;
+            border: none;
+            outline: none;
         }
-
-
         #score {
             display: block;
             font-family: sans-serif;
             margin: 20px auto;
             padding: 10px 20px;
             font-size: 100px;
-            cursor: pointer;
-            text-align: center; /* Center text */
-
+            text-align: center;
+        }
+        #sliderControl {
+            width: 80%;
+            height: 50px;
+            margin: 20px auto;
+            display: block;
         }
     </style>
 </head>
@@ -48,7 +49,7 @@
 <button id="startButton">Start Game</button>
 <canvas id="gameCanvas"></canvas>
 <div id="score">Score: 0</div>
-
+<input type="range" id="sliderControl" min="0" max="400" value="200">
 <script src="minigame.js"></script>
 </body>
 </html>
