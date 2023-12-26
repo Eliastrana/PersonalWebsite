@@ -16,6 +16,10 @@
         #gameCanvas {
             display: block;
             margin: 0 auto;
+            border: 2px solid #efe3c2;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #efe3c2;
+            background-color: aliceblue;
         }
         #startButton {
             display: block;
@@ -24,7 +28,7 @@
             font-size: 60px;
             cursor: pointer;
             color: #fcfbfb;
-            background-color: #a6c9c9;
+            background-color: rgb(148, 225, 225);
             border-radius: 15px;
             border: none;
             outline: none;
@@ -43,13 +47,57 @@
             margin: 20px auto;
             display: block;
         }
+
+        #timer {
+            display: block;
+            font-family: sans-serif;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 100px;
+            text-align: center;
+        }
+
+        #scoreTimerContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #score, #timer {
+            font-family: sans-serif;
+            padding: 10px 20px;
+            font-size: 75px;
+            text-align: center;
+            margin: 20px; /* Add margin to separate score and timer */
+        }
+
+        /* You can remove the individual margin styles from #score and #timer if they are redundant */
+
+        #scoreTimerContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #94e1e1;
+            border-radius: 15px;
+            color: #fcfbfb;
+            margin: auto; /* This centers the container horizontally */
+            min-width: 100px; /* Minimum width */
+            max-width: 800px; /* Maximum width */
+        }
+
+
     </style>
 </head>
+
 <body>
 <button id="startButton">Start Game</button>
 <canvas id="gameCanvas"></canvas>
-<div id="score">Score: 0</div>
+<div id="scoreTimerContainer">
+    <div id="score">Score: 0</div>
+    <div id="timer">Time: 60</div>
+</div>
 <input type="range" id="sliderControl" min="0" max="400" value="200">
 <script src="minigame.js"></script>
 </body>
+
 </html>
