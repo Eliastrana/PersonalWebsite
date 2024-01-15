@@ -2,7 +2,7 @@
 title: 'CODE: Calculator'
 excerpt: 'A calculator made in using Vue.js'
 coverImage: '/assets/blog/calculator/forside_calc.png'
-date: '2023-10-24T05:35:07.322Z'
+date: '2024-01-15T05:35:07.322Z'
 author:
   name: Elias Trana
   picture: '/assets/blog/authors/logoai.png'
