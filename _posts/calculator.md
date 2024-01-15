@@ -23,6 +23,7 @@ This is a calculator made in Vue. It catches mistakes like deviding by 0, and di
 
 The visual identity of the calculator is created by Frid Ekseth, and the code is written by me.
 
+![Error calc](/assets/blog/calculator/calcclose.png)
 
 
 
