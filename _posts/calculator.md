@@ -19,11 +19,16 @@ tags:
 #### **WORK:** SCHOOL
 
 
-This is a calculator made in Vue. It catches mistakes like deviding by 0, and displays error messages. The calculator has a history that shows previous calculations.
+This is a calculator made in Vue. It catches mistakes like dividing by 0, and displays error messages. The calculator has a history that shows previous calculations.
 
 The visual identity of the calculator is created by Frid Ekseth, and the code is written by me.
 
 ![Error calc](/assets/blog/calculator/calcclose.png)
+
+### Functionality 
+
+![Error calc](/assets/blog/calculator/totalcalc.png)
+
 
 
 
