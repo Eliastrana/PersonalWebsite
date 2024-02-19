@@ -9,6 +9,7 @@ import SlideshowDisplayer from "../components/slideshow-displayer";
 import CategorySorter from '../components/CategorySorter';
 import { getAllPosts } from '../lib/api';
 import Post from "../interfaces/post";
+import ContentBox from "../components/ContentBox";
 
 type Props = {
   allPosts: Post[];
@@ -31,8 +32,25 @@ export default function Index({ allPosts, tags }: Props) {
           </Head>
 
           <Container>
-            <Intro />
-            <SlideshowDisplayer />
+            <Intro/>
+            <SlideshowDisplayer/>
+
+            <div className="flex flex-wrap justify-center gap-4 p-5">
+              {/* Ensure each box takes exactly half the container's width, accounting for the gap */}
+              <div className="flex-1 p-1 max-w-[calc(50%-1rem)]"> {/* Adjust the max-width calculation as needed */}
+                <ContentBox
+                    imageUrl="assets/infobricks/floatingmac.gif"
+                    title="Education"
+                    text="I'm studying to become a Computer Engineer. I am currently in my second year. The courses i have taken includes programming, system development, operating systems, databases, algoritms and datastructures, maths, statistics, phyciscs, nettworkprogramming and fullstack development."/>
+              </div>
+
+              <div className="flex-1 p-1 max-w-[calc(50%-1rem)]">
+                <ContentBox
+                    imageUrl="assets/infobricks/giphy.gif"
+                    title="Experience"
+                    text="I work as a student asssistant. I have taught two different Computer Engeneering courses. The first focused on a general introduciton to programming. The second one focued on lean development and scrum. "/>
+              </div>
+            </div>
 
 
             <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
@@ -40,7 +58,7 @@ export default function Index({ allPosts, tags }: Props) {
             </h2>
 
 
-            <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []} />
+            <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
 
 
             {heroPost && (
@@ -56,8 +74,7 @@ export default function Index({ allPosts, tags }: Props) {
             )}
 
 
-
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            {morePosts.length > 0 && <MoreStories posts={morePosts}/>}
           </Container>
         </Layout>
       </>
@@ -80,7 +97,7 @@ export const getStaticProps = async () => {
   const tags = Array.from(new Set(allPosts.flatMap(post => post.tags || [])));
 
   return {
-    props: { allPosts, tags },
+    props: {allPosts, tags},
   };
 };
 

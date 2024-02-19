@@ -11,38 +11,48 @@ interface SlideshowProps {
 
 const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-
-    const nextSlide = () => {
-        setIsAnimating(true); // Start animation
-        setTimeout(() => {
-            setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-            setIsAnimating(false); // End animation
-        }, 500); // Match this timeout to your transition duration
-    };
+    const [fade, setFade] = useState<'in' | 'out'>('in');
 
     useEffect(() => {
+        setFade('in');
         const timer = setTimeout(() => {
-            nextSlide();
-        }, 5500); // Adjust timing to include animation duration
-
+            setFade('out');
+        }, 5000);
         return () => clearTimeout(timer);
     }, [currentSlideIndex]);
 
+    useEffect(() => {
+        if (fade === 'out') {
+            const changeSlideTimer = setTimeout(() => {
+                setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+            }, 500);
+            return () => clearTimeout(changeSlideTimer);
+        }
+    }, [fade, slides.length]);
+
     return (
-        <div className="aspect-w-2 aspect-h-1 w-full overflow-hidden">
-            <div className={`transform transition-all duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-                <img
-                    className="w-full h-auto object-cover rounded-lg shadow-lg"
-                    src={slides[currentSlideIndex].url}
-                    alt={slides[currentSlideIndex].caption || 'Slide image'}
-                />
-                {slides[currentSlideIndex].caption && (
-                    <p className="text-center">{slides[currentSlideIndex].caption}</p>
-                )}
+        <div className="relative w-full overflow-hidden" style={{ paddingTop: '50%' }}>
+            <div className="absolute top-0 left-0 right-0 bottom-0 bg-white border-2 border-gray-200 rounded-lg shadow-lg">
+                {slides.map((slide, index) => (
+                    <div
+                        key={slide.url}
+                        className={`absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center transition-opacity duration-500 ${index === currentSlideIndex ? (fade === 'in' ? 'opacity-100' : 'opacity-0') : 'opacity-0'}`}
+                        style={{ transitionDelay: index === currentSlideIndex && fade === 'in' ? '500ms' : '0ms'}}
+                    >
+                        <img
+                            className="w-full h-full object-cover rounded-lg"
+                            src={slide.url}
+                            alt={slide.caption || 'Slide image'}
+                        />
+                        {slide.caption && (
+                            <p className="text-center">{slide.caption}</p>
+                        )}
+                    </div>
+                ))}
             </div>
         </div>
     );
 };
+
 
 export default Slideshow;
