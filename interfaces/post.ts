@@ -11,7 +11,7 @@ type PostType = {
     url: string
   }
   content: string
-  tags: string[]
+  tags?: string[]
 
 }
 

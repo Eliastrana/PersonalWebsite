@@ -8,6 +8,8 @@ author:
   picture: '/assets/blog/authors/logoai.png'
 ogImage:
   url: 'assets/blog/authors/logo.png'
+tags:
+    - Code
 
 ---
 

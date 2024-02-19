@@ -1,53 +1,71 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import MorePhotography from '../components/more-photography'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
-import Post from '../interfaces/post'
-import Photos from '../interfaces/photography'
+import React, { useState } from 'react';
+import Head from 'next/head';
+import Layout from '../components/layout';
+import Container from '../components/container';
+import Intro from '../components/intro';
+import HeroPost from '../components/hero-post';
+import MoreStories from '../components/more-stories';
+import SlideshowDisplayer from "../components/slideshow-displayer";
+import CategorySorter from '../components/CategorySorter';
+import { getAllPosts } from '../lib/api';
+import Post from "../interfaces/post";
 
 type Props = {
-  allPosts: Post[]
-}
+  allPosts: Post[];
+  tags: string[];
+};
 
+export default function Index({ allPosts, tags }: Props) {
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+  // Assuming the first post is always the hero post, even after filtering
+  const filteredPosts = selectedTag ? allPosts.filter(post => post.tags?.includes(selectedTag)) : allPosts;
+  const heroPost = filteredPosts[0];
+  const morePosts = filteredPosts.slice(1);
 
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>{`Elias Trana`}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-                tags={heroPost.tags} // Pass tags to HeroPost
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      <>
+        <Layout>
+          <Head>
+            <title>Elias Trana</title>
+          </Head>
 
-        </Container>
-      </Layout>
-    </>
-  )
+          <Container>
+            <Intro />
+            <SlideshowDisplayer />
+
+
+            <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+              Featured Project
+            </h2>
+
+
+            <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []} />
+
+
+            {heroPost && (
+                <HeroPost
+                    title={heroPost.title}
+                    coverImage={heroPost.coverImage}
+                    date={heroPost.date}
+                    author={heroPost.author}
+                    slug={heroPost.slug}
+                    excerpt={heroPost.excerpt}
+                    tags={heroPost.tags}
+                />
+            )}
+
+
+
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          </Container>
+        </Layout>
+      </>
+  );
 }
 
 export const getStaticProps = async () => {
+  // Fetch posts and extract tags logic...
   const allPosts = getAllPosts([
     'title',
     'date',
@@ -55,9 +73,15 @@ export const getStaticProps = async () => {
     'author',
     'coverImage',
     'excerpt',
-  ])
+    'tags',
+  ]);
+
+  // Fallback to an empty array if no tags are found
+  const tags = Array.from(new Set(allPosts.flatMap(post => post.tags || [])));
 
   return {
-    props: { allPosts },
-  }
-}
+    props: { allPosts, tags },
+  };
+};
+
+

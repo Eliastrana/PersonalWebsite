@@ -9,7 +9,7 @@ author:
 ogImage:
   url: 'assets/blog/authors/logo.png'
 tags:
-  - About Me
+  - Photo
 
 ---
 

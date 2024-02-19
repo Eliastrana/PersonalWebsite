@@ -39,11 +39,11 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
+export function getAllPosts(fields = []) {
+  // Assuming posts are stored as files under a specific directory
+  const slugs = getPostSlugs(); // Function to get list of post filenames or slugs
   const posts = slugs
-      .map((slug) => getPostBySlug(slug, fields))
-      // sort posts by date in descending order
+      .map((slug) => getPostBySlug(slug, fields)) // Function to read post file and extract required fields
       .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }

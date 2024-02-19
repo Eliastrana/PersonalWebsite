@@ -9,8 +9,7 @@ author:
 ogImage:
   url: 'assets/blog/authors/logo.png'
 tags:
-  - Photography
-  - Commission
+  - Graphics
 
 ---
 
