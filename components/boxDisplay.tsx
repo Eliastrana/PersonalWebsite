@@ -1,16 +1,11 @@
-import ContentBox from "./ContentBox";
 import React from "react";
-
+import ContentBox from "./ContentBox";
 
 const BoxDisplay: React.FC = () => {
     return (
-
-
-        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-4 p-5">
-            <div className="w-full lg:w-1/2 p-1 hover:shadow-lg transition-shadow duration-300">
-                {/* Flex container to make children fill the height */}
-                <div className="flex flex-col bg-white rounded-lg shadow-md h-full">
-                    {/* Content goes here, ensure it fills up the space and has a white background */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-5">
+            <div className="p-1 transition-shadow duration-300">
+                <div className="flex flex-col rounded-lg shadow-md">
                     <ContentBox
                         imageUrl="assets/infobricks/floatingmac.gif"
                         title="Education"
@@ -19,9 +14,8 @@ const BoxDisplay: React.FC = () => {
                 </div>
             </div>
 
-            <div className="w-full lg:w-1/2 p-1 hover:shadow-lg transition-shadow duration-300">
-                {/* Repeat the same structure for consistency */}
-                <div className="flex flex-col bg-white rounded-lg shadow-md h-full">
+            <div className="p-1 transition-shadow duration-300">
+                <div className="flex flex-col rounded-lg shadow-md">
                     <ContentBox
                         imageUrl="assets/infobricks/giphy.gif"
                         title="Experience"
@@ -30,9 +24,7 @@ const BoxDisplay: React.FC = () => {
                 </div>
             </div>
         </div>
-
-
     );
-}
+};
 
 export default BoxDisplay;
