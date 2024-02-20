@@ -28,7 +28,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
         const timer = setInterval(() => {
             setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
             setCurrentFilter(getRandomFilter()); // Update filter here
-        }, 500); // Change slide every 5 seconds
+        }, 1000); // Change slide every 5 seconds
         return () => clearInterval(timer);
     }, [slides.length]);
 
