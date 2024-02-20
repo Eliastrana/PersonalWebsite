@@ -13,6 +13,19 @@ const App: React.FC = () => {
         { url: 'assets/blog/toga2023/DSCF7536.JPG' },
         { url: 'assets/blog/toga2023/DSCF7553.JPG' },
         { url: 'assets/blog/utmat/DSC05566.jpeg' },
+        { url: 'assets/gallery/hyttetur.png' },
+        { url: 'archive/photos/DSCF4325.JPG' },
+        { url: 'archive/photos/DSCF5050.JPG' },
+        { url: 'archive/photos/lacrossePortrait.jpeg' },
+        { url: 'archive/photos/panoramabil.jpeg' },
+        { url: 'archive/photos/statuedanmark.jpeg' },
+
+
+
+
+
+
+
 
 
 

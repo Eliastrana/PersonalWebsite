@@ -9,7 +9,8 @@ const BoxDisplay: React.FC = () => {
                     <ContentBox
                         imageUrl="assets/infobricks/floatingmac.gif"
                         title="Education"
-                        text="I'm studying to become a Computer Engineer. I am currently in my second year. The courses I have taken include programming, system development, operating systems, databases, algorithms and data structures, maths, statistics, physics, network programming, and fullstack development."
+                        undertitle={"Computer Engineering"}
+                        text="I'm studying to become a Computer Engineer. I am currently in my second year. The courses I have taken include programming, system development, operating systems, databases, algorithms and data structures, maths, statistics, physics, network programming, and fullstack development. I have also taken courses in lean development and scrum."
                     />
                 </div>
             </div>
@@ -19,7 +20,8 @@ const BoxDisplay: React.FC = () => {
                     <ContentBox
                         imageUrl="assets/infobricks/giphy.gif"
                         title="Experience"
-                        text="I work as a student assistant. I have taught two different Computer Engineering courses. The first focused on a general introduction to programming. The second one focused on lean development and scrum."
+                        undertitle={"Student Assistant"}
+                        text="I am currently employed as a student assistant at NTNU. I have taught two different Computer Engineering courses. The first focused on a general introduction to programming. The second one focused on lean development and scrum. The course takes the student through the process of developing a product from idea to finished product."
                     />
                 </div>
             </div>

@@ -79,6 +79,8 @@ export const getStaticProps = async () => {
     'tags',
   ]);
 
+
+
   // Fallback to an empty array if no tags are found
   const tags = Array.from(new Set(allPosts.flatMap(post => post.tags || [])));
 
