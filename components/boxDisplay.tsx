@@ -28,3 +28,4 @@ const BoxDisplay: React.FC = () => {
 };
 
 export default BoxDisplay;
+// Path: categorySorter.tsx
