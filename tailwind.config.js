@@ -18,6 +18,11 @@ module.exports = {
       },
       lineHeight: {
         tight: 1.2,
+
+        fontFamily: {
+          'sans': ['Roboto', 'sans-serif'], // This adds Roboto as the default sans-serif font
+          // Add other custom fonts or extend other font families as needed
+        },
       },
       fontSize: {
         '5xl': '2.5rem',

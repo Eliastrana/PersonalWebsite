@@ -1,4 +1,4 @@
-/* styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* styles/global.css */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -12,4 +12,11 @@
 
 .fadeInUp {
     animation: fadeInUp 2.5s ease-out; /* Increased duration from 1s to 2.5s */
+}
+
+
+/* global.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
 }

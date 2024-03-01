@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Intro.module.css'; // Import the CSS module
 
-const fontOptions = ['Futura', 'Courier New', 'Comic Sans MS', 'Monaco', 'Optima'];
+
+
+
+
+const fontOptions = ['Futura', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'];
 
 const Intro = () => {
     const [currentFontIndex, setCurrentFontIndex] = useState(0);

@@ -13,6 +13,8 @@ import BoxDisplay from "../components/boxDisplay";
 import { useInView } from 'react-intersection-observer';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
+
 type Props = {
   allPosts: Post[];
   tags: string[];
