@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
 import Container from '../components/container';
@@ -9,8 +9,9 @@ import SlideshowDisplayer from "../components/slideshow-displayer";
 import CategorySorter from '../components/CategorySorter';
 import { getAllPosts } from '../lib/api';
 import Post from "../interfaces/post";
-import ContentBox from "../components/ContentBox";
 import BoxDisplay from "../components/boxDisplay";
+import { useInView } from 'react-intersection-observer';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = {
   allPosts: Post[];
@@ -20,10 +21,47 @@ type Props = {
 export default function Index({ allPosts, tags }: Props) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  // Assuming the first post is always the hero post, even after filtering
   const filteredPosts = selectedTag ? allPosts.filter(post => post.tags?.includes(selectedTag)) : allPosts;
   const heroPost = filteredPosts[0];
   const morePosts = filteredPosts.slice(1);
+
+  // Animation variant
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
+  // Helper function to create motion.div with inView trigger
+  const AnimatedSection = ({ children, animateOnce = false }) => {
+    const { ref, inView } = useInView({
+      triggerOnce: true,
+      threshold: 0.1,
+    });
+
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+      if (inView && !hasAnimated) {
+        setHasAnimated(true);
+      }
+    }, [inView, hasAnimated]);
+
+
+    const shouldAnimate = animateOnce ? hasAnimated && inView : inView;
+
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 20 }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, ease: 'easeIn' }}
+        >
+          {children}
+        </motion.div>
+    );
+  };
+
 
   return (
       <>
@@ -33,42 +71,47 @@ export default function Index({ allPosts, tags }: Props) {
           </Head>
 
           <Container>
-            <Intro/>
-            <SlideshowDisplayer/>
-
-            <BoxDisplay/>
-
-
-            <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-              Featured Project
-            </h2>
+            <AnimatedSection><Intro/></AnimatedSection>
+            <AnimatedSection><SlideshowDisplayer/></AnimatedSection>
+            <AnimatedSection><BoxDisplay/></AnimatedSection>
 
 
-            <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
+            {/*<AnimatedSection animateOnce>*/}
+              <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+                Featured Project
+              </h2>
+            {/*</AnimatedSection>*/}
 
+            {/*<AnimatedSection animateOnce>*/}
+              <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
+            {/*</AnimatedSection>*/}
 
             {heroPost && (
-                <HeroPost
-                    title={heroPost.title}
-                    coverImage={heroPost.coverImage}
-                    date={heroPost.date}
-                    author={heroPost.author}
-                    slug={heroPost.slug}
-                    excerpt={heroPost.excerpt}
-                    tags={heroPost.tags}
-                />
+                <AnimatedSection>
+                  <HeroPost
+                      title={heroPost.title}
+                      coverImage={heroPost.coverImage}
+                      date={heroPost.date}
+                      author={heroPost.author}
+                      slug={heroPost.slug}
+                      excerpt={heroPost.excerpt}
+                      tags={heroPost.tags}
+                  />
+                </AnimatedSection>
             )}
 
-
-            {morePosts.length > 0 && <MoreStories posts={morePosts}/>}
+            {morePosts.length > 0 && (
+                <AnimatedSection>
+                  <MoreStories posts={morePosts}/>
+                </AnimatedSection>
+            )}
           </Container>
         </Layout>
       </>
   );
 }
 
-export const getStaticProps = async () => {
-  // Fetch posts and extract tags logic...
+export async function getStaticProps() {
   const allPosts = getAllPosts([
     'title',
     'date',
@@ -79,14 +122,9 @@ export const getStaticProps = async () => {
     'tags',
   ]);
 
-
-
-  // Fallback to an empty array if no tags are found
   const tags = Array.from(new Set(allPosts.flatMap(post => post.tags || [])));
 
   return {
-    props: {allPosts, tags},
+    props: { allPosts, tags },
   };
-};
-
-
+}
