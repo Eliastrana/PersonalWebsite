@@ -20,9 +20,11 @@ module.exports = {
         tight: 1.2,
 
         fontFamily: {
-          'sans': ['Roboto', 'sans-serif'], // This adds Roboto as the default sans-serif font
-          // Add other custom fonts or extend other font families as needed
+          'sans': ['Lexend', 'sans-serif'], // Replace the default sans font
+          // or define a custom name
+          'lexend': ['Lexend', 'sans-serif'],
         },
+
       },
       fontSize: {
         '5xl': '2.5rem',

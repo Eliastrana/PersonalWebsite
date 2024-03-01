@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap'); /* Added Lexend font */
+
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
