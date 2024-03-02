@@ -85,9 +85,9 @@ export default function Index({ allPosts, tags }: Props) {
 
 
           {/* Full-width SlideshowDisplayer */}
-          <AnimatedSection fullWidth>
+          {/*<AnimatedSection fullWidth>*/}
             <SlideshowDisplayer/>
-          </AnimatedSection>
+          {/*</AnimatedSection>*/}
 
 
 

@@ -9,19 +9,19 @@ interface VideoPlayerProps {
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, title, undertitle }) => {
     return (
-        <div className="relative w-full overflow-hidden" style={{ paddingTop: '56.25%' }}>
+        <div className={`relative w-full overflow-hidden ${styles.videoContainer}`}>
             <video
-                className={`absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover ${styles.zoomedImage}`} // Applied zoomedImage class
+                className={`absolute top-0 left-0 right-0 bottom-0 object-cover ${styles.videoPlayer} ${styles.videoPlayerMobile}`}
                 src={videoUrl}
                 controls
                 autoPlay
                 loop
                 muted
-                style={{ zIndex: 1 }}
+                playsInline
             ></video>
-            <div className="absolute inset-0 flex flex-col justify-center items-center" style={{ zIndex: 2 }}>
-                <h1 className={`${styles.customFont} text-white mb-8 text-left md:text-center md:w-1/2`}>{title}</h1>
-                <h3 className={`${styles.customFontSmall} text-white text-left md:text-center md:w-1/2`}>{undertitle}</h3>
+            <div className="absolute inset-0 flex flex-col justify-center items-center z-10">
+                <h1 className={`${styles.customFont} text-white mb-8 text-center`}>{title}</h1>
+                <h3 className={`${styles.customFontSmall} text-white text-center`}>{undertitle}</h3>
             </div>
         </div>
     );
