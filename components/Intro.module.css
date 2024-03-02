@@ -64,6 +64,11 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+
+    .customVideoControls {
+        display: none;
+    }
+
     .customFont {
         font-size: 15vw; /* Larger font size for mobile */
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
@@ -77,6 +82,8 @@
 
     .videoContainer {
         padding-top: 0; /* Adjust to cover only 75% of the viewport height */
+        display: none;
+
     }
 
     .videoPlayer,
@@ -84,6 +91,8 @@
         width: 100vw;
         height: 100vh; /* Adjust to cover only 75% of the viewport height */
         position: relative; /* Change from fixed to relative for scrolling */
+        display: none;
+
 
     }
 }
