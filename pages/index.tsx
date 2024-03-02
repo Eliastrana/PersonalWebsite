@@ -34,9 +34,11 @@ export default function Index({ allPosts, tags }: Props) {
   };
 
   // Helper function to create motion.div with inView trigger
-  const AnimatedSection = ({ children, animateOnce = false }) => {
+  const AnimatedSection = ({ children, animateOnce = false, fullWidth = false }) => {
+    const sectionClass = fullWidth ? "w-full" : ""; // Correctly fixed
+
     const { ref, inView } = useInView({
-      triggerOnce: true,
+      triggerOnce: animateOnce,
       threshold: 0.1,
     });
 
@@ -46,11 +48,9 @@ export default function Index({ allPosts, tags }: Props) {
       if (inView && !hasAnimated) {
         setHasAnimated(true);
       }
-    }, [inView, hasAnimated]);
-
+    }, [inView, hasAnimated, animateOnce]);
 
     const shouldAnimate = animateOnce ? hasAnimated && inView : inView;
-
 
     return (
         <motion.div
@@ -58,6 +58,7 @@ export default function Index({ allPosts, tags }: Props) {
             initial={{ opacity: 0, y: 20 }}
             animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, ease: 'easeIn' }}
+            className={sectionClass} // Apply conditional class
         >
           {children}
         </motion.div>
@@ -68,25 +69,43 @@ export default function Index({ allPosts, tags }: Props) {
   return (
       <>
         <Layout>
+
           <Head>
             <title>Elias Trana</title>
           </Head>
 
-          <Container>
-            <AnimatedSection><Intro/></AnimatedSection>
-            <AnimatedSection><SlideshowDisplayer/></AnimatedSection>
+
+          {/*<Container padding="px-0 md:px-8 lg:px-16">*/}
+          {/*  <AnimatedSection><Intro/></AnimatedSection>*/}
+          {/*  /!* Additional sections that require padding *!/*/}
+          {/*</Container>*/}
+
+
+
+
+
+          {/* Full-width SlideshowDisplayer */}
+          <AnimatedSection fullWidth>
+            <SlideshowDisplayer/>
+          </AnimatedSection>
+
+
+
+
+
+          {/* If the following sections need padding, wrap them in another Container */}
+          <Container padding="px-2 md:px-4 lg:px-8">
             <AnimatedSection><BoxDisplay/></AnimatedSection>
+          </Container>
 
 
-            {/*<AnimatedSection animateOnce>*/}
-              <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-                Featured Project
-              </h2>
-            {/*</AnimatedSection>*/}
+          <Container padding="px-4 md:px-8 lg:px-16">
 
-            {/*<AnimatedSection animateOnce>*/}
-              <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
-            {/*</AnimatedSection>*/}
+          <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+              Featured Project
+            </h2>
+
+            <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
 
             {heroPost && (
                 <AnimatedSection>

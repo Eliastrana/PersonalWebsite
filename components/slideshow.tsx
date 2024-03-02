@@ -1,52 +1,53 @@
 import React, { useState, useEffect } from 'react';
+import styles from "./Intro.module.css";
 
 type Slide = {
     url: string;
-    caption?: string;
 };
 
 interface SlideshowProps {
     slides: Slide[];
+    title: string; // Assuming you want to pass title as a prop to Slideshow
+    undertitle: string; // Assuming you want to pass undertitle as a prop to Slideshow
 }
 
 const filters = [
-    //'grayscale(100%) contrast(800%) brightness(150%) saturate(120%)', // Enhanced black and white with contrast and brightness adjustment
-   'brightness(110%) contrast(110%)', // Brightness and contrast adjustment
+    'brightness(110%) contrast(110%)', // Brightness and contrast adjustment
 ];
-
-
 
 const getRandomFilter = () => {
     return filters[Math.floor(Math.random() * filters.length)];
 };
 
-const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
+const Slideshow: React.FC<SlideshowProps> = ({ slides, title, undertitle }) => {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const [currentFilter, setCurrentFilter] = useState<string>(getRandomFilter());
 
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-            setCurrentFilter(getRandomFilter()); // Update filter here
-        }, 1000); // Change slide every 5 seconds
+            setCurrentFilter(getRandomFilter());
+        }, 5000); // Change slide every 5 seconds
         return () => clearInterval(timer);
     }, [slides.length]);
 
     return (
         <div className="relative w-full overflow-hidden" style={{ paddingTop: '50%' }}>
-            <div className="absolute top-0 left-0 right-0 bottom-0 bg-white border-2 border-gray-200 rounded-lg shadow-lg">
-                <div
-                    className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center"
-                    style={{ filter: currentFilter }}
-                >
-                    <img
-                        className="w-full h-full object-cover rounded-lg"
-                        src={slides[currentSlideIndex].url}
-                        alt={slides[currentSlideIndex].caption || 'Slide image'}
-                    />
-                    {slides[currentSlideIndex].caption && (
-                        <p className="text-center">{slides[currentSlideIndex].caption}</p>
-                    )}
+            <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+            <img
+                className="w-full h-auto min-h-[75vh] md:min-h-[50vh] object-cover"
+                src={slides[currentSlideIndex].url}
+                alt="Slide image"
+            />
+            
+                <div className="absolute inset-0 flex flex-col justify-center items-center" style={{zIndex: 2}}>
+
+                <h1 className={`${styles.customFont} text-white mb-8 text-left md:text-center md:w-1/2`}>{title}</h1>
+
+
+                <h3 className={`${styles.customFontSmall} text-white text-left md:text-center md:w-1/2`}>{undertitle}</h3>
+
+
                 </div>
             </div>
         </div>

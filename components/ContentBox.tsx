@@ -23,4 +23,6 @@ const ContentBox: React.FC<ContentBoxProps> = ({ title, undertitle, text, imageU
     );
 };
 
+
 export default ContentBox;
+
