@@ -23,6 +23,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, title, undertitle }
             <div className="absolute inset-0 flex flex-col justify-center items-center z-10">
                 <h1 className={`${styles.customFont} text-white mb-8 text-center`}>{title}</h1>
                 <h3 className={`${styles.customFontSmall} text-white text-center`}>{undertitle}</h3>
+                <h3 className={`${styles.customFontSmall} text-white text-center`}>↓</h3>
             </div>
         </div>
     );

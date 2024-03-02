@@ -1,14 +1,15 @@
 /* Font Styles */
 .customFont {
     font-family: 'Lexend', sans-serif;
-    font-size: 8vw; /* Responsive font size */
-    font-weight: bold;
+    font-size: 10vw; /* Responsive font size */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    font-style: italic;
+    font-weight: bold;
 }
 
 .customFontSmall {
     font-family: 'Lexend', sans-serif;
-    font-size: 4vw;
+    font-size: 2vw;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
