@@ -82,7 +82,6 @@
 
     .videoContainer {
         padding-top: 0; /* Adjust to cover only 75% of the viewport height */
-        display: none;
 
     }
 
@@ -91,7 +90,6 @@
         width: 100vw;
         height: 100vh; /* Adjust to cover only 75% of the viewport height */
         position: relative; /* Change from fixed to relative for scrolling */
-        display: none;
 
 
     }
