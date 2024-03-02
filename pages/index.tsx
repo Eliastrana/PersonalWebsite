@@ -91,8 +91,6 @@ export default function Index({ allPosts, tags }: Props) {
 
 
 
-
-
           {/* If the following sections need padding, wrap them in another Container */}
           <Container padding="px-2 md:px-4 lg:px-8">
             <AnimatedSection><BoxDisplay/></AnimatedSection>

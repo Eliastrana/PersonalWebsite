@@ -1,5 +1,6 @@
 import React from 'react';
-import Slideshow from './slideshow';
+import Slideshow from './video-player';
+import VideoPlayer from './video-player';
 
 const App: React.FC = () => {
     const slides = [
@@ -25,7 +26,11 @@ const App: React.FC = () => {
 
     return (
         <div className="w-full">
-            <Slideshow slides={slides} title="Elias Trana" undertitle="My portfolio displaying photography and development projects." />
+            <VideoPlayer
+                videoUrl="./assets/gallery/forside_sony.mp4"
+                title="Elias Trana"
+                undertitle="My portfolio displaying photography and development projects."
+            />
         </div>
     );
 };

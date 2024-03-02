@@ -1,5 +1,6 @@
 
 
+
 /* Intro.module.css */
 .customFont {
     font-family: 'Lexend', sans-serif;
@@ -10,24 +11,65 @@
 
 .customFontSmall {
     font-family: 'Lexend', sans-serif;
-    font-size: 2.5vw; /* Adjust based on your design */
+    font-size: 4vw; /* Adjust based on your design */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.boxInfoFontH1 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 3.5rem; /* Adjust based on your design */
+    font-weight: bold;
 
+}
+
+.boxInfoFontH2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.5rem; /* Adjust based on your design */
+    color: #4783f3;
+}
+
+.boxInfoFontP {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: medium; /* Adjust based on your design */
+}
+
+
+/* Intro.module.css */
 .zoomedImage {
     width: 100%; /* Ensure full width */
     height: auto; /* Maintain aspect ratio */
-    min-height: 75vh; /* Adjust based on preference, vh ensures it's based on viewport height */
     object-fit: cover; /* Cover the space without distorting */
-    object-position: center; /* Adjust this value to focus on the part of the image you want */
+    object-position: center; /* Focus on the center */
 }
 
 @media (max-width: 768px) {
+
+
+    .customFont {
+        font-family: 'Lexend', sans-serif;
+        font-size: 15vw; /* Adjust based on your design */
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .customFontSmall {
+        font-family: 'Lexend', sans-serif;
+        font-size: 4vw; /* Adjust based on your design */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        text-align: center;
+
+    }
+
     .zoomedImage {
-        min-height: 100vh; /* Full screen height on mobile */
+
+        width: 100vw; /* Viewport width */
+        height: 100vh; /* Viewport height */
+        position: fixed; /* Fixed position to ensure full viewport coverage */
+        top: 0;
+        left: 0;
     }
 }
+
 
 
 /* components/Intro.module.css */
