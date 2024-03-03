@@ -29,7 +29,8 @@ const App: React.FC = () => {
             <VideoPlayer
                 videoUrl="./assets/gallery/forside_sony.mp4"
                 title="Elias Trana"
-                undertitle="My portfolio displaying photography and development projects."
+                undertitle="A portfolio displaying System Development, Writing, Graphics and Photography."
+
             />
         </div>
     );

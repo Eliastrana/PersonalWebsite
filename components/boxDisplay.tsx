@@ -13,12 +13,17 @@ const BoxDisplay: React.FC = () => {
                             imageUrl="./assets/gallery/portrett_elias-1.jpg"
                             title="About Me"
                             undertitle="Who am I?"
+                            location={"📍 : Trondheim, Norway"}
+                            education={"🎓 : NTNU"}
+                            hobbies={"💻 : React, Next.js, TailwindCSS "}
+
                             text="My name is Elias Trana, and I am a student at NTNU Trondheim, studying Computer Engineering.
-                                  This is my personal website where I will be posting my project, both personal and school related. I will also be posting my photography work here.
+                                  This is my personal website where I will be posting my projects, both personal and school related.
 
-                            My main focus is on software development. This is my education and will be my line of work after i am finished with my studies. My education focuses on backend development, with a large focus on system development. We also learn crutial concepts like operating systems, algorithms and databases.
+                                  This website contains all my work, easly sorted by categories. I hope you find something interesting here!"
 
-                        For personal development and learning, I mostly have a frontend focus. This involves mostly development of websites, development using React and React Native, and development of mobile applications. This website was built using Next.js and React. "
+                            calltoaction="Take a look!"
+
                         />
                     </div>
                     {/* Dynamic spacing element */}
@@ -42,7 +47,7 @@ const BoxDisplay: React.FC = () => {
                             imageUrl="assets/infobricks/giphy.gif"
                             title="Experience"
                             undertitle="Student Assistant"
-                            text="I am currently employed as a student assistant at NTNU. I have taught two different Computer Engineering courses. The first focused on a general introduction to programming. The second focused on lean development and scrum. The course takes the student through the process of developing a product from idea to finished product."
+                            text="I am currently employed as a student assistant at NTNU. I have taught two different Computer Engineering courses. The first focused on a general introduction to programming. The second focused on lean development and scrum. The course takes the student through the process of developing a product from an idea to a finished product."
                         />
                     </div>
                 </div>

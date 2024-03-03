@@ -25,6 +25,12 @@
     color: #4783f3;
 }
 
+.boxInfoFontH3 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.25rem;
+    color: #171616;
+}
+
 .boxInfoFontP {
     font-family: "Helvetica Neue", sans-serif;
     font-size: medium;
