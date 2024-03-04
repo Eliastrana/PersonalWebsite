@@ -13,9 +13,9 @@ const BoxDisplay: React.FC = () => {
                             imageUrl="./assets/gallery/portrett_elias-1.jpg"
                             title="About Me"
                             undertitle="Who am I?"
-                            location={"📍 : Trondheim, Norway"}
-                            education={"🎓 : NTNU"}
-                            hobbies={"💻 : React, Next.js, TailwindCSS "}
+                            location={"📍 Trondheim, Norway"}
+                            education={"🎓 NTNU"}
+                            hobbies={"💻 React, Next.js, Vue"}
 
                             text="My name is Elias Trana, and I am a student at NTNU Trondheim, studying Computer Engineering.
                                   This is my personal website where I will be posting my projects, both personal and school related.
