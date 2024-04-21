@@ -80,21 +80,25 @@ export default function Index({ allPosts, tags }: Props) {
           {/*  /!* Additional sections that require padding *!/*/}
           {/*</Container>*/}
 
-
-
-
-
           {/* Full-width SlideshowDisplayer */}
           {/*<AnimatedSection fullWidth>*/}
-            <SlideshowDisplayer/>
-          {/*</AnimatedSection>*/}
+          <SlideshowDisplayer/>
 
+          {/*</AnimatedSection>*/}
 
 
           {/* If the following sections need padding, wrap them in another Container */}
           <Container padding="px-2 md:px-4 lg:px-8">
             <AnimatedSection><BoxDisplay/></AnimatedSection>
           </Container>
+
+
+
+
+
+
+
+
 
 
           <Container padding="px-4 md:px-8 lg:px-16">

@@ -21,7 +21,7 @@ tags:
 
 This is a task in the network-programming-course. The task was to implement Docker functionality, as well as a frontend and backend for the inputhandling and processing of the code.   
 
-![Lacrosse Image](/assets/blog/pythoncompiler/testcode_compiler.png)
+![Code Image](/assets/blog/pythoncompiler/testcode_compiler.png)
 
 
 

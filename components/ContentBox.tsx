@@ -11,7 +11,7 @@ interface ContentBoxProps {
 const ContentBox: React.FC<ContentBoxProps> = ({ title, undertitle, text, imageUrl }) => {
 
     return (
-        <div className="container mx-auto p-4 max-w-4xl rounded-lg shadow-md flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 bg-blue-100">
+        <div className="container mx-auto p-4 max-w-4xl rounded-lg shadow-md flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ">
             <div className="flex-1">
                 <h2 className={styles.boxInfoFontH1}>{title}</h2>
                 <h3 className={styles.boxInfoFontH2}>{undertitle}</h3>

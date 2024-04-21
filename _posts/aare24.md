@@ -22,7 +22,7 @@ The photographs are a collection from the yearly trip to Åre. Many of the photo
 
 ![Cover](/assets/blog/aare24/forside_toddel_V24_V1.png)
 
-![Collage](/assets/blog/aare24/skibilder.pdf)
+![Collage](/assets/blog/aare24/skibilder.png)
 
 
 

@@ -9,11 +9,10 @@ author:
 ogImage:
   url: 'assets/blog/authors/logo.png'
 tags:
-  - Photo
 
 ---
 
-
+# Hallo
 
 ## Skiing in Oppdal
 
@@ -21,11 +20,15 @@ Photographing a skitrip to Oppdal for the TIHLDE students at NTNU Trondheim
 #### **WORK:** PERSONAL PROJECT
 
 
-![Tronheim_map](/assets/blog/oppdal_ski/DSCF5009.JPG)
+![Alternativ tekst](/assets/blog/prosjekt/bilde.JPG)
+
+
+![Beskrivelse]()
 
 ![Tronheim_map](/assets/blog/oppdal_ski/DSCF50152.JPG)
 
 
+# Her er det text
 ![Tronheim_map](/assets/blog/oppdal_ski/DSCF5050.JPG)
 
 ![Tronheim_map](/assets/blog/oppdal_ski/DSCF5069.JPG)
