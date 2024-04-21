@@ -27,7 +27,7 @@ const App: React.FC = () => {
     return (
         <div className="w-full">
             <VideoPlayer
-                videoUrl="./assets/gallery/forside_sony.mp4"
+                videoUrl="./assets/gallery/forside_sony_720.mp4"
                 title="Elias Trana"
                 undertitle="A portfolio displaying System Development, Writing, Graphics and Photography."
 
