@@ -14,7 +14,6 @@ import { useInView } from 'react-intersection-observer';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-
 type Props = {
   allPosts: Post[];
   tags: string[];
@@ -71,6 +70,8 @@ export default function Index({ allPosts, tags }: Props) {
         <Layout>
 
           <Head>
+            <meta name="robots" content="all"/>
+            <meta charSet="UTF-8"/>
             <title>Elias Trana</title>
           </Head>
 
