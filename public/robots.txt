@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.eliastrana.no
+
+# Sitemaps
+Sitemap: https://www.eliastrana.no/sitemap.xml
