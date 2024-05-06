@@ -73,43 +73,18 @@ export default function Index({ allPosts, tags }: Props) {
             <meta name="robots" content="all"/>
             <meta charSet="UTF-8"/>
             <title>Elias Trana</title>
+            <meta property="og:image" content="/favicon/logoai.png"/>
+
           </Head>
-
-
-          {/*<Container padding="px-0 md:px-8 lg:px-16">*/}
-          {/*  <AnimatedSection><Intro/></AnimatedSection>*/}
-          {/*  /!* Additional sections that require padding *!/*/}
-          {/*</Container>*/}
-
-          {/* Full-width SlideshowDisplayer */}
-          {/*<AnimatedSection fullWidth>*/}
           <SlideshowDisplayer/>
-
-          {/*</AnimatedSection>*/}
-
-
-          {/* If the following sections need padding, wrap them in another Container */}
           <Container padding="px-2 md:px-4 lg:px-8">
             <AnimatedSection><BoxDisplay/></AnimatedSection>
           </Container>
-
-
-
-
-
-
-
-
-
-
           <Container padding="px-4 md:px-8 lg:px-16">
-
           <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
               Featured Project
             </h2>
-
             <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
-
             {heroPost && (
                 <AnimatedSection>
                   <HeroPost
