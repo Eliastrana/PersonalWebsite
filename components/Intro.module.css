@@ -1,10 +1,9 @@
 /* Font Styles */
 .customFont {
     font-family: 'Lexend', sans-serif;
-    font-size: 10vw; /* Responsive font size */
+    font-size: 15vw; /* Responsive font size */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    font-style: italic;
-    font-weight: bold;
+    font-style: normal;
 }
 
 .customFontSmall {
@@ -128,3 +127,17 @@
     right: 100%;
     width: 0;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 2s ease-in-out;
+}
+

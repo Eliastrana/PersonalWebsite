@@ -14,12 +14,7 @@ type Props = {
     tags: string[];
 };
 
-const roundedSquareShadowStyle = {
-    borderRadius: '12px', // Adjust the value for your desired border radius
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1)', // Customize shadow values as needed
-    padding: '20px', // Add padding to create space between the content and the border
-    martinBottom: '-1000px',
-};
+
 
 const roundedImageStyle = {
     borderRadius: '12px', // Apply rounded corners to the image
@@ -37,7 +32,7 @@ const HeroPost = ({
                   }: Props) => {
     return (
         <section>
-            <div style={roundedSquareShadowStyle}>
+            <div>
                 <div className="mb-8 md:mb-16">
                     <CoverImage
                         title={title}
@@ -59,7 +54,7 @@ const HeroPost = ({
                         {tags && tags.length > 0 && (
                             <div className="flex flex-wrap">
                                 {tags.map((tag) => (
-                                    <div className="text-sm text-gray-700 mr-2" key={tag}>
+                                    <div className="text-sm text-gray-700 mr-2 bg-gray-300 p-2 rounded-3xl mt-4" key={tag}>
                                         {tag}
                                     </div>
                                 ))}

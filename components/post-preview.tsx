@@ -13,11 +13,11 @@ type Props = {
     slug: string
 }
 
-const roundedSquareShadowStyle = {
-    borderRadius: '12px', // Adjust the value for your desired border radius
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1)', // Customize shadow values as needed
-    padding: '20px', // Add padding to create space between the content and the border
-}
+// const roundedSquareShadowStyle = {
+//     borderRadius: '12px', // Adjust the value for your desired border radius
+//     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1)', // Customize shadow values as needed
+//     padding: '20px', // Add padding to create space between the content and the border
+// }
 
 const PostPreview = ({
                          title,
@@ -28,7 +28,7 @@ const PostPreview = ({
                          slug,
                      }: Props) => {
     return (
-        <div style={roundedSquareShadowStyle}> {/* Apply the inline styles */}
+        <div> {/* Apply the inline styles */}
             <div className="mb-5">
                 <CoverImage slug={slug} title={title} src={coverImage} />
             </div>

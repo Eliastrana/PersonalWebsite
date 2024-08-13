@@ -34,21 +34,23 @@ export default function Post({ post, preview }: Props) {
                 <article className="mb-32">
                   <Head>
                     <title>{title}</title>
-                    {post.ogImage && <meta property="og:image" content={post.ogImage.url} />}
+                    {post.ogImage && <meta property="og:image" content={post.ogImage.url}/>}
                   </Head>
                   <PostHeader
                       title={post.title}
                       coverImage={post.coverImage}
                       date={post.date}
+
                       author={post.author}
                   />
-                  {/* Displaying Tags */}
-                  <div className="tags flex flex-wrap">
+                  <div className="tags flex flex-wrap md:mx-32">
                     {post.tags?.map(tag => (
                         <span key={tag} className="m-1 p-2 bg-gray-200 rounded-full">{tag}</span>
                     ))}
                   </div>
-                  <PostBody content={post.content} />
+                  {/* Displaying Tags */}
+
+                  <PostBody content={post.content}/>
                 </article>
               </>
           )}
@@ -57,7 +59,7 @@ export default function Post({ post, preview }: Props) {
   );
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
+export async function getStaticProps({params}: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug, [
     'title',
     'date',

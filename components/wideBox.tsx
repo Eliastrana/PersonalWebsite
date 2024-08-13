@@ -15,7 +15,7 @@ interface ContentBoxProps {
 
 const WideBox: React.FC<ContentBoxProps> = ({ title, undertitle, text, location, education, hobbies, calltoaction, imageUrl }) => {
     return (
-        <div className="w-full rounded-lg shadow-md flex flex-col md:flex-row items-center md:items-start ">
+        <div className="w-full   flex flex-col md:flex-row items-center md:items-start ">
             <div className="flex-1 space-y-4 p-4">
                 <h2 className={styles.boxInfoFontH1}>{title}</h2>
 
