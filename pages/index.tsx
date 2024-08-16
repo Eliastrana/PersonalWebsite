@@ -80,31 +80,31 @@ export default function Index({ allPosts, tags }: Props) {
           <Container padding="px-2 md:px-4 lg:px-8">
             <AnimatedSection><BoxDisplay/></AnimatedSection>
           </Container>
-          <Container padding="px-4 md:px-8 lg:px-16">
-          <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-              Featured Project
-            </h2>
-            <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>
-            {heroPost && (
-                <AnimatedSection>
-                  <HeroPost
-                      title={heroPost.title}
-                      coverImage={heroPost.coverImage}
-                      date={heroPost.date}
-                      author={heroPost.author}
-                      slug={heroPost.slug}
-                      excerpt={heroPost.excerpt}
-                      tags={heroPost.tags}
-                  />
-                </AnimatedSection>
-            )}
+          {/*<Container padding="px-4 md:px-8 lg:px-16">*/}
+          {/*<h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">*/}
+          {/*    Featured Project*/}
+          {/*  </h2>*/}
+          {/*  <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []}/>*/}
+          {/*  {heroPost && (*/}
+          {/*      <AnimatedSection>*/}
+          {/*        <HeroPost*/}
+          {/*            title={heroPost.title}*/}
+          {/*            coverImage={heroPost.coverImage}*/}
+          {/*            date={heroPost.date}*/}
+          {/*            author={heroPost.author}*/}
+          {/*            slug={heroPost.slug}*/}
+          {/*            excerpt={heroPost.excerpt}*/}
+          {/*            tags={heroPost.tags}*/}
+          {/*        />*/}
+          {/*      </AnimatedSection>*/}
+          {/*  )}*/}
 
-            {morePosts.length > 0 && (
-                <AnimatedSection>
-                  <MoreStories posts={morePosts}/>
-                </AnimatedSection>
-            )}
-          </Container>
+          {/*  {morePosts.length > 0 && (*/}
+          {/*      <AnimatedSection>*/}
+          {/*        <MoreStories posts={morePosts}/>*/}
+          {/*      </AnimatedSection>*/}
+          {/*  )}*/}
+          {/*</Container>*/}
         </Layout>
       </>
   );
