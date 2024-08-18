@@ -57,19 +57,63 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
             {/*<div className="absolute inset-0 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg" style={{ zIndex: 1 }}></div>*/}
 
             {/* Content Layer */}
-            <div className="relative w-full h-full flex items-center justify-between p-12" style={{ zIndex: 2 }}>
+            <div className="relative w-full h-full flex flex-col md:flex-row items-center justify-between p-12" style={{ zIndex: 2 }}>
                 {/* Text Section */}
-                <div className={`w-2/3 text-left transition-opacity duration-3000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                    <h1 className="text-11xl josefin-sans font-bold mb-4" style={{ color: textColor, transition: 'color 0.5s ease' }}>
+                <div className={`w-full md:w-2/3 text-center  mt-32 md:text-left transition-opacity duration-3000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                    <h1 className="text-6xl md:text-11xl josefin-sans font-bold mb-4" style={{ color: textColor, transition: 'color 0.5s ease' }}>
                         {title}
                     </h1>
-                    <p className="text-4xl josefin-sans" style={{ color: textColor, transition: 'color 0.5s ease' }}>
+
+                    {/* Color Picker Section (Mobile View) */}
+                    <div className="w-full md:hidden flex justify-center mb-4 ">
+                        <div
+                            className="p-4 rounded-lg shadow-lg glassmorphism-effect"
+                            style={{
+                                zIndex: 3,
+                                backdropFilter: 'blur(10px)',
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                borderRadius: '10px',
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            }}
+                        >
+                            {/* Preselected Color Tiles */}
+                            <div className="flex mb-4">
+                                {preselectedColors.map((color) => (
+                                    <div
+                                        key={color}
+                                        className={`w-10 h-10 mr-2 cursor-pointer border-2 ${selectedColor === color ? 'border-white' : 'border-transparent'}`}
+                                        style={{
+                                            backgroundColor: color,
+                                            borderRadius: '4px',
+                                            boxShadow: selectedColor === color ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
+                                        }}
+                                        onClick={() => {
+                                            setBgColor(color);
+                                            handleChangeComplete({ hex: color } as ColorResult);
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
+                            <div className="chrome-picker-container">
+                                <ChromePicker
+                                    color={bgColor}
+                                    onChange={handleColorChange}
+                                    onChangeComplete={handleChangeComplete}
+                                    disableAlpha={true}
+                                    width={300}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="text-2xl md:text-4xl josefin-sans" style={{ color: textColor, transition: 'color 0.5s ease' }}>
                         {undertitle}
                     </p>
                 </div>
 
-                {/* Color Picker Section */}
-                <div className={`w-1/3 flex justify-end transition-opacity duration-1000 ease-in-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                {/* Color Picker Section (Desktop View) */}
+                <div className={`hidden md:flex w-1/3 justify-end transition-opacity duration-1000 ease-in-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                     <div
                         className="p-4 rounded-lg shadow-lg glassmorphism-effect"
                         style={{
@@ -128,6 +172,16 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                     backdrop-filter: blur(10px) !important;
                     background: rgba(255, 255, 255, 0.2) !important;
                     border-radius: 10px !important;
+                }
+
+                @media (max-width: 768px) {
+                    .text-11xl {
+                        font-size: 3.75rem; /* Adjust the font size for mobile */
+                    }
+
+                    .text-4xl {
+                        font-size: 1.5rem; /* Adjust the font size for mobile */
+                    }
                 }
             `}</style>
         </div>

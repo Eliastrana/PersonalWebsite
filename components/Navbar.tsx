@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="absolute top-4 left-4 z-50">
                 <Link href="/">
                     <h1 className={`text-4xl font-bold transition-colors josefin-sans duration-300 ${isOpen ? 'text-white' : 'text-black'}`}>
-                        Elias Trana
+                        ET
                     </h1>
                     {/*<img*/}
                     {/*    src="/assets/logo/liten_selfie.jpg" // Replace with your image path*/}
