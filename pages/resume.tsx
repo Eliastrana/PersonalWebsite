@@ -9,6 +9,7 @@ const workExperiences = [
         date: 'juni 2024 - Present',
         location: 'Trondheim, Trøndelag, Norge',
         description: 'Utvikling av hjemmeside i NEXT.js med implementasjon av Sanity CMS for vedlikehold og oppdateringer.',
+        isDeveloper: true,
     },
     {
         title: 'Butikkmedarbeider',
@@ -16,6 +17,7 @@ const workExperiences = [
         date: 'mai 2024 - Present',
         location: 'Trondheim, Trøndelag, Norge',
         description: 'Butikkansatt ved VIC City Lade.',
+        isDeveloper: false,
     },
     {
         title: 'Student assistent',
@@ -23,6 +25,7 @@ const workExperiences = [
         date: 'januar 2024 - juni 2024',
         location: 'Trondheim, Trøndelag fylke, Norge',
         description: 'Student assistent for Systemutvikling 1. The course focuses on development within teams, using Scrum and other techniques.',
+        isDeveloper: true,
     },
     {
         title: 'Student assistent',
@@ -30,6 +33,7 @@ const workExperiences = [
         date: 'august 2023 - desember 2023',
         location: 'Trondheim, Trøndelag fylke, Norge',
         description: 'Student assistent for Programmering, nummerikk og sikkerhet for Bachelorstudenter ved NTNU.',
+        isDeveloper: true,
     },
     {
         title: 'Betjening',
@@ -37,6 +41,7 @@ const workExperiences = [
         date: 'juni 2023 - august 2023',
         location: 'Trondheim og omegn',
         description: 'Ansatt på Jøldalshytta som betjening. Innførte et ryddigere system for oppbevaring av praktisk informasjon for de ansatte. Tok over rollen som kokk i korte perioder.',
+        isDeveloper: false,
     },
     {
         title: 'Butikkmedarbeider',
@@ -44,6 +49,7 @@ const workExperiences = [
         date: 'juli 2020 - august 2022',
         location: 'Meløy kommune, Nordland fylke, Norge',
         description: 'Drift og vedlikehold av butikk, kundebehandling og varepåfylling.',
+        isDeveloper: false,
     },
 ];
 
@@ -54,6 +60,7 @@ const educationExperiences = [
         date: '2022 - 2025',
         location: 'Trondheim, Trøndelag, Norge',
         description: '',
+        isDeveloper: true,
     },
     {
         title: 'Filmvitenskap',
@@ -61,6 +68,7 @@ const educationExperiences = [
         date: '2021 - 2022',
         location: 'Trondheim, Trøndelag, Norge',
         description: 'Årsstudium i filmvitenskap.',
+        isDeveloper: false,
     },
     {
         title: 'Videregående, Allmennfag',
@@ -68,17 +76,24 @@ const educationExperiences = [
         date: '',
         location: '',
         description: '',
+        isDeveloper: false,
     },
 ];
 
 const ResumePage = () => {
     const [showWork, setShowWork] = useState(true);
+    const [developerMode, setDeveloperMode] = useState(false);
 
     const toggleWorkEducation = () => {
         setShowWork(!showWork);
     };
 
-    const experiences = showWork ? workExperiences : educationExperiences;
+    const toggleDeveloperMode = () => {
+        setDeveloperMode(!developerMode);
+    };
+
+    const filteredExperiences = (showWork ? workExperiences : educationExperiences)
+        .filter(exp => !developerMode || exp.isDeveloper);
 
     return (
         <div className="container mx-auto mt-32 p-4">
@@ -87,7 +102,7 @@ const ResumePage = () => {
             <h1 className="text-7xl font-bold text-center mb-8">Resume</h1>
 
             {/* Toggle Switch */}
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-4">
                 <motion.button
                     className={`px-4 py-2 rounded-l-full ${showWork ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}
                     onClick={() => setShowWork(true)}
@@ -108,6 +123,19 @@ const ResumePage = () => {
                 </motion.button>
             </div>
 
+            {/* Developer Mode Toggle */}
+            <div className="flex justify-center mb-12">
+                <motion.button
+                    className={`px-4 py-2 rounded-full ${developerMode ? 'bg-green-500 text-white' : 'bg-gray-300 text-black'}`}
+                    onClick={toggleDeveloperMode}
+                    initial={{ backgroundColor: '#ccc' }}
+                    animate={{ backgroundColor: developerMode ? '#22C55E' : '#E5E7EB', color: developerMode ? '#fff' : '#000' }}
+                    transition={{ duration: 0.3 }}
+                >
+                    {developerMode ? 'Developer: ON' : 'Developer: OFF'}
+                </motion.button>
+            </div>
+
             <div className="relative">
                 <div className="border-l-2 border-gray-300 absolute left-1/2 transform -translate-x-1/2 h-full"></div>
 
@@ -120,7 +148,7 @@ const ResumePage = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <div className="space-y-8">
-                            {experiences.map((exp, index) => (
+                            {filteredExperiences.map((exp, index) => (
                                 <div
                                     key={index}
                                     className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} w-full`}
