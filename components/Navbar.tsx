@@ -39,7 +39,7 @@ const Navbar = () => {
             {/* Home Link Image in the top left corner */}
             <div className="absolute top-4 left-4 z-50">
                 <Link href="/">
-                    <h1 className={`text-4xl font-bold transition-colors duration-300 ${isOpen ? 'text-white' : 'text-black'}`}>
+                    <h1 className={`text-4xl font-bold transition-colors josefin-sans duration-300 ${isOpen ? 'text-white' : 'text-black'}`}>
                         Elias Trana
                     </h1>
                     {/*<img*/}
