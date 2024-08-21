@@ -3,10 +3,12 @@ import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Make sure to import the AOS styles
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         AOS.init({
@@ -34,6 +36,8 @@ const Navbar = () => {
         setIsHovered(false);
     };
 
+    const isCurrentPage = (path) => router.pathname === path;
+
     return (
         <>
             {/* Home Link Image in the top left corner */}
@@ -42,11 +46,6 @@ const Navbar = () => {
                     <h1 className={`text-4xl font-bold transition-colors josefin-sans duration-300 ${isOpen ? 'text-white' : 'text-black'}`}>
                         ET
                     </h1>
-                    {/*<img*/}
-                    {/*    src="/assets/logo/liten_selfie.jpg" // Replace with your image path*/}
-                    {/*    alt="Home"*/}
-                    {/*    className="h-12 w-12 cursor-pointer" // Adjust size as needed*/}
-                    {/*/>*/}
                 </Link>
             </div>
 
@@ -101,31 +100,31 @@ const Navbar = () => {
                                     <div
                                         data-aos="fade-right"
                                         data-aos-delay="200"
-                                        className="text-white text-6xl md:text-8xl lg:text-9xl"
+                                        className={`text-white text-6xl md:text-8xl lg:text-9xl ${isCurrentPage('/gallery') ? 'italic' : ''}`}
                                     >
                                         <Link href="/gallery" className="group cursor-pointer transition-colors duration-300 ease-in-out">
                                             Gallery
-                                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-yellow-200"></span>
+                                            <span className={`block transition-all duration-500 h-1 bg-yellow-200 ${isCurrentPage('/gallery') ? 'max-w-full' : 'max-w-0'} group-hover:max-w-full`}></span>
                                         </Link>
                                     </div>
                                     <div
                                         data-aos="fade-right"
                                         data-aos-delay="400"
-                                        className="text-white text-6xl md:text-8xl lg:text-9xl"
+                                        className={`text-white text-6xl md:text-8xl lg:text-9xl ${isCurrentPage('/blog') ? 'italic' : ''}`}
                                     >
                                         <Link href="/blog" className="group cursor-pointer transition-colors duration-300 ease-in-out">
                                             Blog
-                                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-yellow-200"></span>
+                                            <span className={`block transition-all duration-500 h-1 bg-yellow-200 ${isCurrentPage('/blog') ? 'max-w-full' : 'max-w-0'} group-hover:max-w-full`}></span>
                                         </Link>
                                     </div>
                                     <div
                                         data-aos="fade-right"
                                         data-aos-delay="600"
-                                        className="text-white text-6xl md:text-8xl lg:text-9xl"
+                                        className={`text-white text-6xl md:text-8xl lg:text-9xl ${isCurrentPage('/resume') ? 'italic' : ''}`}
                                     >
                                         <Link href="/resume" className="group cursor-pointer transition-colors duration-300 ease-in-out">
                                             Resume
-                                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-1 bg-yellow-200"></span>
+                                            <span className={`block transition-all duration-500 h-1 bg-yellow-200 ${isCurrentPage('/resume') ? 'max-w-full' : 'max-w-0'} group-hover:max-w-full`}></span>
                                         </Link>
                                     </div>
                                 </nav>

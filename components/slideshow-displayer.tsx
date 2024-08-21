@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ChromePicker, ColorResult } from 'react-color';
-import Navbar from './Navbar'; // Assuming Navbar is in the same directory
+import Navbar from './Navbar';
+import Image from "next/image";
+import cn from "classnames"; // Assuming Navbar is in the same directory
 
 const getComplementaryColor = (hexColor: string): string => {
     const r = parseInt(hexColor.slice(1, 3), 16);
@@ -15,7 +17,7 @@ const getComplementaryColor = (hexColor: string): string => {
 };
 
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
-    const preselectedColors = ['#B34329', '#BEE3DB', '#3357FF', '#FFFF33', '#EEEEEE', '#EFA8B8'];
+    const preselectedColors = ['#B34329', '#BEE3DB', '#3357FF', '#FFFF33', '#EEEEEE', '#EFA8B8', '#7110FF', '#000000'];
 
     const getRandomColor = () => {
         const randomIndex = Math.floor(Math.random() * preselectedColors.length);
@@ -47,27 +49,49 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
 
     return (
         <div className="relative w-full h-screen">
-            {/* Pass the textColor to Navbar */}
-            {/*<Navbar textColor={textColor} />*/}
-
             {/* Background Layer */}
             <div className="absolute inset-0" style={{ backgroundColor: bgColor }}></div>
-
-            {/* Frosted Glass Layer */}
-            {/*<div className="absolute inset-0 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg" style={{ zIndex: 1 }}></div>*/}
 
             {/* Content Layer */}
             <div className="relative w-full h-full flex flex-col md:flex-row items-center justify-between p-12" style={{ zIndex: 2 }}>
                 {/* Text Section */}
-                <div className={`w-full md:w-2/3 text-center  mt-32 md:text-left transition-opacity duration-3000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                    <h1 className="text-6xl md:text-11xl josefin-sans font-bold mb-4" style={{ color: textColor, transition: 'color 0.5s ease' }}>
-                        {title}
-                    </h1>
+                <div
+                    className={`w-full md:w-2/3 text-center  mt-32 md:text-left transition-opacity duration-3000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+
+                    <div className="relative flex justify-center items-center mb-4">
+                        {/* Vertically standing image positioned behind the title */}
+                        <Image
+                            src="/assets/blog/koben_35mm/000012830020.jpeg"
+                            alt={`Cover Image for ${title}`}
+                            className="absolute h-full min-h-[70vh] max-h-[120vh] w-auto mb-28 object-cover rounded-lg shadow-lg glassmorphism-effect z-0"
+                            width={500}
+                            height={800}
+                            style={{
+                                opacity: 0.5,
+                                filter: ` hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
+                            }}
+                        />
+
+                        {/* Title in front of the image */}
+                        <div className="absolute justify-center items-center z-10">
+                            <h1
+                                className="relative text-7xl md:text-11xl josefin-sans font-bold mt-28 mb-4 z-10"
+                                style={{ color: textColor, transition: 'color 0.5s ease' }}
+                            >
+                                {title}
+                            </h1>
+
+                            <p className="relative text-4xl md:text-4xl josefin-sans font-bold z-10"
+                               style={{ color: textColor, transition: 'color 0.5s ease' }}>
+                                {undertitle}
+                            </p>
+                        </div>
+                    </div>
 
                     {/* Color Picker Section (Mobile View) */}
-                    <div className="w-full md:hidden flex justify-center mb-4 ">
+                    <div className="w-full md:hidden flex justify-center mb-4 mt-64 pt-8 ">
                         <div
-                            className="p-4 rounded-lg shadow-lg glassmorphism-effect"
+                            className="p-4 rounded-lg shadow-lg glassmorphism-effect w-full"
                             style={{
                                 zIndex: 3,
                                 backdropFilter: 'blur(10px)',
@@ -101,19 +125,16 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                                     onChange={handleColorChange}
                                     onChangeComplete={handleChangeComplete}
                                     disableAlpha={true}
-                                    width={300}
+                                    width={285}
                                 />
                             </div>
                         </div>
                     </div>
-
-                    <p className="text-2xl md:text-4xl josefin-sans" style={{ color: textColor, transition: 'color 0.5s ease' }}>
-                        {undertitle}
-                    </p>
                 </div>
 
                 {/* Color Picker Section (Desktop View) */}
-                <div className={`hidden md:flex w-1/3 justify-end transition-opacity duration-1000 ease-in-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <div
+                    className={`hidden md:flex w-1/3 justify-end transition-opacity duration-1000 ease-in-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                     <div
                         className="p-4 rounded-lg shadow-lg glassmorphism-effect"
                         style={{
@@ -149,7 +170,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                                 onChange={handleColorChange}
                                 onChangeComplete={handleChangeComplete}
                                 disableAlpha={true}
-                                width={400}
+                                width={375}
                             />
                         </div>
                     </div>
@@ -187,6 +208,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
         </div>
     );
 };
+
 
 const App: React.FC = () => {
     return (
