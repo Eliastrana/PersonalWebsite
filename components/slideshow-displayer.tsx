@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChromePicker, ColorResult } from 'react-color';
-import Navbar from './Navbar';
 import Image from "next/image";
-import cn from "classnames"; // Assuming Navbar is in the same directory
 
 const getComplementaryColor = (hexColor: string): string => {
     const r = parseInt(hexColor.slice(1, 3), 16);
@@ -26,12 +24,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
 
     const [bgColor, setBgColor] = useState(getRandomColor);
     const [textColor, setTextColor] = useState(getComplementaryColor(bgColor));
-    const [isVisible, setIsVisible] = useState(false);
     const [selectedColor, setSelectedColor] = useState(bgColor);
-
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
 
     useEffect(() => {
         setTextColor(getComplementaryColor(bgColor));
@@ -48,50 +41,111 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
     };
 
     return (
-        <div className="relative w-full h-screen">
-            {/* Background Layer */}
-            <div className="absolute inset-0" style={{ backgroundColor: bgColor }}></div>
+        <div className="w-full h-full">
+            {/* Mobile Image Section */}
+            <div className="w-full h-[50vh] md:hidden relative">
+                <Image
+                    src="/assets/blog/koben_35mm/000012830020.jpeg"
+                    alt={`Cover Image for ${title}`}
+                    className="w-full h-full object-cover"
+                    style={{
+                        filter: `hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
+                        opacity: 0.5,
+                    }}
+                    width={1200}
+                    height={800}
+                />
+            </div>
 
-            {/* Content Layer */}
-            <div className="relative w-full h-full flex flex-col md:flex-row items-center justify-between p-12" style={{ zIndex: 2 }}>
-                {/* Text Section */}
-                <div
-                    className={`w-full md:w-2/3 text-center  mt-32 md:text-left transition-opacity duration-3000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            {/* Mobile Content Section with Background Color */}
+            <div className="w-full md:hidden flex flex-col items-center p-8" style={{ backgroundColor: bgColor }}>
+                <h1
+                    className="text-5xl josefin-sans font-bold mb-4 text-center"
+                    style={{ color: textColor, transition: 'color 0.5s ease' }}
+                >
+                    {title}
+                </h1>
+                <p className="text-2xl josefin-sans font-bold text-center"
+                   style={{ color: textColor, transition: 'color 0.5s ease' }}>
+                    {undertitle}
+                </p>
 
-                    <div className="relative flex justify-center items-center mb-4">
-                        {/* Vertically standing image positioned behind the title */}
-                        <Image
-                            src="/assets/blog/koben_35mm/000012830020.jpeg"
-                            alt={`Cover Image for ${title}`}
-                            className="absolute h-full min-h-[70vh] max-h-[120vh] w-auto mb-28 object-cover rounded-lg shadow-lg glassmorphism-effect z-0"
-                            width={500}
-                            height={800}
-                            style={{
-                                opacity: 0.5,
-                                filter: ` hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
-                            }}
-                        />
+                {/* Preselected Colors (Mobile) */}
+                <div className="w-full flex justify-center mt-8">
+                    <div
+                        className="p-4 rounded-lg shadow-lg glassmorphism-effect"
+                        style={{
+                            backdropFilter: 'blur(10px)',
+                            background: 'rgba(255, 255, 255, 0.2)',
+                            borderRadius: '10px',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        }}
+                    >
+                        <div className="flex">
+                            {preselectedColors.map((color) => (
+                                <div
+                                    key={color}
+                                    className={`w-10 h-10 mr-2 cursor-pointer border-2 ${selectedColor === color ? 'border-white' : 'border-transparent'}`}
+                                    style={{
+                                        backgroundColor: color,
+                                        borderRadius: '4px',
+                                        boxShadow: selectedColor === color ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
+                                    }}
+                                    onClick={() => {
+                                        setBgColor(color);
+                                        handleChangeComplete({ hex: color } as ColorResult);
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        {/* Title in front of the image */}
-                        <div className="absolute justify-center items-center z-10">
-                            <h1
-                                className="relative text-7xl md:text-11xl josefin-sans font-bold mt-28 mb-4 z-10"
-                                style={{ color: textColor, transition: 'color 0.5s ease' }}
-                            >
-                                {title}
-                            </h1>
+            {/* Desktop View */}
+            <div className="hidden md:flex w-full h-screen relative">
+                {/* Background Layer */}
+                <div className="absolute inset-0" style={{ backgroundColor: bgColor }}></div>
 
-                            <p className="relative text-4xl md:text-4xl josefin-sans font-bold z-10"
-                               style={{ color: textColor, transition: 'color 0.5s ease' }}>
-                                {undertitle}
-                            </p>
+                {/* Content Layer */}
+                <div className="relative w-full h-full flex flex-col md:flex-row items-center justify-between p-12">
+                    {/* Text Section */}
+                    <div className="w-full md:w-2/3 text-center md:text-left">
+                        <div className="relative flex justify-center items-center mb-4">
+                            {/* Vertically standing image positioned behind the title */}
+                            <Image
+                                src="/assets/blog/koben_35mm/000012830020.jpeg"
+                                alt={`Cover Image for ${title}`}
+                                className="absolute h-full min-h-[70vh] max-h-[120vh] w-auto mb-28 object-cover rounded-lg shadow-lg glassmorphism-effect z-0"
+                                width={500}
+                                height={800}
+                                style={{
+                                    opacity: 0.5,
+                                    filter: `hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
+                                }}
+                            />
+
+                            {/* Title in front of the image */}
+                            <div className="absolute justify-center items-center z-10">
+                                <h1
+                                    className="relative text-7xl md:text-11xl josefin-sans font-bold mt-28 mb-4 z-10"
+                                    style={{ color: textColor, transition: 'color 0.5s ease' }}
+                                >
+                                    {title}
+                                </h1>
+
+                                <p className="relative text-4xl md:text-4xl josefin-sans font-bold z-10"
+                                   style={{ color: textColor, transition: 'color 0.5s ease' }}>
+                                    {undertitle}
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Color Picker Section (Mobile View) */}
-                    <div className="w-full md:hidden flex justify-center mb-4 mt-64 pt-8 ">
+                    {/* Color Picker Section (Desktop View) */}
+                    <div className="hidden md:flex w-1/3 justify-end">
                         <div
-                            className="p-4 rounded-lg shadow-lg glassmorphism-effect w-full"
+                            className="p-4 rounded-lg shadow-lg glassmorphism-effect"
                             style={{
                                 zIndex: 3,
                                 backdropFilter: 'blur(10px)',
@@ -125,53 +179,9 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                                     onChange={handleColorChange}
                                     onChangeComplete={handleChangeComplete}
                                     disableAlpha={true}
-                                    width={285}
+                                    width={375}
                                 />
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Color Picker Section (Desktop View) */}
-                <div
-                    className={`hidden md:flex w-1/3 justify-end transition-opacity duration-1000 ease-in-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                    <div
-                        className="p-4 rounded-lg shadow-lg glassmorphism-effect"
-                        style={{
-                            zIndex: 3,
-                            backdropFilter: 'blur(10px)',
-                            background: 'rgba(255, 255, 255, 0.2)',
-                            borderRadius: '10px',
-                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                        }}
-                    >
-                        {/* Preselected Color Tiles */}
-                        <div className="flex mb-4">
-                            {preselectedColors.map((color) => (
-                                <div
-                                    key={color}
-                                    className={`w-10 h-10 mr-2 cursor-pointer border-2 ${selectedColor === color ? 'border-white' : 'border-transparent'}`}
-                                    style={{
-                                        backgroundColor: color,
-                                        borderRadius: '4px',
-                                        boxShadow: selectedColor === color ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
-                                    }}
-                                    onClick={() => {
-                                        setBgColor(color);
-                                        handleChangeComplete({ hex: color } as ColorResult);
-                                    }}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="chrome-picker-container">
-                            <ChromePicker
-                                color={bgColor}
-                                onChange={handleColorChange}
-                                onChangeComplete={handleChangeComplete}
-                                disableAlpha={true}
-                                width={375}
-                            />
                         </div>
                     </div>
                 </div>
@@ -197,18 +207,21 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
 
                 @media (max-width: 768px) {
                     .text-11xl {
-                        font-size: 3.75rem; /* Adjust the font size for mobile */
+                        font-size: 3.75rem;
                     }
 
                     .text-4xl {
-                        font-size: 1.5rem; /* Adjust the font size for mobile */
+                        font-size: 1.5rem;
+                    }
+
+                    .chrome-picker-container {
+                        display: none !important;
                     }
                 }
             `}</style>
         </div>
     );
 };
-
 
 const App: React.FC = () => {
     return (
