@@ -15,7 +15,7 @@ const getComplementaryColor = (hexColor: string): string => {
 };
 
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
-    const preselectedColors = ['#B34329', '#BEE3DB', '#3357FF', '#FFFF33', '#EEEEEE', '#EFA8B8', '#7110FF', '#000000'];
+    const preselectedColors = ['#B34329', '#BEE3DB', '#FFFF33', '#EEEEEE', '#EFA8B8', '#000000', '#271859'];
 
     const getRandomColor = () => {
         const randomIndex = Math.floor(Math.random() * preselectedColors.length);
