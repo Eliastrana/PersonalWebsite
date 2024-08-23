@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 const items = [
     {
         id: 1,
-        icon: '/languageIcons/react-icon.svg.png',
+        icon: '/languageIcons/react.png',
         title: 'React',
         description: 'Used for building this website, as well as others.',
         category: 'Framework',
@@ -33,7 +33,7 @@ const items = [
     },
     {
         id: 5,
-        icon: '/languageIcons/javascript-logo.png',
+        icon: '/languageIcons/javascript.png',
         title: 'JavaScript',
         description: 'Used throughout all the web development.',
         category: 'Language',
@@ -41,21 +41,21 @@ const items = [
 
     {
         id: 6,
-        icon: '/languageIcons/tailwind_CSS_logo.svg.png',
+        icon: '/languageIcons/tailwind.png',
         title: 'Tailwind CSS',
         description: 'Used for styling this website.',
         category: 'Framework',
     },
     {
         id: 7,
-        icon: '/languageIcons/git-icon-1788C.png',
+        icon: '/languageIcons/git.png',
         title: 'Git',
         description: 'Used for version control and collaboration on all projects.',
         category: 'Tool',
     },
     {
         id: 8,
-        icon: '/languageIcons/vue.js_logo_2.svg.png',
+        icon: '/languageIcons/vue.png',
         title: 'Vue',
         description: 'Used for multiple school projects.',
         category: 'Framework',
@@ -69,7 +69,7 @@ const items = [
     },
     {
         id: 10,
-        icon: '/languageIcons/C++.png',
+        icon: '/languageIcons/cpp.png',
         title: 'C++',
         description: 'Used for multiple school projects.',
         category: 'Tool',
