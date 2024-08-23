@@ -76,7 +76,7 @@ const items = [
     },
     {
         id: 11,
-        icon: '/languageIcons/python.webp',
+        icon: '/languageIcons/python.png',
         title: 'Python',
         description: 'Used for machine learning, data analysis, and more.',
         category: 'Language',
