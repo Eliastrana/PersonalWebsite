@@ -124,7 +124,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                                         key={index}
                                         className={`carousel-item absolute transition-transform duration-500`}
                                         style={{
-                                            transform: `rotateY(${index * 120}deg) translateZ(500px)`,
+                                            transform: `rotateY(${index * 120}deg) translateZ(250px) scale(0.8)`,
                                             opacity: 1,
                                         }}
                                     >
@@ -132,8 +132,8 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                                             src={image}
                                             alt={`Image ${index + 1}`}
                                             className="rounded-lg shadow-lg glassmorphism-effect"
-                                            width={500}
-                                            height={800}
+                                            width={400}
+                                            height={600}
                                             style={{
                                                 filter: `hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
                                             }}
@@ -225,7 +225,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                 .carousel-container {
                     perspective: 1200px;
                     width: 100%;
-                    height: 80vh;
+                    height: 70vh;
                     transform-style: preserve-3d;
                     animation: spin 10s infinite linear;
                 }
