@@ -72,7 +72,7 @@ const items = [
         icon: '/languageIcons/cpp.png',
         title: 'C++',
         description: 'Used for multiple school projects.',
-        category: 'Tool',
+        category: 'Language',
     },
     {
         id: 11,

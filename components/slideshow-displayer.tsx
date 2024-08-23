@@ -16,6 +16,11 @@ const getComplementaryColor = (hexColor: string): string => {
 
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
     const preselectedColors = ['#B34329', '#BEE3DB', '#FFFF33', '#EEEEEE', '#EFA8B8', '#000000', '#271859'];
+    const images = [
+        '/assets/blog/koben_35mm/000012830020.jpeg',
+        '/assets/gallery/DSCF0035.jpeg',
+        '/assets/gallery/DSCF0235.jpeg',
+    ];
 
     const getRandomColor = () => {
         const randomIndex = Math.floor(Math.random() * preselectedColors.length);
@@ -112,18 +117,30 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                     {/* Text Section */}
                     <div className="w-full md:w-2/3 text-center md:text-left">
                         <div className="relative flex justify-center items-center mb-4">
-                            {/* Vertically standing image positioned behind the title */}
-                            <Image
-                                src="/assets/blog/koben_35mm/000012830020.jpeg"
-                                alt={`Cover Image for ${title}`}
-                                className="absolute h-full min-h-[70vh] max-h-[120vh] w-auto mb-28 object-cover rounded-lg shadow-lg glassmorphism-effect z-0"
-                                width={500}
-                                height={800}
-                                style={{
-                                    opacity: 0.5,
-                                    filter: `hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
-                                }}
-                            />
+                            {/* 3D Carousel Image Section */}
+                            <div className="carousel-container relative w-full h-full flex items-center justify-center">
+                                {images.map((image, index) => (
+                                    <div
+                                        key={index}
+                                        className={`carousel-item absolute transition-transform duration-500`}
+                                        style={{
+                                            transform: `rotateY(${index * 120}deg) translateZ(500px)`,
+                                            opacity: 1,
+                                        }}
+                                    >
+                                        <Image
+                                            src={image}
+                                            alt={`Image ${index + 1}`}
+                                            className="rounded-lg shadow-lg glassmorphism-effect"
+                                            width={500}
+                                            height={800}
+                                            style={{
+                                                filter: `hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
 
                             {/* Title in front of the image */}
                             <div className="absolute justify-center items-center z-10">
@@ -203,6 +220,31 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                     backdrop-filter: blur(10px) !important;
                     background: rgba(255, 255, 255, 0.2) !important;
                     border-radius: 10px !important;
+                }
+
+                .carousel-container {
+                    perspective: 1200px;
+                    width: 100%;
+                    height: 80vh;
+                    transform-style: preserve-3d;
+                    animation: spin 10s infinite linear;
+                }
+
+                .carousel-item {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform-origin: center;
+                    transition: transform 1s ease, opacity 0.5s ease;
+                }
+
+                @keyframes spin {
+                    from {
+                        transform: rotateY(0deg);
+                    }
+                    to {
+                        transform: rotateY(360deg);
+                    }
                 }
 
                 @media (max-width: 768px) {
