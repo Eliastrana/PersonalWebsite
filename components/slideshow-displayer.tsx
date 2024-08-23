@@ -227,7 +227,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                     width: 100%;
                     height: 70vh;
                     transform-style: preserve-3d;
-                    animation: spin 10s infinite linear;
+                    animation: spin 15s infinite linear;
                 }
 
                 .carousel-item {
