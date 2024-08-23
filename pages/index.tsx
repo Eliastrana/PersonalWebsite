@@ -12,6 +12,7 @@ import Post from "../interfaces/post";
 import BoxDisplay from "../components/boxDisplay";
 import { useInView } from 'react-intersection-observer';
 import { motion, AnimatePresence } from 'framer-motion';
+import ScrollableList from "../components/ScrollableList";
 
 
 type Props = {
@@ -80,6 +81,8 @@ export default function Index({ allPosts, tags }: Props) {
           <Container padding="px-2 md:px-4 lg:px-8">
             <AnimatedSection><BoxDisplay/></AnimatedSection>
           </Container>
+
+          <ScrollableList/>
           {/*<Container padding="px-4 md:px-8 lg:px-16">*/}
           {/*<h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">*/}
           {/*    Featured Project*/}
