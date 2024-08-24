@@ -198,6 +198,8 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    margin-top: 150px; /* Add this line to lower the carousel */
+
                 }
 
                 .carousel {
@@ -230,6 +232,8 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                 .carousel-item:nth-child(3) {
                     transform: rotateY(240deg) translateZ(300px);
                 }
+
+             
 
                 .chrome-picker-container .chrome-picker {
                     background: rgba(255, 255, 255, 0.4) !important;
