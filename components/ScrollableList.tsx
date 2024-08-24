@@ -103,10 +103,10 @@ const ScrollableList = () => {
         : items.filter(item => item.category === selectedCategory);
 
     return (
-        <div className="min-h-screen flex items-center justify-center  mt-28">
+        <div className="min-h-screen flex items-center justify-center  ">
             <div className="absolute h-[700px] w-full bg-cover bg-center"
                  style={{backgroundImage: "url('/assets/gallery/DSCF9677.jpeg')"}}/>
-            <div className="w-3/4 max-w-4xl p-6 bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg">
+            <div className="mx-4 md:w-3/4 max-w-4xl p-6 bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg">
                 <h2 className="text-2xl font-semibold text-center mb-4">Languages and frameworks</h2>
 
                 <div className="flex flex-wrap justify-center mb-4">

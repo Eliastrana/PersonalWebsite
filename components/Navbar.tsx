@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Make sure to import the AOS styles
@@ -8,7 +8,9 @@ import { useRouter } from 'next/router';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const router = useRouter();
+    const menuRef = useRef(null);
 
     useEffect(() => {
         AOS.init({
@@ -16,6 +18,18 @@ const Navbar = () => {
             easing: 'ease-in-out',
             once: true,
         });
+
+        // Check if the device is mobile
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile(); // Initial check
+        window.addEventListener('resize', checkMobile);
+
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+        };
     }, []);
 
     useEffect(() => {
@@ -29,12 +43,29 @@ const Navbar = () => {
     };
 
     const handleMouseEnter = () => {
-        setIsHovered(true);
+        if (!isMobile) {
+            setIsHovered(true);
+        }
     };
 
     const handleMouseLeave = () => {
-        setIsHovered(false);
+        if (!isMobile) {
+            setIsHovered(false);
+        }
     };
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setIsHovered(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const isCurrentPage = (path) => router.pathname === path;
 
@@ -54,6 +85,7 @@ const Navbar = () => {
                 className="absolute top-4 right-4 z-50"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                ref={menuRef}
             >
                 {!isOpen && (
                     <button
@@ -88,7 +120,7 @@ const Navbar = () => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ delay: 0.3, duration: 0.4 }}
-                                className="fixed inset-0 z-50 flex items-end p-8"
+                                className="fixed inset-0 z-50 flex items-center justify-left p-8 md:items-end"
                             >
                                 <button
                                     className="absolute top-4 right-4 text-white text-4xl focus:outline-none"
@@ -133,6 +165,29 @@ const Navbar = () => {
                     </>
                 )}
             </AnimatePresence>
+            <style jsx>{`
+                /* Mobile-specific styles */
+                @media (max-width: 768px) {
+                    /* Disable hover effect on mobile */
+                    .group:hover .group-hover\\:max-w-full {
+                        max-width: 0 !important;
+                    }
+
+                    /* Adjust the position of the text for mobile */
+                    .fixed.inset-0.z-50.flex.items-center.justify-center.p-8 {
+                        top: 10%;
+                        justify-content: flex-start;
+                    }
+                }
+
+                /* Desktop-specific styles remain unchanged */
+                @media (min-width: 769px) {
+                    .fixed.inset-0.z-50.flex.items-end.p-8 {
+                        justify-content: flex-end;
+                        bottom: 0;
+                    }
+                }
+            `}</style>
         </>
     );
 };

@@ -14,7 +14,7 @@ const BoxDisplay: React.FC = () => {
                             title="About Me"
                             undertitle="Who am I?"
                             location={"📍 Trondheim, Norway"}
-                            education={"🎓 NTNU"}
+                            education={"🎓 Computer Science, NTNU"}
                             hobbies={"💻 React, Next.js, Sanity CMS, Tailwind CSS"}
 
                             text="My name is Elias Trana, and I am a student at NTNU Trondheim, studying Computer Engineering.

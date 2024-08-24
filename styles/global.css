@@ -21,6 +21,15 @@
     animation: fadeInUp 2.5s ease-out; /* Increased duration from 1s to 2.5s */
 }
 
+h1 {
+    font-size: clamp(2rem, 5vw, 5rem); /* Adjust these values as needed */
+    font-family: 'Lexend', sans-serif;
+    line-height: 1.2;
+    color: #171616;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
 
 
 
@@ -29,7 +38,7 @@ h2 {
     font-family: 'Lexend', sans-serif;
     line-height: 1.2;
     color: #171616;
-    text-align: center;
+    text-align: left;
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -41,6 +50,16 @@ h3 {
     line-height: 1.2;
     color: #171616;
     text-align: left;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: clamp(1rem, 1vw, 1.5rem); /* Adjust these values as needed */
+    font-family: 'Lexend', sans-serif;
+    line-height: 1.2;
+    color: #171616;
     margin: 0;
     padding: 0;
     font-weight: bold;

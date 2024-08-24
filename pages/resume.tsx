@@ -154,7 +154,7 @@ const ResumePage = () => {
                                     className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} w-full`}
                                 >
                                     <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                                        <h2 className="text-xl font-semibold">{exp.title}</h2>
+                                        <h4 className="text-xl font-semibold">{exp.title}</h4>
                                         <p className="text-gray-600">{exp.company}</p>
                                         <p className="text-gray-500">{exp.date}</p>
                                         {exp.location && <p className="text-gray-500">{exp.location}</p>}
