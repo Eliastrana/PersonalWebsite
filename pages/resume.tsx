@@ -71,7 +71,7 @@ const educationExperiences = [
         isDeveloper: false,
     },
     {
-        title: 'Videregående, Allmennfag',
+        title: 'Videregående, Realfag',
         company: 'Meløy videregående skole',
         date: '',
         location: '',

@@ -7,8 +7,6 @@ const images = [
     'assets/gallery/DSCF0404.jpeg',
     'assets/gallery/DSCF9760.jpeg',
     'assets/gallery/DSCF9639.jpeg',
-    'archive/photos/statuedanmark.jpeg',
-    'archive/photos/badeklipp.jpeg',
     'assets/blog/koben_35mm/000012830016.jpeg',
     'assets/blog/koben_35mm/000012830019.jpeg',
     ];
