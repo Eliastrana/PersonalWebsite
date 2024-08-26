@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from "../components/Navbar";
+import Layout from "../components/layout";
 
 const workExperiences = [
     {
@@ -96,8 +97,9 @@ const ResumePage = () => {
         .filter(exp => !developerMode || exp.isDeveloper);
 
     return (
+        <Layout>
+
         <div className="container mx-auto mt-32 p-4">
-            <Navbar />
 
             <h1 className="text-7xl font-bold text-center mb-8">Resume</h1>
 
@@ -168,6 +170,7 @@ const ResumePage = () => {
                 </AnimatePresence>
             </div>
         </div>
+        </Layout>
     );
 };
 

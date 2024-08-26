@@ -1,12 +1,16 @@
 import Navbar from "../components/Navbar";
+import Layout from "../components/layout";
 
 const EkteTid = () => {
 
     return (
+        <Layout>
+
         <div>
-            <Navbar />
+
             <h1>EkteTid</h1>
         </div>
+        </Layout>
     )
 
 

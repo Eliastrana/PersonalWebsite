@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from "../components/Navbar";
+import Layout from "../components/layout";
 
 const images = [
     'assets/gallery/DSCF0270.jpeg',
@@ -29,8 +30,9 @@ const GalleryPage = () => {
     };
 
     return (
+        <Layout>
+
         <div className="container mx-auto mt-32 p-4">
-            <Navbar/>
 
             {/* Main Image Display */}
             <div className="relative w-full max-w-4xl mx-auto bg-black rounded-lg overflow-hidden shadow-lg">
@@ -140,6 +142,7 @@ const GalleryPage = () => {
                 }
             `}</style>
         </div>
+        </Layout>
     );
 };
 

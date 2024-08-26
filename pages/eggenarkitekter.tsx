@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Image from 'next/image';
 import InfoTable from "../components/InfoTable";
 import { useInView } from 'react-intersection-observer';
+import Layout from "../components/layout";
 
 const FadeInSection = ({ children }) => {
     const { ref, inView } = useInView({
@@ -22,8 +23,9 @@ const FadeInSection = ({ children }) => {
 const Eggenarkitekter = () => {
 
     return (
+        <Layout>
+
         <div>
-            <Navbar/>
 
             <FadeInSection>
                 <div className="flex flex-col md:flex-row items-center gap-2 mx-4  mb-12 md:mb-0">
@@ -132,6 +134,7 @@ const Eggenarkitekter = () => {
             </FadeInSection>
 
         </div>
+        </Layout>
     )
 }
 
