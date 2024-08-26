@@ -27,7 +27,7 @@ const MoreStories = ({ posts }: Props) => {
         // >
             <section>
                 <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-                    More Projects
+                    More Posts
                 </h2>
 
 

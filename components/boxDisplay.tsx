@@ -5,7 +5,7 @@ import WideBox from "./wideBox"; // Ensure this import matches the file name and
 const BoxDisplay: React.FC = () => {
     return (
         <div className="flex justify-center ">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 pt-12 mx-auto w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 pt-28 mx-auto w-full">
                 {/* Section for WideBox with dynamic bottom padding */}
                 <div className="col-span-1 lg:col-span-2">
                     <div className="p-1 transition-shadow duration-300">
