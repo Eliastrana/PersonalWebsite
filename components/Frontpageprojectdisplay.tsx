@@ -16,22 +16,22 @@ type TileProps = {
     logo5: string;
 };
 
-const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, visit, logo, logo2, logo3, logo4,logo5 }) => {
+const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, visit, logo, logo2, logo3, logo4, logo5 }) => {
     const handleVisitClick = () => {
         window.open(visit, '_blank', 'noopener,noreferrer');
     };
 
     return (
 
-        <div className="md:w-2/5 p-2  rounded-lg ">
+        <div className=" p-2 rounded-lg">
             <Link href={link}>
-            <Image
-                src={imageUrl}
-                alt={title}
-                width={600}
-                height={400}
-                className="rounded-lg"
-            />
+                <Image
+                    src={imageUrl}
+                    alt={title}
+                    width={600}
+                    height={400}
+                    className="rounded-lg"
+                />
             </Link>
 
             <div className="flex items-center justify-between mt-4">
@@ -45,9 +45,7 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
                     <span className="material-symbols-outlined">
                         open_in_new
                     </span>
-
                 </button>
-
             </div>
 
             <p className="text-gray-600 font-medium">{year}</p>
@@ -76,6 +74,7 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
                     height={30}
                     className="my-4"
                 />
+
                 <Image
                     src={logo4}
                     alt="logo"
@@ -91,56 +90,49 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
                     height={30}
                     className="my-4"
                 />
-
             </div>
 
-
             <p className="mt-2 text-gray-700">{description}</p>
-            {/*<a*/}
-            {/*    href={link}*/}
-            {/*    target="_blank"*/}
-            {/*    rel="noopener noreferrer"*/}
-            {/*    className="text-blue-500 mt-4 inline-block"*/}
-            {/*>*/}
-            {/*    Learn More*/}
-            {/*</a>*/}
         </div>
     );
 };
 
 const TileContainer: React.FC = () => {
     return (
-        <div
-            className="flex flex-wrap md:flex-nowrap gap-8 p-4 md:p-4 justify-center items-center min-h-screen"
-        >
-            <Tile
-                title="Eggen Arkitekter"
-                year="2024"
-                imageUrl="/assets/gallery/eggen_preview.png"
-                description="Eggenarkitekter.com er en portefølje nettside for Eggen Arkitekter. Nettsiden er bygget med Sanity og Next.js, og er hostet på Vercel. Nettsiden tillater Eggen Arkitekter å vise frem sine prosjekter og tjenester på en enkel og oversiktlig måte. Hele nettsiden er knyttet modulær og alt av media kan oppdateres."
-                link="/eggenarkitekter"
-                visit="https://eggenarkitekter.com"
-                logo="/languageIcons/Sanity-square.png"
-                logo2="/languageIcons/vercel.svg"
-                logo3="/languageIcons/next-js.svg"
-                logo4="/languageIcons/typescript.png"
-                logo5="/languageIcons/tailwind.png"
-            />
-            <Tile
-                title="EkteTid"
-                year="2024"
-                imageUrl="/assets/gallery/ektetid.png"
-                description="EkteTid er en BeReal-inspierert webapplikasjon som ble skapt som et verktøy for å dele feriebilder med nære og kjære under selve reisen. Nettsiden er knyttet til Sanity CMS, og tillater brukere å laste opp bilder og skrive en liten beskrivelse fra mobil. Nettsiden er hostet på Vercel, og er bygget med Next.js."
-                link="/ektetid"
-                visit="https://ektetid.no"
-                logo="/languageIcons/Sanity-square.png"
-                logo2="/languageIcons/vercel.svg"
-                logo3="/languageIcons/next-js.svg"
-                logo4="/languageIcons/typescript.png"
-                logo5="/languageIcons/tailwind.png"
-            />
-        </div>
-    );
-};
+        <div className="w-full flex flex-col md:flex-row items-center md:items-start ">
 
-export default TileContainer;
+                {/*<h2 className="mx-36">Recent work</h2>*/}
+                <div
+                    className="flex flex-wrap md:flex-nowrap gap-8 p-4 md:p-4 justify-center items-center min-h-screen">
+                    <Tile
+                        title="Eggen Arkitekter"
+                        year="2024"
+                        imageUrl="/assets/gallery/eggen.jpg"
+                        description="Eggenarkitekter.com is a portfolio website for Eggen Arkitekter. The website is built with Sanity and Next.js, and is hosted on Vercel. The website allows Eggen Arkitekter to showcase their projects and services in a simple and clear manner. The entire website is modular, and all media can be updated easily."
+                        link="/eggenarkitekter"
+                        visit="https://eggenarkitekter.com"
+                        logo="/languageIcons/Sanity-square.png"
+                        logo2="/languageIcons/vercel.svg"
+                        logo3="/languageIcons/next-js.svg"
+                        logo4="/languageIcons/typescript.png"
+                        logo5="/languageIcons/tailwind.png"
+                    />
+                    <Tile
+                        title="EkteTid"
+                        year="2024"
+                        imageUrl="/assets/gallery/ektetid.jpg"
+                        description="EkteTid is a BeReal-inspired web application created as a tool for sharing vacation photos with loved ones during the trip itself. The website is connected to Sanity CMS and allows users to upload photos and write a short description from their mobile devices. The website is hosted on Vercel and built with Next.js."
+                        link="/ektetid"
+                        visit="https://ektetid.no"
+                        logo="/languageIcons/Sanity-square.png"
+                        logo2="/languageIcons/vercel.svg"
+                        logo3="/languageIcons/next-js.svg"
+                        logo4="/languageIcons/typescript.png"
+                        logo5="/languageIcons/tailwind.png"
+                    />
+                </div>
+            </div>
+            );
+            };
+
+            export default TileContainer;

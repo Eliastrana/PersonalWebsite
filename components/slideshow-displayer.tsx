@@ -5,9 +5,9 @@ import Image from 'next/image';
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
     const preselectedColors = ['#B34329', '#BEE3DB', '#FFFF33', '#EEEEEE', '#EFA8B8', '#000000', '#271859'];
     const images = [
-        '/assets/blog/koben_35mm/000012830020.jpeg',
-        '/assets/gallery/DSCF0035.jpeg',
-        '/assets/gallery/DSCF0235.jpeg',
+        '/assets/gallery/karusell-3.jpg',
+        '/assets/gallery/karusell-2.jpg',
+        '/assets/gallery/karusell-1.jpg',
     ];
 
     const getRandomColor = () => {

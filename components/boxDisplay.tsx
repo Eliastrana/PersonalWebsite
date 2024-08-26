@@ -10,7 +10,7 @@ const BoxDisplay: React.FC = () => {
                 <div className="col-span-1 lg:col-span-2">
                     <div className="p-1 transition-shadow duration-300">
                         <WideBox
-                            imageUrl="./assets/gallery/portrett_elias-1.jpg"
+                            imageUrl="./assets/gallery/profilbilde.jpg"
                             title="About Me"
                             undertitle="Who am I?"
                             location={"📍 Trondheim, Norway"}

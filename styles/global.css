@@ -34,7 +34,7 @@ h1 {
 
 
 h2 {
-    font-size: clamp(15rem, 5vw, 15rem); /* Adjust these values as needed */
+    font-size: clamp(2rem, 5vw, 15rem); /* Adjust these values as needed */
     font-family: 'Lexend', sans-serif;
     line-height: 1.2;
     color: #171616;
