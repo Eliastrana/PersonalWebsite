@@ -37,15 +37,29 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
             <div className="flex items-center justify-between mt-4">
                 <h2 className="text-3xl font-bold">{title}</h2>
 
-                <button
-                    onClick={handleVisitClick}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center"
-                >
-                    Visit
-                    <span className="material-symbols-outlined">
-                        open_in_new
-                    </span>
-                </button>
+
+                <div className="flex items-center gap-2">
+
+                    <button
+                        onClick={handleVisitClick}
+                        className=" text-black px-4 py-2 rounded-lg flex items-center underline"
+                    >
+                        Visit
+
+                    </button>
+
+                    <Link href="/eggenarkitekter">
+                        <button
+                            className="text-black px-4 py-2 rounded-full flex items-center border-black border-2 hover:bg-gray-950 hover:text-white"
+                        >
+                            Learn more
+                        </button>
+                    </Link>
+
+
+                </div>
+
+
             </div>
 
             <p className="text-gray-600 font-medium">{year}</p>
@@ -99,7 +113,7 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
 
 const TileContainer: React.FC = () => {
     return (
-        <div className="w-full flex flex-col md:flex-row items-center md:items-start ">
+        <div className="w-full flex flex-col md:flex-row items-top md:items-start ">
 
                 {/*<h2 className="mx-36">Recent work</h2>*/}
                 <div

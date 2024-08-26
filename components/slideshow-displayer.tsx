@@ -3,7 +3,7 @@ import { ChromePicker, ColorResult } from 'react-color';
 import Image from 'next/image';
 
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
-    const preselectedColors = ['#B34329', '#BEE3DB', '#FFFF33', '#EEEEEE', '#EFA8B8', '#000000', '#271859'];
+    const preselectedColors = ['#B34329', '#BEE3DB', '#EEEEEE', '#EFA8B8','#DAC0B3', '#271859'];
     const images = [
         '/assets/gallery/karusell-3.jpg',
         '/assets/gallery/karusell-2.jpg',
