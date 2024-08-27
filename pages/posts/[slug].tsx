@@ -100,12 +100,12 @@ export default function Post({ post, preview }: Props) {
             }}
             className={`fixed top-1 left-0 z-50`}
         >
-          <img
-              src="/assets/gallery/IMG_0475.PNG" // Replace with your image path
-              alt="Progress Indicator"
-              className="w-24 h-24" // 50x50px image
-              style={{ width: '100px', height: '100px' }}
-          />
+          {/*<img*/}
+          {/*    src="/assets/gallery/IMG_0475.PNG" // Replace with your image path*/}
+          {/*    alt="Progress Indicator"*/}
+          {/*    className="w-24 h-24" // 50x50px image*/}
+          {/*    style={{ width: '100px', height: '100px' }}*/}
+          {/*/>*/}
         </div>
 
         <Container>
