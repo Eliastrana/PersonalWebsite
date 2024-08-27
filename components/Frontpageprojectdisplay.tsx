@@ -48,7 +48,7 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
 
                     </button>
 
-                    <Link href="/eggenarkitekter">
+                    <Link href={link}>
                         <button
                             className="text-black px-4 py-2 rounded-full flex items-center border-black border-2 hover:bg-gray-950 hover:text-white"
                         >

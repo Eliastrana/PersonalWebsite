@@ -12,7 +12,7 @@ const BoxDisplay: React.FC = () => {
                         <WideBox
                             imageUrl="./assets/gallery/profilbilde.jpg"
                             title="About Me"
-                            undertitle="Who am I?"
+                            undertitle=""
                             location={"📍 Trondheim, Norway"}
                             education={"🎓 Computer Science, NTNU"}
                             hobbies={"💻 React, Next.js, Sanity CMS, Tailwind CSS"}

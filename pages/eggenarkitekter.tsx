@@ -46,7 +46,8 @@ const Eggenarkitekter = () => {
                         "Duration": "5 weeks",
                         "Services": "Webdevelopment, photography, design",
                         "Technologies": "Next.js, Sanity CMS, Vercel, TypeScript, TailwindCSS, Figma",
-                        "Status": "Finalization stage"
+                        "Status": "Finalization stage",
+                        "Collaborators": "Frid Ekseth, Main graphic designer"
                     }}/>
                     <p className="w-full md:w-2/3 p-4 md:p-16 text-lg mt-4 md:mt-0">
                         Eggen Arkitekter is an architectural firm located in Trondheim, Norway. They wanted a new website to
