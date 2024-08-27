@@ -61,7 +61,7 @@ const Eggenarkitekter = () => {
             <FadeInSection>
                 <div className="flex flex-col md:flex-row items-center gap-12 mx-4 md:m-28 mt-8 mb-12 md:mb-0">
                     <div className="w-full md:w-1/2 text-lg">
-                        <h4 className="mb-4">Sanity CMS — User Freedom</h4>
+                        <h1 className="text-4xl mb-4">Sanity CMS — User Freedom</h1>
                         <p>
                             Sanity CMS is an integral part of this website, as it allows the user to modify almost all
                             content on the website.
@@ -85,7 +85,7 @@ const Eggenarkitekter = () => {
                         <Image src="/assets/gallery/eggen_showcase/utvalgte_prosjekter.png" alt="eggen" width={800} height={800} className="mx-auto"/>
                     </div>
                     <div className="w-full md:w-1/2 text-lg">
-                        <h4 className="mb-4">Customization & Control</h4>
+                        <h1 className="mb-4 text-4xl">Customization & Control</h1>
                         <p>
                             The Sanity schemas used are interconnected to allow for a seamless experience when customizing
                             the look of the website.
@@ -103,7 +103,7 @@ const Eggenarkitekter = () => {
             <FadeInSection>
                 <div className="flex flex-col md:flex-row items-center gap-12 mx-4 md:m-28 mt-8 mb-12 md:mb-0">
                     <div className="w-full md:w-1/2 text-lg">
-                        <h4 className="mb-4">Static Exports</h4>
+                        <h1 className="mb-4 text-4xl">Static Exports</h1>
                         <p>
                             Portfolio websites like these are naturally heavy on loading times, as they contain a lot of
                             projects with many images.
@@ -125,7 +125,7 @@ const Eggenarkitekter = () => {
                         <Image src="/assets/gallery/eggen_showcase/performence.png" alt="eggen" width={800} height={800} className="mx-auto"/>
                     </div>
                     <div className="w-full md:w-1/2 text-lg">
-                        <h4 className="mb-4">Performance — Accessibility & SEO</h4>
+                        <h1 className="mb-4 text-4xl">Performance — Accessibility & SEO</h1>
                         <p>
                             Through Chrome developer tools, the website has been optimized for performance. The website has a performance score of 100 on both mobile and desktop. The website is also optimized for SEO, with meta tags and alt tags on all images. The website is also accessible, with a focus on color contrast and keyboard navigation.
                         </p>
