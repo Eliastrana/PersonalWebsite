@@ -29,12 +29,16 @@ const EkteTid = () => {
 
             <FadeInSection>
 
-            <div className="flex justify-center items-center min-h-screen">
-                <div className="flex flex-col md:flex-row gap-8 md:gap-28 items-center">
-                    <Image src="/assets/gallery/ektetid_showcase/mobil.png" width={300} height={300} alt="EkteTid logo" />
-                    <h1 className="text-center md:text-left">EkteTid</h1>
+                <div className="flex flex-col md:flex-row items-center gap-2 mx-4  mb-12 md:mb-0">
+                    <div className="w-2/3 md:w-1/2 mt-28">
+                        <Image src="/assets/gallery/ektetid_showcase/mobil.png" alt="eggen" width={400}
+                               height={500} className="mx-auto"/>
+                    </div>
+                    <div className="w-full md:w-1/2 mt-28">
+                        <Image src="/assets/gallery/ektetid_showcase/ektetid_logo.png" alt="eggen" width={300}
+                               height={500} className="mx-auto rounded-lg"/>
+                    </div>
                 </div>
-            </div>
             </FadeInSection>
 
 
