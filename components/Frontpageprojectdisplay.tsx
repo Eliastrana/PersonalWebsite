@@ -28,8 +28,8 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
                 <Image
                     src={imageUrl}
                     alt={title}
-                    width={600}
-                    height={400}
+                    width={1000}
+                    height={600}
                     className="rounded-lg"
                 />
             </Link>

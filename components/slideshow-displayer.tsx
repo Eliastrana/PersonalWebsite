@@ -287,7 +287,7 @@ const App: React.FC = () => {
         <div className="w-full">
             <ImageDisplayer
                 title="Elias Trana"
-                undertitle="A portfolio displaying System Development, Writing, Graphics, and Photography."
+                undertitle="A portfolio displaying System Development, Graphics, and Photography."
             />
         </div>
     );
