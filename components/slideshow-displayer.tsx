@@ -141,7 +141,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                             {title}
                         </h1>
 
-                        <p className="text-4xl md:text-4xl josefin-sans font-bold"
+                        <p className="text-4xl md:text-4xl josefin-sans font-bold mb-8"
                            style={{color: textColor, transition: 'color 0.5s ease'}}>
                             {undertitle}
                         </p>
