@@ -5,8 +5,8 @@ import Image from 'next/image';
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
     const preselectedColors = ['#B34329', '#BEE3DB', '#EEEEEE', '#EFA8B8','#DAC0B3', '#271859'];
     const images = [
-        '/assets/gallery/karusell-3.jpg',
-        '/assets/gallery/karusell-2.jpg',
+        '/assets/gallery/karusell-3.jpeg',
+        '/assets/gallery/karusell-2.jpeg',
         '/assets/gallery/karusell-1.jpg',
     ];
 
