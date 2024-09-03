@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChromePicker, ColorResult } from 'react-color';
 import Image from 'next/image';
+import ConfettiCannon from './ConfettiCannon'; // Import the ConfettiCannon component
 
 const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title, undertitle }) => {
     const preselectedColors = ['#B34329', '#BEE3DB', '#EEEEEE', '#EFA8B8','#DAC0B3', '#271859'];
@@ -20,6 +21,7 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
     const [selectedColor, setSelectedColor] = useState(bgColor);
     const [rotationDegree, setRotationDegree] = useState(0);
     const [rotationSpeed, setRotationSpeed] = useState(1); // Initial fast rotation speed
+    const [showConfetti, setShowConfetti] = useState(false); // State for showing confetti
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -44,20 +46,32 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
         const newTextColor = getComplementaryColor(color.hex);
         setTextColor(newTextColor);
         setSelectedColor(color.hex);
+
+        // Calculate the color difference
+        const hexBgColor = color.hex.toLowerCase();
+        const colorDifference = getColorDifference(newTextColor, hexBgColor);
+
+        // Define a threshold for color similarity (0 is exact match)
+        const threshold = 20;
+
+        if (colorDifference <= threshold) {
+            setShowConfetti(true);
+        } else {
+            setShowConfetti(false);
+        }
     };
 
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-full relative">
+            {/* ConfettiCannon Component */}
+            <ConfettiCannon trigger={showConfetti} />
+
             {/* Mobile Image Section */}
             <div className="w-full h-[50vh] md:hidden relative">
                 <Image
                     src={images[0]}
                     alt={`Cover Image for ${title}`}
                     className="w-full h-full object-cover"
-                    style={{
-                        // filter: `hue-rotate(${parseInt(bgColor.slice(1), 16) % 360}deg)`,
-                        // opacity: 0.5,
-                    }}
                     width={1200}
                     height={800}
                 />
@@ -281,6 +295,24 @@ const getComplementaryColor = (hexColor: string): string => {
 
     return `#${compR.toString(16).padStart(2, '0')}${compG.toString(16).padStart(2, '0')}${compB.toString(16).padStart(2, '0')}`;
 };
+
+const getColorDifference = (color1: string, color2: string): number => {
+    const r1 = parseInt(color1.slice(1, 3), 16);
+    const g1 = parseInt(color1.slice(3, 5), 16);
+    const b1 = parseInt(color1.slice(5, 7), 16);
+
+    const r2 = parseInt(color2.slice(1, 3), 16);
+    const g2 = parseInt(color2.slice(3, 5), 16);
+    const b2 = parseInt(color2.slice(5, 7), 16);
+
+    // Calculate the Euclidean distance between the two colors
+    return Math.sqrt(
+        Math.pow(r2 - r1, 2) +
+        Math.pow(g2 - g1, 2) +
+        Math.pow(b2 - b1, 2)
+    );
+};
+
 
 const App: React.FC = () => {
     return (
