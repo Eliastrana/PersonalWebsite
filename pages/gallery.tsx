@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from "../components/Navbar";
 import Layout from "../components/layout";
+import DrawingCanvas from "../components/DrawingCanvas";
+import NumberRecognition from "../components/NumberRecognition";
 
 const images = [
     'assets/gallery/DSCF0270.jpeg',
@@ -31,6 +33,9 @@ const GalleryPage = () => {
 
     return (
         <Layout>
+
+
+            <NumberRecognition />
 
         <div className="container mx-auto mt-32 p-4">
 
