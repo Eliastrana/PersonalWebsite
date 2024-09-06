@@ -35,7 +35,7 @@ const GalleryPage = () => {
         <Layout>
 
 
-            <NumberRecognition />
+            {/*<NumberRecognition />*/}
 
         <div className="container mx-auto mt-32 p-4">
 
