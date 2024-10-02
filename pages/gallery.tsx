@@ -1,153 +1,210 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from "../components/Navbar";
-import Layout from "../components/layout";
-import DrawingCanvas from "../components/DrawingCanvas";
-import NumberRecognition from "../components/NumberRecognition";
+import Link from "next/link";
 
-const images = [
-    'assets/gallery/DSCF0270.jpeg',
-    'assets/gallery/DSCF0404.jpeg',
+const imagesSlider1 = [
+    'assets/gallery/portraits/DSCF0583.jpeg',
+    'assets/gallery/portraits/DSCF0646.jpeg',
+    'assets/gallery/portraits/DSCF0664.jpeg',
+    'assets/gallery/portraits/DSCF0878.jpeg',
+    'assets/gallery/portraits/trygve.jpeg',
+    'assets/gallery/portraits/DSCF8765.jpeg',
+    'assets/gallery/portraits/DSCF9656.jpeg',
+    'assets/gallery/portraits/DSCF9894.jpeg',
+    'assets/gallery/portraits/Trekanten_Compressed-07.jpeg',
+    // Add more images specific to the first slider
+];
+
+const imagesSlider2 = [
     'assets/gallery/DSCF9760.jpeg',
     'assets/gallery/DSCF9639.jpeg',
+    'assets/gallery/landskape/DSCF0123.jpeg',
+    'assets/gallery/landskape/DSCF0235.jpeg',
+    'assets/gallery/landskape/DSCF1077.jpeg',
+    'assets/gallery/landskape/DSCF9596.jpeg',
+    'assets/gallery/landskape/DSCF9664.jpeg',
+    'assets/gallery/landskape/DSCF9679.jpeg',
+    // Add more images specific to the second slider
+];
+
+const imagesSlider3 = [
     'assets/blog/koben_35mm/000012830016.jpeg',
     'assets/blog/koben_35mm/000012830019.jpeg',
-    ];
+    'assets/gallery/35mm/film4.jpg',
+    'assets/gallery/35mm/film1.jpg',
+    'assets/gallery/35mm/film5.jpg',
+    'assets/gallery/35mm/film2.jpg',
+    'assets/gallery/35mm/film6.jpg',
+    'assets/gallery/35mm/film3.jpg',
+    // Add more images specific to the third slider
+];
 
 const GalleryPage = () => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    const nextImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-
-    const prevImage = () => {
-        setCurrentImageIndex((prevIndex) =>
-            prevIndex === 0 ? images.length - 1 : prevIndex - 1
-        );
-    };
-
-    const selectImage = (index: number) => {
-        setCurrentImageIndex(index);
-    };
-
     return (
-        <Layout>
+        <div className="gallery-container bg-black">
+            {/* Gallery Sliders */}
+            <div className="gallery-wrapper ">
+                <div className="">
 
+                    <Link href="/">
+                        <h1 className={`text-4xl font-bold transition-colors josefin-sans duration-300 text-white p-4`}>
+                            ET
+                        </h1>
+                    </Link>
 
-            {/*<NumberRecognition />*/}
+                        <h1 className="text-white md:text-8xl italic p-4">PORTRAITS</h1>
+                </div>
 
-        <div className="container mx-auto mt-32 p-4">
+                {/* First Slider */}
+                <div className="gallery-slider">
+                    <div className="gallery-track">
+                        {imagesSlider1.map((src, index) => (
+                            <div key={index} className="gallery-item">
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image ${index + 1}`}
+                                    className="gallery-image"
+                                />
+                            </div>
+                        ))}
+                        {/* Duplicate images for seamless loop */}
+                        {imagesSlider1.map((src, index) => (
+                            <div key={`dup-${index}`} className="gallery-item">
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image Duplicate ${index + 1}`}
+                                    className="gallery-image"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-            {/* Main Image Display */}
-            <div className="relative w-full max-w-4xl mx-auto bg-black rounded-lg overflow-hidden shadow-lg">
-                <div className="relative w-full h-[600px] flex items-center justify-center">
-                    <AnimatePresence>
-                        <motion.img
-                            key={currentImageIndex}
-                            src={images[currentImageIndex]}
-                            alt={`Image ${currentImageIndex + 1}`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="absolute object-contain h-full w-full"
-                        />
-                    </AnimatePresence>
+                <h1 className="text-white md:text-8xl italic text-right md:mr-4 p-4">LANDSCAPE</h1>
 
-                    {/* Navigation Buttons */}
-                    <button
-                        onClick={prevImage}
-                        className="glassmorphism-button absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-4xl"
-                    >
-                        <span className="material-symbols-outlined">
-                            arrow_back
-                        </span>
-                    </button>
+                {/* Second Slider (Reversed) */}
+                <div className="gallery-slider reverse">
+                    <div className="gallery-track">
+                        {imagesSlider2.map((src, index) => (
+                            <div key={index} className="gallery-item">
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image ${index + 1}`}
+                                    className="gallery-image"
+                                />
+                            </div>
+                        ))}
+                        {/* Duplicate images for seamless loop */}
+                        {imagesSlider2.map((src, index) => (
+                            <div key={`dup-${index}`} className="gallery-item">
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image Duplicate ${index + 1}`}
+                                    className="gallery-image"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-                    <button
-                        onClick={nextImage}
-                        className="glassmorphism-button absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-4xl"
-                    >
-                        <span className="material-symbols-outlined">
-                            arrow_forward
-                        </span>
-                    </button>
+                <h1 className="text-white md:text-8xl italic p-4">35MM</h1>
 
+                {/* Third Slider */}
+                <div className="gallery-slider">
+                    <div className="gallery-track">
+                        {imagesSlider3.map((src, index) => (
+                            <div key={index} className="gallery-item">
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image ${index + 1}`}
+                                    className="gallery-image"
+                                />
+                            </div>
+                        ))}
+                        {/* Duplicate images for seamless loop */}
+                        {imagesSlider3.map((src, index) => (
+                            <div key={`dup-${index}`} className="gallery-item">
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image Duplicate ${index + 1}`}
+                                    className="gallery-image"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            {/* Thumbnails Row */}
-            <div className="mt-4 flex justify-center space-x-4">
-                {images.map((src, index) => (
-                    <motion.img
-                        key={index}
-                        src={src}
-                        alt={`Thumbnail ${index + 1}`}
-                        onClick={() => selectImage(index)}
-                        className={`h-20 cursor-pointer border-4 ${
-                            index === currentImageIndex ? 'border-blue-500' : 'border-transparent'
-                        } rounded-lg transition-all duration-300 ease-in-out`}
-                        whileHover={{ scale: 1.1 }}
-                    />
-                ))}
-            </div>
+            {/* Styles */}
             <style jsx>{`
-                .scrollbar-hide {
-                    -ms-overflow-style: none; /* Internet Explorer 10+ */
-                    scrollbar-width: none; /* Firefox */
-                }
-
-                .scrollbar-hide::-webkit-scrollbar {
-                    display: none; /* Safari and Chrome */
-                }
-
-                .flex {
-                    display: flex;
-                    flex-direction: row;
-                    flex-shrink: 0;
+                .gallery-container {
+                    position: relative;
+                    width: 100%;
                     overflow: hidden;
                 }
 
-                .relative {
-                    position: relative;
-                }
+                .gallery-slider {
+          overflow: hidden;
+        }
 
-                @media (min-width: 768px) {
-                    .h-96 {
-                        height: 24rem;
-                    }
-                }
+        .gallery-track {
+          display: flex;
+          width: calc(200%);
+          animation: scroll 60s linear infinite;
+        }
 
-                .glassmorphism-button {
-                    width: 70px;
-                    height: 70px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(255, 255, 255, 0.2);
-                    backdrop-filter: blur(10px);
-                    border-radius: 50%;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    color: white;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                    transition: background 0.3s ease;
-                }
+        .gallery-slider.reverse .gallery-track {
+          animation-direction: reverse;
+        }
 
-                .glassmorphism-button:hover {
-                    background: rgba(255, 255, 255, 0.3);
-                }
+        .gallery-item {
+          flex-shrink: 0;
+          margin-right: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-                .material-symbols-outlined {
-                    font-variation-settings: 'FILL' 0,
-                    'wght' 400,
-                    'GRAD' 0,
-                    'opsz' 48;
-                }
-            `}</style>
+        .gallery-image {
+          width: auto;
+          max-height: 50vh;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 767px) {
+          .gallery-slider {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+          }
+
+          .gallery-track {
+            animation: none; /* Disable animation on mobile */
+            width: auto; /* Let the track width adjust to content */
+          }
+
+          .gallery-item {
+            margin-right: 10px;
+          }
+
+          /* Hide scrollbar if desired */
+          .gallery-slider::-webkit-scrollbar {
+            display: none;
+          }
+          .gallery-slider {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+          }
+        }
+      `}</style>
         </div>
-        </Layout>
     );
 };
 
