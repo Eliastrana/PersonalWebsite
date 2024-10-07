@@ -82,7 +82,7 @@ const EkteTid = () => {
                 <div className="flex flex-col md:flex-row items-center gap-12 mx-4 md:m-28 mt-8 mb-12 md:mb-0">
 
                     <div className="w-full md:w-1/2 mt-4 md:mt-0">
-                        <Image src="/assets/gallery/ektetid_showcase/frontpage.png" alt="eggen" width={800}
+                        <Image src="/assets/gallery/ektetid_showcase/frontpage.png" alt="ektetid" width={800}
                                height={800} className="mx-auto"/>
                     </div>
 

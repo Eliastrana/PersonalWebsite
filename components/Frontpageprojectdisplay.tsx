@@ -52,7 +52,7 @@ const Tile: React.FC<TileProps> = ({ title, year, imageUrl, description, link, v
                         <button
                             className="text-black px-4 py-2 rounded-full flex items-center border-black border-2 hover:bg-gray-950 hover:text-white"
                         >
-                            Learn more
+                            Info
                         </button>
                     </Link>
 
@@ -134,7 +134,7 @@ const TileContainer: React.FC = () => {
                     <Tile
                         title="EkteTid"
                         year="2024"
-                        imageUrl="/assets/gallery/ektetid.jpg"
+                        imageUrl="/assets/gallery/ektetid_showcase/frontpage.png"
                         description="EkteTid is a BeReal-inspired web application created as a tool for sharing vacation photos with loved ones during the trip itself. The website is connected to Sanity CMS and allows users to upload photos and write a short description from their mobile devices. The website is hosted on Vercel and built with Next.js."
                         link="/ektetid"
                         visit="https://ektetid.no"
