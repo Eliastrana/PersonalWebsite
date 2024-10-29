@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from "next/link";
+import Layout from "../components/layout";
 
 const imagesSlider1 = [
     'assets/gallery/portraits/DSCF0583.jpeg',
@@ -40,18 +41,20 @@ const imagesSlider3 = [
 
 const GalleryPage = () => {
     return (
-        <div className="gallery-container bg-black">
+        <Layout>
+
+        <div className="gallery-container dark:bg-black">
             {/* Gallery Sliders */}
             <div className="gallery-wrapper ">
                 <div className="">
 
-                    <Link href="/">
-                        <h1 className={`text-4xl font-bold transition-colors josefin-sans duration-300 text-white p-4`}>
-                            ET
-                        </h1>
-                    </Link>
+                    {/*<Link href="/">*/}
+                    {/*    <h1 className={`text-4xl font-bold transition-colors josefin-sans duration-300 text-black dark:text-white p-4`}>*/}
+                    {/*        ET*/}
+                    {/*    </h1>*/}
+                    {/*</Link>*/}
 
-                        <h1 className="text-white md:text-8xl italic p-4">PORTRAITS</h1>
+                        <h1 className="dark:text-white md:text-8xl italic p-4 mt-20">PORTRAITS</h1>
                 </div>
 
                 {/* First Slider */}
@@ -79,7 +82,7 @@ const GalleryPage = () => {
                     </div>
                 </div>
 
-                <h1 className="text-white md:text-8xl italic text-right md:mr-4 p-4">LANDSCAPE</h1>
+                <h1 className="dark:text-white md:text-8xl italic text-right md:mr-4 p-4">LANDSCAPE</h1>
 
                 {/* Second Slider (Reversed) */}
                 <div className="gallery-slider reverse">
@@ -106,7 +109,7 @@ const GalleryPage = () => {
                     </div>
                 </div>
 
-                <h1 className="text-white md:text-8xl italic p-4">35MM</h1>
+                <h1 className="dark:text-white md:text-8xl italic p-4">35MM</h1>
 
                 {/* Third Slider */}
                 <div className="gallery-slider">
@@ -205,6 +208,9 @@ const GalleryPage = () => {
         }
       `}</style>
         </div>
+
+        </Layout>
+
     );
 };
 

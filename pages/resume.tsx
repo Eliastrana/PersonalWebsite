@@ -101,7 +101,7 @@ const ResumePage = () => {
 
         <div className="container mx-auto mt-32 p-4">
 
-            <h1 className="text-7xl font-bold text-center mb-8">Resume</h1>
+            <h1 className="text-7xl dark:text-white text-center mb-8">Resume</h1>
 
             {/* Toggle Switch */}
             <div className="flex justify-center mb-4">

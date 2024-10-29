@@ -131,22 +131,23 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                     {/* Text Section */}
                     <div className="w-full md:w-2/3 text-center md:text-left">
 
-                        {/* 3D Carousel Image Section */}
-                        <div className="carousel-wrapper relative mt-8">
-                            <div className="carousel" style={{transform: `rotateY(${rotationDegree}deg)`}}>
-                                {images.map((image, index) => (
-                                    <div key={index} className="carousel-item">
-                                        <Image
-                                            src={image}
-                                            alt={`Image ${index + 1}`}
-                                            className="rounded-lg shadow-lg"
-                                            width={400}
-                                            height={600}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        {/*/!* 3D Carousel Image Section *!/*/}
+                        {/*<div className="carousel-wrapper relative mt-8">*/}
+                        {/*    <div className="carousel" style={{transform: `rotateY(${rotationDegree}deg)`}}>*/}
+                        {/*        {images.map((image, index) => (*/}
+                        {/*            <div key={index} className="carousel-item">*/}
+                        {/*                <Image*/}
+                        {/*                    src={image}*/}
+                        {/*                    alt={`Image ${index + 1}`}*/}
+                        {/*                    className="rounded-lg shadow-lg"*/}
+                        {/*                    width={400}*/}
+                        {/*                    height={600}*/}
+                        {/*                />*/}
+                        {/*            </div>*/}
+                        {/*        ))}*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+
 
                         <h1
                             className="text-7xl md:text-11xl josefin-sans font-bold mt-28 mb-4"
@@ -159,6 +160,31 @@ const ImageDisplayer: React.FC<{ title: string; undertitle: string }> = ({ title
                            style={{color: textColor, transition: 'color 0.5s ease'}}>
                             {undertitle}
                         </p>
+
+
+                        <div>
+                            <div className="flex justify-left md:gap-20">
+                            <Image
+                                src={"/assets/gallery/eggen_showcase/EA-logo-epost.png"}
+                                alt="karusell"
+                                width={800}
+                                height={200}
+                                className="md:h-32 w-fit
+                                rounded-lg shadow-lg"
+                            />
+
+                                <Image
+                                    src={"/assets/gallery/ektetid_showcase/ektetid_logo.png"}
+                                    alt="karusell"
+                                    width={800}
+                                    height={200}
+                                    className="md:h-32 md:w-28
+                                rounded-lg shadow-lg"
+                                />
+                            </div>
+
+                        </div>
+
                     </div>
 
                     {/* Color Picker Section (Desktop View) */}

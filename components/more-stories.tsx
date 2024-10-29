@@ -26,7 +26,7 @@ const MoreStories = ({ posts }: Props) => {
         //     transition={{ duration: 1.5, ease: "easeIn" }}
         // >
             <section>
-                <h2 className="mb-8 mt-10 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+                <h2 className="dark:text-white mb-8 mt-10 text-5xl md:text-7xl tracking-tighter leading-tight">
                     More Posts
                 </h2>
 
@@ -38,7 +38,7 @@ const MoreStories = ({ posts }: Props) => {
 
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32 ">
+                <div className=" grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32 ">
                     {filteredPosts.map((post) => (
                         <PostPreview
                             key={post.slug}

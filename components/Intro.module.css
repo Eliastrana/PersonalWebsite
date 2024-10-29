@@ -1,37 +1,36 @@
 /* Font Styles */
 .customFont {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 15vw; /* Responsive font size */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     font-style: normal;
 }
 
 .customFontSmall {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 2vw;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .boxInfoFontH1 {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 3.5rem;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .boxInfoFontH2 {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1.5rem;
     color: #4783f3;
 }
 
 .boxInfoFontH3 {
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1.25rem;
-    color: #171616;
 }
 
 .boxInfoFontP {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: medium;
 }
 

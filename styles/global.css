@@ -17,59 +17,153 @@
     }
 }
 
+
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #EEEEEE;
+        color: #121212;
+    }
+
+    .navbar {
+        background-color: #f0f0f0;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 5rem); /* Adjust these values as needed */
+        font-family: 'Josefin Sans', sans-serif;
+        line-height: 1.2;
+        color: #121212;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h2 {
+        font-size: clamp(2rem, 5vw, 15rem); /* Adjust these values as needed */
+        font-family: 'Josefin Sans', sans-serif;
+        line-height: 1.2;
+        color: #121212;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h3 {
+        font-size: clamp(1rem, 1vw, 2rem); /* Adjust these values as needed */
+        font-family: 'Lexend', sans-serif;
+        line-height: 1.2;
+        color: #121212;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h4 {
+        font-size: clamp(2rem, 2vw, 3rem); /* Adjust these values as needed */
+        font-family: 'Lexend', sans-serif;
+        line-height: 1.2;
+        color: #121212;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+
+    .button {
+    font-family: 'Josefin Sans', sans-serif;
+    }
+
+
+
+
+    /* Add more light mode-specific styles here */
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #EEEEEE;
+    }
+
+    .navbar {
+        background-color: #333333;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 5rem); /* Adjust these values as needed */
+        font-family: 'Josefin Sans', sans-serif;
+        line-height: 1.2;
+        color: #EEEEEE;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 5rem); /* Adjust these values as needed */
+        font-family: 'Josefin Sans', sans-serif;
+        line-height: 1.2;
+        color: #EEEEEE;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h2 {
+        font-size: clamp(2rem, 5vw, 15rem); /* Adjust these values as needed */
+        font-family: 'Josefin Sans', sans-serif;
+        line-height: 1.2;
+        color: #EEEEEE;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h3 {
+        font-size: clamp(1rem, 1vw, 2rem); /* Adjust these values as needed */
+        font-family: 'Lexend', sans-serif;
+        line-height: 1.2;
+        color: #EEEEEE;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    h4 {
+        font-size: clamp(2rem, 2vw, 3rem); /* Adjust these values as needed */
+        font-family: 'Lexend', sans-serif;
+        line-height: 1.2;
+        color: #EEEEEE;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    .button {
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    /* Add more dark mode-specific styles here */
+}
+
 .fadeInUp {
     animation: fadeInUp 2.5s ease-out; /* Increased duration from 1s to 2.5s */
 }
 
-h1 {
-    font-size: clamp(2rem, 5vw, 5rem); /* Adjust these values as needed */
-    font-family: 'Lexend', sans-serif;
-    line-height: 1.2;
-    color: #171616;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
 
 
 
-h2 {
-    font-size: clamp(2rem, 5vw, 15rem); /* Adjust these values as needed */
-    font-family: 'Lexend', sans-serif;
-    line-height: 1.2;
-    color: #171616;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
 
-h3 {
-    font-size: clamp(1rem, 1vw, 2rem); /* Adjust these values as needed */
-    font-family: 'Lexend', sans-serif;
-    line-height: 1.2;
-    color: #171616;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
-
-h4 {
-    font-size: clamp(2rem, 2vw, 3rem); /* Adjust these values as needed */
-    font-family: 'Lexend', sans-serif;
-    line-height: 1.2;
-    color: #171616;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
 /* global.css */
 
 body {
-    font-family: 'Roboto', sans-serif;
 
-        background-color: #fffffa; /* Replace with your desired color */
+
 
 }
 

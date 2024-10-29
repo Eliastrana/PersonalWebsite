@@ -32,7 +32,7 @@ const HeroPost = ({
                   }: Props) => {
     return (
         <section>
-            <div>
+            <div className="border-2 border-black dark:border-white rounded-lg">
                 <div className="mb-8 md:mb-16">
                     <CoverImage
                         title={title}
@@ -40,9 +40,9 @@ const HeroPost = ({
                         slug={slug}
                     />
                 </div>
-                <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-                    <div>
-                        <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
+                <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 md:mb-20">
+                    <div className="md:ml-16 m-5">
+                        <h3 className="mb-4 text-4xl lg:text-5xl leading-tight dark:text-white">
                             <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover:underline">
                                 {title}
                             </Link>
@@ -61,7 +61,7 @@ const HeroPost = ({
                             </div>
                         )}
                     </div>
-                    <div>
+                    <div className="m-5">
                         <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
                         <Avatar name={author.name} picture={author.picture} />
                     </div>
