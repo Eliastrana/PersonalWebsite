@@ -43,7 +43,7 @@ const GalleryPage = () => {
     return (
         <Layout>
 
-        <div className="gallery-container dark:bg-black">
+        <div className="gallery-container">
             {/* Gallery Sliders */}
             <div className="gallery-wrapper ">
                 <div className="">
@@ -54,7 +54,7 @@ const GalleryPage = () => {
                     {/*    </h1>*/}
                     {/*</Link>*/}
 
-                        <h1 className="dark:text-white md:text-8xl italic p-4 mt-20">PORTRAITS</h1>
+                        <h1 className="dark:text-white md:text-12xl text-6xl italic p-4 mt-20">PORTRAITS</h1>
                 </div>
 
                 {/* First Slider */}
@@ -82,7 +82,7 @@ const GalleryPage = () => {
                     </div>
                 </div>
 
-                <h1 className="dark:text-white md:text-8xl italic text-right md:mr-4 p-4">LANDSCAPE</h1>
+                <h1 className="dark:text-white md:text-12xl text-6xl italic text-right md:mr-4 p-4">LANDSCAPE</h1>
 
                 {/* Second Slider (Reversed) */}
                 <div className="gallery-slider reverse">
@@ -109,7 +109,7 @@ const GalleryPage = () => {
                     </div>
                 </div>
 
-                <h1 className="dark:text-white md:text-8xl italic p-4">35MM</h1>
+                <h1 className="dark:text-white md:text-12xl text-6xl italic p-4">35MM</h1>
 
                 {/* Third Slider */}
                 <div className="gallery-slider">

@@ -34,7 +34,7 @@ const Tile: React.FC<TileProps> = ({
     };
 
     return (
-        <div className="rounded-lg border-2 border-black dark:border-white max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl w-full flex flex-col">
+        <div className="rounded-lg border-2 border-black dark:border-white w-full flex flex-col">
             <Link href={link}>
                 <div className="relative w-full h-0 pb-[56.25%]"> {/* 16:9 Aspect Ratio */}
                     <Image
@@ -55,7 +55,7 @@ const Tile: React.FC<TileProps> = ({
                     <div className="flex items-center gap-2">
                         <button
                             onClick={handleVisitClick}
-                            className="text-black px-4 py-2 rounded-lg flex items-center underline hover:text-blue-600 transition"
+                            className="text-black px-4 py-2 rounded-lg flex items-center underline dark:text-white transition"
                             aria-label={`Visit ${title}`}
                         >
                             Visit
@@ -63,7 +63,7 @@ const Tile: React.FC<TileProps> = ({
 
                         <Link href={link}>
                             <button
-                                className="text-black px-4 py-2 rounded-full flex items-center border border-black hover:bg-gray-950 hover:text-white transition"
+                                className="text-black px-4 py-2 rounded-full flex items-center border border-black dark:border-white dark:hover:bg-white dark:hover:text-black dark:text-white transition"
                                 aria-label={`More info about ${title}`}
                             >
                                 Info
@@ -72,9 +72,9 @@ const Tile: React.FC<TileProps> = ({
                     </div>
                 </div>
 
-                <p className="text-gray-600 font-medium mt-2">{year}</p>
+                <p className="text-gray-600 dark:text-gray-200 font-medium mt-2">{year}</p>
 
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center gap-2 mt-4 rounded-lg">
                     <Image
                         src={logo}
                         alt={`${title} Logo 1`}
@@ -88,7 +88,7 @@ const Tile: React.FC<TileProps> = ({
                         alt={`${title} Logo 2`}
                         width={30}
                         height={30}
-                        className="my-2"
+                        className="my-2 dark:bg-white"
                     />
 
                     <Image
@@ -96,7 +96,7 @@ const Tile: React.FC<TileProps> = ({
                         alt={`${title} Logo 3`}
                         width={30}
                         height={30}
-                        className="my-2"
+                        className="my-2 dark:bg-white"
                     />
 
                     <Image
@@ -116,7 +116,7 @@ const Tile: React.FC<TileProps> = ({
                     />
                 </div>
 
-                <p className="mt-4 text-gray-700 flex-grow">{description}</p>
+                <p className="mt-4 text-gray-700 dark:text-gray-200 flex-grow">{description}</p>
             </div>
         </div>
     );
@@ -124,12 +124,10 @@ const Tile: React.FC<TileProps> = ({
 
 const TileContainer: React.FC = () => {
     return (
-        <div className="container mx-auto flex flex-col items-center m-5 md:m-20">
+        <div className="container mx-auto flex flex-col p-5 md:p-20">
             {/* Optional Heading */}
             {/* <h2 className="text-4xl mb-8">Recent Work</h2> */}
-            <div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 w-full"
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full">
                 <Tile
                     title="Eggen Arkitekter"
                     year="2024"

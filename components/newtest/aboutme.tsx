@@ -6,16 +6,17 @@ const Aboutme = () => {
     return (
 
     <div className="flex justify-center md:mt-0 ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mx-auto w-full">
+        <div className="grid grid-cols-1 custom-lg:grid-cols-2 gap-4 mx-auto w-full">
             <div className="col-span-1 lg:col-span-2">
-                <div className="transition-shadow duration-300 border-2 border-black dark:border-white rounded-lg md:m-20 m-5 ">
+                <div
+                    className="transition-shadow duration-300 border-2 border-black dark:border-white rounded-lg md:m-20 m-5 ">
                     <WideBox
                         imageUrl="./assets/gallery/profilbilde.jpg"
-                        title="About Me"
+                        title="Welcome!"
                         undertitle=""
                         location={"📍 Trondheim, Norway"}
                         education={"🎓 Computer Science, NTNU"}
-                        hobbies={"💻 React, Next.js, Sanity CMS, Tailwind CSS"}
+                        hobbies={"💻 Next.js, Sanity CMS, Tailwind CSS"}
 
                         text="My name is Elias Trana, and I am a student at NTNU Trondheim, studying Computer Engineering.
                                   This is my personal website where I will be posting my projects, both personal and school related.

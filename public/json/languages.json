@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "icon": "/languageIcons/react.png",
+    "title": "React",
+    "description": "Used for building this website, as well as others.",
+    "category": "Framework"
+  },
+  {
+    "id": 2,
+    "icon": "/languageIcons/typescript.png",
+    "title": "TypeScript",
+    "description": "Prioritized language for all web-related projects.",
+    "category": "Language"
+  },
+  {
+    "id": 3,
+    "icon": "/languageIcons/next-js.svg",
+    "title": "Next.js",
+    "description": "Used for quickly building static and dynamic websites.",
+    "category": "Framework"
+  },
+  {
+    "id": 4,
+    "icon": "/languageIcons/vercel.svg",
+    "title": "Vercel",
+    "description": "Used for quickly deploying all web projects.",
+    "category": "Tool"
+  },
+  {
+    "id": 5,
+    "icon": "/languageIcons/javascript.png",
+    "title": "JavaScript",
+    "description": "Used throughout all the web development.",
+    "category": "Language"
+  },
+  {
+    "id": 6,
+    "icon": "/languageIcons/tailwind.png",
+    "title": "Tailwind CSS",
+    "description": "Used for styling this website.",
+    "category": "Framework"
+  },
+  {
+    "id": 7,
+    "icon": "/languageIcons/git.png",
+    "title": "Git",
+    "description": "Used for version control and collaboration on all projects.",
+    "category": "Tool"
+  },
+  {
+    "id": 8,
+    "icon": "/languageIcons/vue.png",
+    "title": "Vue",
+    "description": "Used for multiple school projects.",
+    "category": "Framework"
+  },
+  {
+    "id": 9,
+    "icon": "/languageIcons/java.webp",
+    "title": "Java",
+    "description": "Used for multiple school projects. Both backend and frontend.",
+    "category": "Language"
+  },
+  {
+    "id": 10,
+    "icon": "/languageIcons/cpp.png",
+    "title": "C++",
+    "description": "Used for multiple school projects.",
+    "category": "Language"
+  },
+  {
+    "id": 11,
+    "icon": "/languageIcons/python.png",
+    "title": "Python",
+    "description": "Used for machine learning, data analysis, and more.",
+    "category": "Language"
+  },
+  {
+    "id": 12,
+    "icon": "/languageIcons/mysql.png",
+    "title": "MySQL",
+    "description": "Used as databases for multiple school projects.",
+    "category": "Language"
+  }
+]

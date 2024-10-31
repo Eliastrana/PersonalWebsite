@@ -61,8 +61,8 @@ const BlogSection = ({ allPosts, tags }: Props) => {
     return (
         <>
 
-            <h2 className="mb-8 mt-10 text-5xl md:text-7xl tracking-tighter leading-tight dark:text-white ">
-                Featured Posts
+            <h2 className="mb-8 mt-10 text-6xl md:text-12xl tracking-tighter leading-tight dark:text-white italic ">
+                FEATURED POSTS
             </h2>
             <CategorySorter selectedTag={selectedTag} onTagChange={setSelectedTag} tags={tags || []} />
             {heroPost && (

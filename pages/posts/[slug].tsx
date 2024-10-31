@@ -86,7 +86,7 @@ export default function Post({ post, preview }: Props) {
   return (
       <Layout preview={preview}>
         {/* Progress Bar */}
-        <div style={{ width: `${scrollProgress}%` }} className="fixed top-0 left-0 h-1 bg-blue-500 z-50" />
+        <div style={{ width: `${scrollProgress}%` }} className="fixed top-0 left-0 h-1 bg-black dark:bg-white z-50" />
 
         {/* Image Follows Progress Bar and Fades In/Out After Inactivity */}
         <div
