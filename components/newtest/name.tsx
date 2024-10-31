@@ -3,23 +3,49 @@ import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import * as Matter from 'matter-js';
 
+// Updated Type Definitions
 type SpawnItem = {
     id: number;
-    type: 'word';
-    content: string;
+    type: 'word' | 'image';
+    content?: string;        // For words
+    imageUrl?: string;       // For images
+    width?: number;          // Desired display width for images
+    height?: number;         // Desired display height for images
+    naturalWidth?: number;   // Natural width of the image
+    naturalHeight?: number;  // Natural height of the image
 };
 
-// List of words to spawn
+// List of words and images to spawn
 const spawnItemsList: SpawnItem[] = [
     { id: 1, type: 'word', content: 'Elias' },
     { id: 2, type: 'word', content: 'Trana' },
     { id: 3, type: 'word', content: 'Developer' },
     { id: 4, type: 'word', content: 'Next.js' },
-    { id: 5, type: 'word', content: 'Sanity CMS' },
-    { id: 6, type: 'word', content: 'Tailwind' },
-    { id: 7, type: 'word', content: 'Vue' },
-    { id: 8, type: 'word', content: 'Photography' },
-    // Add more words as needed
+    {
+        id: 5,
+        type: 'image',
+        imageUrl: '/assets/gallery/ektetid_showcase/ektetid_logo_200.png',
+        width: 100,
+        height: 100,
+        naturalWidth: 200,    // Replace with the actual natural width of your image
+        naturalHeight: 200    // Replace with the actual natural height of your image
+    },
+    { id: 6, type: 'word', content: 'Sanity CMS' },
+    { id: 7, type: 'word', content: 'Tailwind' },
+    {
+        id: 8,
+        type: 'image',
+        imageUrl: '/assets/gallery/eggen_showcase/eggen_logo.png',
+        width: 100,
+        height: 100,
+        naturalWidth: 200,    // Replace with the actual natural width of your image
+        naturalHeight: 200    // Replace with the actual natural height of your image
+    },
+    { id: 9, type: 'word', content: 'Vue' },
+    { id: 10, type: 'word', content: 'Photography' },
+    // Add images with natural dimensions
+
+    // Add more images as needed
 ];
 
 const Name: React.FC = () => {
@@ -174,68 +200,102 @@ const Name: React.FC = () => {
         };
     }, []);
 
-    // Function to spawn a new word with high-resolution rendering
-    const spawnWord = (x: number, y: number) => {
+    // Function to spawn a new item (word or image)
+    const spawnItem = (x: number, y: number) => {
         if (!engineRef.current || !sceneRef.current) return;
 
         const engine = engineRef.current;
         const world = engine.world;
 
-        const word = spawnItemsList[currentIndex % spawnItemsList.length]; // Cycle through words
+        const item = spawnItemsList[currentIndex % spawnItemsList.length]; // Cycle through items
 
-        // Scale font size based on screen width
-        const fontSize = Math.min(Math.max(sceneRef.current.clientWidth / 10, 40), 120); // Between 40px and 120px
-        const wordWidth = word.content.length * fontSize * 0.6; // Adjust width based on font size and text length
-        const wordHeight = fontSize; // Height matches font size
+        let body: Matter.Body;
 
-        // Create a rectangle body for the word
-        const body = Matter.Bodies.rectangle(x, y, wordWidth, wordHeight, {
-            restitution: 0.8,
-            friction: 0.5,
-            density: 0.001,
-            label: `word-${word.id}`,
-            render: {
-                fillStyle: 'transparent',
-                sprite: {
-                    texture: '', // Set texture below
-                    xScale: 1,
-                    yScale: 1,
+        if (item.type === 'word' && item.content) {
+            // Existing code to create a word body
+            const fontSize = Math.min(Math.max(sceneRef.current.clientWidth / 10, 40), 120); // Between 40px and 120px
+            const wordWidth = item.content.length * fontSize * 0.6; // Adjust width based on font size and text length
+            const wordHeight = fontSize; // Height matches font size
+
+            // Create a rectangle body for the word
+            body = Matter.Bodies.rectangle(x, y, wordWidth, wordHeight, {
+                restitution: 0.8,
+                friction: 0.5,
+                density: 0.001,
+                label: `word-${item.id}`,
+                render: {
+                    fillStyle: 'transparent',
+                    sprite: {
+                        texture: '', // Set texture below
+                        xScale: 1,
+                        yScale: 1,
+                    },
                 },
-            },
-        });
+            });
 
-        // Create a canvas to render the text
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-            const devicePixelRatio = window.devicePixelRatio || 1;
+            // Create a canvas to render the text
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+                const devicePixelRatio = window.devicePixelRatio || 1;
 
-            // Set canvas size based on device pixel ratio for higher resolution
-            canvas.width = wordWidth * devicePixelRatio;
-            canvas.height = wordHeight * devicePixelRatio;
+                // Set canvas size based on device pixel ratio for higher resolution
+                canvas.width = wordWidth * devicePixelRatio;
+                canvas.height = wordHeight * devicePixelRatio;
 
-            // Scale the context to account for the increased size
-            ctx.scale(devicePixelRatio, devicePixelRatio);
+                // Scale the context to account for the increased size
+                ctx.scale(devicePixelRatio, devicePixelRatio);
 
-            // Clear the canvas
-            ctx.clearRect(0, 0, wordWidth, wordHeight);
+                // Clear the canvas
+                ctx.clearRect(0, 0, wordWidth, wordHeight);
 
-            // Set text properties
-            ctx.fillStyle = isLightMode ? 'black' : 'white';
-            ctx.font = `${fontSize}px 'Josefin Sans', sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+                // Set text properties
+                ctx.fillStyle = isLightMode ? 'black' : 'white';
+                ctx.font = `${fontSize}px 'Josefin Sans', sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
 
-            // Render the text
-            ctx.fillText(word.content, wordWidth / 2, wordHeight / 2);
+                // Render the text
+                ctx.fillText(item.content, wordWidth / 2, wordHeight / 2);
 
-            // Convert canvas to data URL
-            const texture = canvas.toDataURL();
+                // Convert canvas to data URL
+                const texture = canvas.toDataURL();
 
-            // Assign the texture to the body's sprite
-            body.render.sprite.texture = texture;
-            body.render.sprite.xScale = 1 / devicePixelRatio;
-            body.render.sprite.yScale = 1 / devicePixelRatio;
+                // Assign the texture to the body's sprite
+                body.render.sprite.texture = texture;
+                body.render.sprite.xScale = 1 / devicePixelRatio;
+                body.render.sprite.yScale = 1 / devicePixelRatio;
+            }
+        } else if (
+            item.type === 'image' &&
+            item.imageUrl &&
+            item.width &&
+            item.height &&
+            item.naturalWidth &&
+            item.naturalHeight
+        ) {
+            // Compute the scaling factors
+            const xScale = item.width / item.naturalWidth;
+            const yScale = item.height / item.naturalHeight;
+
+            // Create a rectangle body for the image
+            body = Matter.Bodies.rectangle(x, y, item.width, item.height, {
+                restitution: 0.8,
+                friction: 0.5,
+                density: 0.001,
+                label: `image-${item.id}`,
+                render: {
+                    fillStyle: 'transparent',
+                    sprite: {
+                        texture: item.imageUrl,
+                        xScale: xScale,
+                        yScale: yScale,
+                    },
+                },
+            });
+        } else {
+            // Invalid item, skip
+            return;
         }
 
         // Add the body to the world
@@ -245,9 +305,9 @@ const Name: React.FC = () => {
         setCurrentIndex((prev) => prev + 1);
     };
 
-    // Handle user interactions to spawn words
+    // Handle user interactions to spawn items
     const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-        if (isDraggingRef.current) return; // Don't spawn a word if dragging
+        if (isDraggingRef.current) return; // Don't spawn an item if dragging
 
         if (!sceneRef.current) return;
 
@@ -255,7 +315,7 @@ const Name: React.FC = () => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        spawnWord(x, y);
+        spawnItem(x, y);
 
         // Hide the image after the first click
         if (showImage) {
@@ -365,7 +425,7 @@ const Name: React.FC = () => {
             </div>
 
             {/* Next Section */}
-            <div ref={scrollRef} style={{height: '10vh'}}>
+            <div ref={scrollRef} style={{ height: '10vh' }}>
                 <button
                     onClick={handleScrollDown}
                     className="scroll-button"
@@ -395,7 +455,9 @@ const Name: React.FC = () => {
                         background: none;
                         border: 2px solid ${isLightMode ? 'black' : 'white'};
                         cursor: pointer;
+                        border-radius: 20%;
                         padding: 0;
+                        transition: background 0.3s;
                     }
 
                     .scroll-icon {
@@ -404,15 +466,17 @@ const Name: React.FC = () => {
                     }
 
                     .scroll-button:hover .scroll-icon {
-                        stroke: ${isLightMode ? 'gray' : 'lightgray'};
+                        stroke: ${isLightMode ? 'white' : 'black'};
+                        
                     }
 
                     .scroll-button:hover {
-                        background: ${isLightMode ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)'};
+                        background: ${isLightMode
+                    ? 'black'
+                    : 'white'};
                     }
                 `}</style>
             </div>
-
         </>
     );
 };
