@@ -41,9 +41,15 @@ const Name: React.FC = () => {
         setIsLightMode(!prefersDark);
 
         // Optional: listen to theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleChange = (e: MediaQueryListEvent) => {
             setIsLightMode(!e.matches);
-        });
+        };
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => {
+            mediaQuery.removeEventListener('change', handleChange);
+        };
     }, []);
 
     useEffect(() => {
@@ -97,43 +103,30 @@ const Name: React.FC = () => {
         // Add ground and walls to the world
         Matter.World.add(world, [ground, leftWall, rightWall]);
 
-        // Detect if the device is touch-capable
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-        const cleanupObjects = [ground, leftWall, rightWall];
-
-        if (!isTouchDevice) {
-            // Add Mouse Control for non-touch devices
-            const mouse = Matter.Mouse.create(render.canvas);
-            const mouseConstraint = Matter.MouseConstraint.create(engine, {
-                mouse: mouse,
-                constraint: {
-                    stiffness: 0.2,
-                    render: {
-                        visible: false, // Set to true for debugging
-                    },
+        // Add Mouse Control
+        const mouse = Matter.Mouse.create(render.canvas);
+        const mouseConstraint = Matter.MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false, // Set to true for debugging
                 },
-            });
-            Matter.World.add(world, mouseConstraint);
+            },
+        });
+        Matter.World.add(world, mouseConstraint);
 
-            // Keep the mouse in sync with rendering
-            render.mouse = mouse;
+        // Keep the mouse in sync with rendering
+        render.mouse = mouse;
 
-            // Add event listeners for drag start and end
-            Matter.Events.on(mouseConstraint, 'startdrag', () => {
-                isDraggingRef.current = true;
-            });
+        // Add event listeners for drag start and end
+        Matter.Events.on(mouseConstraint, 'startdrag', () => {
+            isDraggingRef.current = true;
+        });
 
-            Matter.Events.on(mouseConstraint, 'enddrag', () => {
-                isDraggingRef.current = false;
-            });
-
-            // Add mouseConstraint to cleanup
-            cleanupObjects.push(mouseConstraint);
-        } else {
-            // For touch devices, allow scrolling by setting touchAction
-            render.canvas.style.touchAction = 'pan-y';
-        }
+        Matter.Events.on(mouseConstraint, 'enddrag', () => {
+            isDraggingRef.current = false;
+        });
 
         // Run the renderer
         Matter.Render.run(render);
@@ -174,7 +167,7 @@ const Name: React.FC = () => {
             window.removeEventListener('resize', handleResize);
             Matter.Render.stop(render);
             Matter.Runner.stop(runner);
-            Matter.World.remove(world, cleanupObjects);
+            Matter.World.clear(world, false);
             Matter.Engine.clear(engine);
             render.canvas.remove();
             render.textures = {};
@@ -252,8 +245,8 @@ const Name: React.FC = () => {
         setCurrentIndex((prev) => prev + 1);
     };
 
-    // Handle user clicks to spawn words
-    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Handle user interactions to spawn words
+    const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
         if (isDraggingRef.current) return; // Don't spawn a word if dragging
 
         if (!sceneRef.current) return;
@@ -261,26 +254,6 @@ const Name: React.FC = () => {
         const rect = sceneRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
-        spawnWord(x, y);
-
-        // Hide the image after the first click
-        if (showImage) {
-            setShowImage(false);
-        }
-    };
-
-    // Handle touch events for mobile devices
-    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-        if (!sceneRef.current) return;
-
-        // Allow scrolling by not preventing default
-        if (isDraggingRef.current) return;
-
-        const rect = sceneRef.current.getBoundingClientRect();
-        const touch = e.touches[0];
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
 
         spawnWord(x, y);
 
@@ -301,8 +274,7 @@ const Name: React.FC = () => {
         <>
             <div
                 ref={sceneRef}
-                onClick={handleClick}
-                onTouchStart={handleTouchStart}
+                onPointerUp={handlePointerUp}
                 className="animated-border"
                 style={{
                     position: 'relative',
@@ -312,9 +284,6 @@ const Name: React.FC = () => {
                     cursor: 'pointer',
                     touchAction: 'pan-y',
                     overflow: 'hidden',
-                    // Remove border from inline styles
-                    // border: `3px solid ${isLightMode ? 'black' : 'white'}`,
-                    // borderRadius: '10px',
                 }}
             >
                 {showImage && (
@@ -396,19 +365,10 @@ const Name: React.FC = () => {
             </div>
 
             {/* Next Section */}
-            <div ref={scrollRef} style={{ height: '10vh' }}>
+            <div ref={scrollRef} style={{height: '10vh'}}>
                 <button
                     onClick={handleScrollDown}
-                    style={{
-                        position: 'absolute',
-                        bottom: '20px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: 0,
-                    }}
+                    className="scroll-button"
                     aria-label="Scroll down"
                 >
                     <svg
@@ -416,17 +376,43 @@ const Name: React.FC = () => {
                         height="60"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke={isLightMode ? 'black' : 'white'}
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        className="scroll-icon"
                     >
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <polyline points="19 12 12 19 5 12"></polyline>
                     </svg>
                 </button>
-                {/* Add more content as needed */}
+
+                <style jsx>{`
+                    .scroll-button {
+                        position: absolute;
+                        bottom: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: none;
+                        border: 2px solid ${isLightMode ? 'black' : 'white'};
+                        cursor: pointer;
+                        padding: 0;
+                    }
+
+                    .scroll-icon {
+                        stroke: ${isLightMode ? 'black' : 'white'};
+                        transition: stroke 0.3s;
+                    }
+
+                    .scroll-button:hover .scroll-icon {
+                        stroke: ${isLightMode ? 'gray' : 'lightgray'};
+                    }
+
+                    .scroll-button:hover {
+                        background: ${isLightMode ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)'};
+                    }
+                `}</style>
             </div>
+
         </>
     );
 };
