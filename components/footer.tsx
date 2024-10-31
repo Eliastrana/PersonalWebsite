@@ -8,7 +8,7 @@ const Footer = () => {
 
 
             <div className="mt-10">
-            <span className="md:text-6xl text-2xl text-center">
+            <span className="md:text-6xl text-xl text-center">
               <div className="">
               Feel free to contact me at:{' '}
               <a href="mailto:eliastrana@gmail.com" className="hover:underline">
@@ -18,7 +18,7 @@ const Footer = () => {
             </span>
             </div>
 
-            <div className="md:text-6xl text-2xl text-center mt-10">
+            <div className="md:text-6xl text-lg text-center mt-20">
 
             <span className="mx-8 border-2 p-2 rounded-lg border-black dark:border-white">
               <a

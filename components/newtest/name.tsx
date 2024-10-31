@@ -458,6 +458,7 @@ const Name: React.FC = () => {
                         border-radius: 20%;
                         padding: 0;
                         transition: background 0.3s;
+                        background: ${isLightMode ? '#EEEEEE' : '#121212'};
                     }
 
                     .scroll-icon {
