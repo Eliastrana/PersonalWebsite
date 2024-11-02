@@ -13,14 +13,14 @@ const InfoTable: React.FC<InfoTableProps> = ({ data }) => {
         <div className="overflow-x-auto">
             <table className="min-w-full shadow-md">
                 <thead>
-                <tr className=" text-gray-600 uppercase text-sm leading-normal">
+                <tr className="text-gray-600 dark:text-gray-200 uppercase text-sm leading-normal">
                     <th className="py-3 px-6 text-left">Info</th>
-                    <th className="py-3 px-6 text-left">Beskrivelse</th>
+                    <th className="py-3 px-6 text-left">Description</th>
                 </tr>
                 </thead>
-                <tbody className="text-gray-600 text-sm font-light">
+                <tbody className="text-gray-600 dark:text-gray-200 text-sm font-light">
                 {Object.entries(data).map(([key, value]) => (
-                    <tr key={key} className="border-b border-gray-200 hover:bg-gray-100">
+                    <tr key={key} className="border-b border-gray-200 ">
                         <td className="py-3 px-6 text-left whitespace-nowrap">{key}</td>
                         <td className="py-3 px-6 text-left">
                             {typeof value === 'boolean' ? value.toString() : value}

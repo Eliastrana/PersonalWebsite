@@ -134,7 +134,7 @@ const Navbar = () => {
                                         data-aos-delay="200"
                                         className={`text-white text-6xl md:text-8xl lg:text-9xl ${isCurrentPage('/gallery') ? 'italic' : ''}`}
                                     >
-                                        <Link href="/gallery" className="group cursor-pointer transition-colors duration-300 ease-in-out">
+                                        <Link href="/gallery" className="group transition-colors duration-300 ease-in-out">
                                             Gallery
                                             <span className={`block transition-all duration-500 h-1 bg-yellow-200 ${isCurrentPage('/gallery') ? 'max-w-full' : 'max-w-0'} group-hover:max-w-full`}></span>
                                         </Link>

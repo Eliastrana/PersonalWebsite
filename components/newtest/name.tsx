@@ -430,6 +430,7 @@ const Name: React.FC = () => {
                     onClick={handleScrollDown}
                     className="scroll-button"
                     aria-label="Scroll down"
+
                 >
                     <svg
                         width="60"

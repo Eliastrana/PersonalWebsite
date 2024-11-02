@@ -8,7 +8,7 @@ const Footer = () => {
 
 
             <div className="mt-10">
-            <span className="md:text-6xl text-xl text-center">
+            <span className="md:text-6xl text-xl text-center md:font-josefin">
               <div className="">
               Feel free to contact me at:{' '}
               <a href="mailto:eliastrana@gmail.com" className="hover:underline">

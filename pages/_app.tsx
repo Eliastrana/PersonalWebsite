@@ -2,6 +2,8 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import '../styles/index.css'
 import '../styles/global.css'; // Adjust the path based on your directory structure
+import CustomCursor from "../components/CustomCursor";
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +14,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               rel="stylesheet"
           />
         </Head>
-        <Component {...pageProps} />
+          <Component {...pageProps} />
+          <CustomCursor />
+
       </>
   )
 }

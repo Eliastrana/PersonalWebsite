@@ -54,7 +54,7 @@ const NavBar: React.FC = () => {
     }, [activeTab, hoveredTab]);
 
     return (
-        <nav className="sticky top-0 z-50 bg-transparent animate-slide-down">
+        <nav className="sticky top-0 z-50 bg-transparent animate-slide-down custom-cursor">
             <div className="flex justify-center py-4 bg-transparent">
                 <div className="bg-transparent">
                     <div className="relative flex items-center bg-[#EEEEEE] dark:bg-[#121212] rounded-full p-1">

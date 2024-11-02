@@ -7,13 +7,13 @@ import Layout from "../components/layout";
 
 const newPage: React.FC = () => {
   return (
-      <div>
+      <div className="custom-cursor">
 
           <Layout>
-        <Name />
-        <Aboutme />
-        <Frontpageprojectdisplay />
-          <SlotViewer />
+              <Name/>
+              <Aboutme/>
+              <Frontpageprojectdisplay/>
+              <SlotViewer/>
 
           </Layout>
 

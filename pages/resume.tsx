@@ -7,7 +7,7 @@ const workExperiences = [
     {
         title: 'Webutvikler',
         company: 'Eggen arkitekter',
-        date: 'juni 2024 - Present',
+        date: 'juni 2024 - september 2024',
         location: 'Trondheim, Trøndelag, Norge',
         description: 'Utvikling av hjemmeside i NEXT.js med implementasjon av Sanity CMS for vedlikehold og oppdateringer.',
         isDeveloper: true,
@@ -22,7 +22,7 @@ const workExperiences = [
     },
     {
         title: 'Student assistent',
-        company: 'Norges teknisk-naturvitenskapelige universitet (NTNU)',
+        company: 'NTNU',
         date: 'januar 2024 - juni 2024',
         location: 'Trondheim, Trøndelag fylke, Norge',
         description: 'Student assistent for Systemutvikling 1. The course focuses on development within teams, using Scrum and other techniques.',
@@ -85,10 +85,6 @@ const ResumePage = () => {
     const [showWork, setShowWork] = useState(true);
     const [developerMode, setDeveloperMode] = useState(false);
 
-    const toggleWorkEducation = () => {
-        setShowWork(!showWork);
-    };
-
     const toggleDeveloperMode = () => {
         setDeveloperMode(!developerMode);
     };
@@ -96,80 +92,98 @@ const ResumePage = () => {
     const filteredExperiences = (showWork ? workExperiences : educationExperiences)
         .filter(exp => !developerMode || exp.isDeveloper);
 
+    const whiteColor = '#EEEEEE';
+    const blackColor = '#121212';
+
     return (
         <Layout>
+            <div className="container mx-auto mt-32 p-4">
+                <h1 className="md:text-12xl text-6xl text-left mb-8 italic dark:text-white">RESUME</h1>
 
-        <div className="container mx-auto mt-32 p-4">
+                {/* Toggle Switch */}
+                <div className="flex justify-center mb-4">
+                    <div className="inline-flex rounded-full border-2 border-black dark:border-white">
+                        <motion.button
+                            className={`px-4 py-2 rounded-l-full ${
+                                showWork
+                                    ? 'bg-black text-white dark:bg-white dark:text-black'
+                                    : 'bg-white text-black dark:bg-black dark:text-white'
+                            }`}
+                            onClick={() => setShowWork(true)}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Work
+                        </motion.button>
+                        <motion.button
+                            className={`px-4 py-2 rounded-r-full ${
+                                !showWork
+                                    ? 'bg-black text-white dark:bg-white dark:text-black'
+                                    : 'bg-white text-black dark:bg-black dark:text-white'
+                            }`}
+                            onClick={() => setShowWork(false)}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Education
+                        </motion.button>
+                    </div>
+                </div>
 
-            <h1 className="md:text-12xl text-6xl dark:text-white text-left mb-8 italic">RESUME</h1>
+                {/* Developer Mode Toggle */}
+                <div className="flex justify-center mb-12">
+                    <div className="inline-flex rounded-full border-2 border-black dark:border-white">
+                        <motion.button
+                            className={`px-4 py-2 rounded-full ${
+                                developerMode
+                                    ? 'bg-black text-white dark:bg-white dark:text-black'
+                                    : 'bg-white text-black dark:bg-black dark:text-white'
+                            }`}
+                            onClick={toggleDeveloperMode}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {developerMode ? 'Developer: ON' : 'Developer: OFF'}
+                        </motion.button>
+                    </div>
+                </div>
 
-            {/* Toggle Switch */}
-            <div className="flex justify-center mb-4">
-                <motion.button
-                    className={`px-4 py-2 rounded-l-full ${showWork ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}
-                    onClick={() => setShowWork(true)}
-                    initial={{ backgroundColor: '#ccc' }}
-                    animate={{ backgroundColor: showWork ? '#3B82F6' : '#E5E7EB', color: showWork ? '#fff' : '#000' }}
-                    transition={{ duration: 0.3 }}
-                >
-                    Work
-                </motion.button>
-                <motion.button
-                    className={`px-4 py-2 rounded-r-full ${!showWork ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}
-                    onClick={() => setShowWork(false)}
-                    initial={{ backgroundColor: '#ccc' }}
-                    animate={{ backgroundColor: !showWork ? '#3B82F6' : '#E5E7EB', color: !showWork ? '#fff' : '#000' }}
-                    transition={{ duration: 0.3 }}
-                >
-                    Education
-                </motion.button>
-            </div>
+                <div className="relative">
+                    <div className="border-l-2 border-black dark:border-white absolute left-1/2 transform -translate-x-1/2 h-full"></div>
 
-            {/* Developer Mode Toggle */}
-            <div className="flex justify-center mb-12">
-                <motion.button
-                    className={`px-4 py-2 rounded-full ${developerMode ? 'bg-green-500 text-white' : 'bg-gray-300 text-black'}`}
-                    onClick={toggleDeveloperMode}
-                    initial={{ backgroundColor: '#ccc' }}
-                    animate={{ backgroundColor: developerMode ? '#22C55E' : '#E5E7EB', color: developerMode ? '#fff' : '#000' }}
-                    transition={{ duration: 0.3 }}
-                >
-                    {developerMode ? 'Developer: ON' : 'Developer: OFF'}
-                </motion.button>
-            </div>
+                    <AnimatePresence mode='wait'>
+                        <motion.div
+                            key={showWork ? 'work' : 'education'}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <div className="space-y-8">
+                                {filteredExperiences.map((exp, index) => (
+                                    <div
+                                        key={index}
+                                        className={`relative flex items-center ${
+                                            index % 2 === 0 ? 'justify-start' : 'justify-end'
+                                        } w-full`}
+                                    >
+                                        <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
 
-            <div className="relative">
-                <div className="border-l-2 border-gray-300 absolute left-1/2 transform -translate-x-1/2 h-full"></div>
-
-                <AnimatePresence mode='wait'>
-                    <motion.div
-                        key={showWork ? 'work' : 'education'}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <div className="space-y-8">
-                            {filteredExperiences.map((exp, index) => (
-                                <div
-                                    key={index}
-                                    className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} w-full`}
-                                >
-                                    <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                                        <h4 className="text-xl font-semibold">{exp.title}</h4>
-                                        <p className="text-gray-600">{exp.company}</p>
-                                        <p className="text-gray-500">{exp.date}</p>
-                                        {exp.location && <p className="text-gray-500">{exp.location}</p>}
-                                        {exp.description && <p className="mt-2">{exp.description}</p>}
+                                            <h2 className={`${index % 2 === 0 ? 'text-right' : 'text-left'} md:text-6xl text-lg md:mb-10 leading-normal md:leading-tight `}>
+                                                {exp.title}
+                                            </h2>
+                                            <p className="text-gray-600">{exp.company}</p>
+                                            <p className="text-gray-500">{exp.date}</p>
+                                            {/*{exp.location && <p className="text-gray-500">{exp.location}</p>}*/}
+                                            {exp.description && <p className="mt-2">{exp.description}</p>}
+                                        </div>
+                                        <div
+                                            className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-black bg-black dark:border-white dark:bg-white`}
+                                        ></div>
                                     </div>
-                                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white z-10"></div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
-        </div>
         </Layout>
     );
 };

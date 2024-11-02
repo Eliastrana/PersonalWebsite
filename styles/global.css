@@ -6,6 +6,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Great+Vibes&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -17,6 +26,15 @@
     }
 }
 
+
+body {
+    cursor: none;
+
+}
+
+html, body, *, *::before, *::after {
+    cursor: none !important;
+}
 
 
 @media (prefers-color-scheme: light) {

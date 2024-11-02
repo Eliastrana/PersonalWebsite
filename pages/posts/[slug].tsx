@@ -127,7 +127,7 @@ export default function Post({ post, preview }: Props) {
                   />
                   <div className="tags flex flex-wrap md:mx-32">
                     {post.tags?.map(tag => (
-                        <span key={tag} className="m-1 p-2 bg-gray-200 rounded-full">{tag}</span>
+                        <span key={tag} className="m-1 p-2 bg-black dark:bg-white rounded-full text-white dark:text-black">{tag}</span>
                     ))}
                   </div>
                   <PostBody content={post.content} />
