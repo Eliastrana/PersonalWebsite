@@ -1,19 +1,39 @@
 // components/CustomCursor.tsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 const CustomCursor: React.FC = () => {
     const { theme } = useTheme();
     const cursorRef = useRef<HTMLDivElement>(null);
     const requestRef = useRef<number>();
-    const previousTimeRef = useRef<number>();
     const positionRef = useRef({ x: 0, y: 0 });
     const targetPositionRef = useRef({ x: 0, y: 0 });
     const hoveredRef = useRef(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     useEffect(() => {
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (isTouchDevice) return;
+        // Detect if the device is a touch device
+        const checkTouchDevice = () => {
+            const hasTouch =
+                'ontouchstart' in window ||
+                navigator.maxTouchPoints > 0 ||
+                (window.matchMedia &&
+                    window.matchMedia('(pointer: coarse)').matches);
+            setIsTouchDevice(hasTouch);
+        };
+
+        checkTouchDevice();
+
+        // Optionally, you can listen to changes in touch capability
+        window.addEventListener('resize', checkTouchDevice);
+
+        return () => {
+            window.removeEventListener('resize', checkTouchDevice);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (isTouchDevice) return; // Do not proceed if it's a touch device
 
         const handleMouseMove = (e: MouseEvent) => {
             targetPositionRef.current = { x: e.clientX, y: e.clientY };
@@ -21,14 +41,22 @@ const CustomCursor: React.FC = () => {
 
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            if (target.matches('a, button, input, textarea, select, [role="button"], .hoverable')) {
+            if (
+                target.matches(
+                    'a, button, input, textarea, select, [role="button"], .hoverable'
+                )
+            ) {
                 hoveredRef.current = true;
             }
         };
 
         const handleMouseOut = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            if (target.matches('a, button, input, textarea, select, [role="button"], .hoverable')) {
+            if (
+                target.matches(
+                    'a, button, input, textarea, select, [role="button"], .hoverable'
+                )
+            ) {
                 hoveredRef.current = false;
             }
         };
@@ -58,13 +86,16 @@ const CustomCursor: React.FC = () => {
                 if (hoveredRef.current) {
                     cursorRef.current.style.width = '16px';
                     cursorRef.current.style.height = '16px';
-                    cursorRef.current.style.backgroundColor = theme === 'dark' ? '#FFFFFF' : '#808080';
+                    cursorRef.current.style.backgroundColor =
+                        theme === 'dark' ? '#FFFFFF' : '#808080';
                     cursorRef.current.style.border = 'none';
                 } else {
                     cursorRef.current.style.width = '24px';
                     cursorRef.current.style.height = '24px';
                     cursorRef.current.style.backgroundColor = 'transparent';
-                    cursorRef.current.style.border = `2px solid ${theme === 'dark' ? '#FFFFFF' : '#808080'}`;
+                    cursorRef.current.style.border = `2px solid ${
+                        theme === 'dark' ? '#FFFFFF' : '#808080'
+                    }`;
                 }
             }
 
@@ -79,7 +110,10 @@ const CustomCursor: React.FC = () => {
             document.removeEventListener('mouseout', handleMouseOut);
             if (requestRef.current) cancelAnimationFrame(requestRef.current);
         };
-    }, [theme]);
+    }, [theme, isTouchDevice]);
+
+    // Do not render the cursor if it's a touch device
+    if (isTouchDevice) return null;
 
     return (
         <div
@@ -88,11 +122,15 @@ const CustomCursor: React.FC = () => {
             style={{
                 width: '24px',
                 height: '24px',
-                border: `2px solid ${theme === 'dark' ? '#FFFFFF' : '#808080'}`,
+                border: `2px solid ${
+                    theme === 'dark' ? '#FFFFFF' : '#808080'
+                }`,
                 transform: 'translate3d(0, 0, 0)',
-                transition: 'background-color 150ms ease, border-color 150ms ease',
-                willChange: 'transform',
+                transition:
+                    'background-color 150ms ease, border-color 150ms ease, width 150ms ease, height 150ms ease',
+                willChange: 'transform, width, height, background-color, border-color',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                pointerEvents: 'none', // Ensure the cursor does not block interactions
             }}
         ></div>
     );
