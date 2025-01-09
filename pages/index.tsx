@@ -13,7 +13,7 @@ const newPage: React.FC = () => {
               <Name/>
               <Aboutme/>
               <Frontpageprojectdisplay/>
-              <SlotViewer/>
+              {/*<SlotViewer/>*/}
 
           </Layout>
 

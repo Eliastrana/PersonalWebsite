@@ -44,10 +44,10 @@ const Footer = () => {
             </div>
 
 
-            <div className="whitespace-nowrap animate-marquee italic text-12xl">
+            {/*<div className="whitespace-nowrap animate-marquee italic text-12xl">*/}
 
-              ELIAS TRANA ELIAS TRANA ELIAS TRANA ELIAS TRANA
-            </div>
+            {/*  ELIAS TRANA ELIAS TRANA ELIAS TRANA ELIAS TRANA*/}
+            {/*</div>*/}
           </div>
       </footer>
   )

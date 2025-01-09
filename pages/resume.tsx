@@ -5,6 +5,14 @@ import Layout from "../components/layout";
 
 const workExperiences = [
     {
+        title: 'Dugnadsutvikler',
+        company: 'Meløy Grendeutvalg',
+        date: 'desember 2024 - januar 2025',
+        location: 'Trondheim, Trøndelag, Norge',
+        description: 'Utvikling av hjemmeside i NEXT.js med implementasjon av Sanity CMS for det lokale grendeutvalget på Meløya. Frivillig arbeid.',
+        isDeveloper: true,
+    },
+    {
         title: 'Webutvikler',
         company: 'Eggen arkitekter',
         date: 'juni 2024 - september 2024',

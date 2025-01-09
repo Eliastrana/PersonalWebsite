@@ -42,7 +42,7 @@ const Tile: React.FC<TileProps> = ({
                         alt={`${title} Image`}
                         layout="fill"
                         objectFit="cover"
-                        className="rounded-t-lg"
+                        className="rounded-t-md"
                         priority
                     />
                 </div>
@@ -124,9 +124,7 @@ const Tile: React.FC<TileProps> = ({
 
 const TileContainer: React.FC = () => {
     return (
-        <div className="container mx-auto flex flex-col p-5 md:p-20">
-            {/* Optional Heading */}
-            {/* <h2 className="text-4xl mb-8">Recent Work</h2> */}
+        <div className="container mx-auto flex flex-col p-5 mb-20">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full">
                 <Tile
                     title="Eggen Arkitekter"

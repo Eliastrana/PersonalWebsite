@@ -37,7 +37,7 @@ const WideBox: React.FC<ContentBoxProps> = ({ title, undertitle, text, location,
                 <img
                     src={imageUrl}
                     alt=" Content Image"
-                    className=" w-full md:w-auto object-cover md:rounded-r-lg rounded-b-lg md:rounded-bl-none" // Adjusted for responsive rounding
+                    className=" w-full md:w-auto object-cover md:rounded-r-md rounded-b-lg md:rounded-bl-none" // Adjusted for responsive rounding
                     style={{
                         minWidth: "100%", // Ensure it takes the full width on smaller screens
                     maxWidth: "500px", // Max width on larger screens
