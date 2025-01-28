@@ -1,8 +1,6 @@
-import Alert from './alert'
 import Footer from './footer'
 import Meta from './meta'
-import Navbar from "./Navbar";
-import Newnavbar from "./newtest/newnavbar";
+import Navbar from './NavBar'
 
 type Props = {
   preview?: boolean
@@ -14,7 +12,7 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <div className="min-h-screen border-none">
-          <Newnavbar />
+          <Navbar />
           <main>{children}</main>
       </div>
       <Footer />

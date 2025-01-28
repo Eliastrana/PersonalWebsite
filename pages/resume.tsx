@@ -1,65 +1,64 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from "../components/Navbar";
 import Layout from "../components/layout";
 
 const workExperiences = [
     {
-        title: 'Dugnadsutvikler',
+        title: 'Voulenteer Web Developer',
         company: 'Meløy Grendeutvalg',
-        date: 'desember 2024 - januar 2025',
+        date: 'December 2024 - January 2025',
         location: 'Trondheim, Trøndelag, Norge',
-        description: 'Utvikling av hjemmeside i NEXT.js med implementasjon av Sanity CMS for det lokale grendeutvalget på Meløya. Frivillig arbeid.',
+        description: 'Developed a website in NEXT.js with Sanity CMS for the local community council in Meløya. Voluntary work.',
         isDeveloper: true,
     },
     {
         title: 'Webutvikler',
         company: 'Eggen arkitekter',
-        date: 'juni 2024 - september 2024',
+        date: 'June 2024 - September 2024',
         location: 'Trondheim, Trøndelag, Norge',
-        description: 'Utvikling av hjemmeside i NEXT.js med implementasjon av Sanity CMS for vedlikehold og oppdateringer.',
+        description: 'Developed a homepage in NEXT.js with Sanity CMS for maintenance and updates. Created graphics animations, videos and portraits.',
         isDeveloper: true,
     },
+    // {
+    //     title: 'Butikkmedarbeider',
+    //     company: 'Voice Norge AS',
+    //     date: 'mai 2024 - Present',
+    //     location: 'Trondheim, Trøndelag, Norge',
+    //     description: 'Butikkansatt ved VIC City Lade.',
+    //     isDeveloper: false,
+    // },
     {
-        title: 'Butikkmedarbeider',
-        company: 'Voice Norge AS',
-        date: 'mai 2024 - Present',
-        location: 'Trondheim, Trøndelag, Norge',
-        description: 'Butikkansatt ved VIC City Lade.',
-        isDeveloper: false,
-    },
-    {
-        title: 'Student assistent',
+        title: 'Student assistant',
         company: 'NTNU',
-        date: 'januar 2024 - juni 2024',
+        date: 'January 2024 - June 2024',
         location: 'Trondheim, Trøndelag fylke, Norge',
-        description: 'Student assistent for Systemutvikling 1. The course focuses on development within teams, using Scrum and other techniques.',
+        description: 'Student assistant for Systemutvikling 1. The course focuses on development within teams, using Scrum and other techniques.',
         isDeveloper: true,
     },
     {
-        title: 'Student assistent',
+        title: 'Student assistant',
         company: 'Norges teknisk-naturvitenskapelige universitet (NTNU)',
-        date: 'august 2023 - desember 2023',
+        date: 'August 2023 - December 2023',
         location: 'Trondheim, Trøndelag fylke, Norge',
-        description: 'Student assistent for Programmering, nummerikk og sikkerhet for Bachelorstudenter ved NTNU.',
+        description: 'Student assistant for "Programmering, nummerikk og sikkerhet" for Bachrlorstudents at NTNU',
         isDeveloper: true,
     },
-    {
-        title: 'Betjening',
-        company: 'Den Norske Turistforening',
-        date: 'juni 2023 - august 2023',
-        location: 'Trondheim og omegn',
-        description: 'Ansatt på Jøldalshytta som betjening. Innførte et ryddigere system for oppbevaring av praktisk informasjon for de ansatte. Tok over rollen som kokk i korte perioder.',
-        isDeveloper: false,
-    },
-    {
-        title: 'Butikkmedarbeider',
-        company: 'Coop Norge',
-        date: 'juli 2020 - august 2022',
-        location: 'Meløy kommune, Nordland fylke, Norge',
-        description: 'Drift og vedlikehold av butikk, kundebehandling og varepåfylling.',
-        isDeveloper: false,
-    },
+    // {
+    //     title: 'Betjening',
+    //     company: 'Den Norske Turistforening',
+    //     date: 'juni 2023 - august 2023',
+    //     location: 'Trondheim og omegn',
+    //     description: 'Ansatt på Jøldalshytta som betjening. Innførte et ryddigere system for oppbevaring av praktisk informasjon for de ansatte. Tok over rollen som kokk i korte perioder.',
+    //     isDeveloper: false,
+    // },
+    // {
+    //     title: 'Butikkmedarbeider',
+    //     company: 'Coop Norge',
+    //     date: 'juli 2020 - august 2022',
+    //     location: 'Meløy kommune, Nordland fylke, Norge',
+    //     description: 'Drift og vedlikehold av butikk, kundebehandling og varepåfylling.',
+    //     isDeveloper: false,
+    // },
 ];
 
 const educationExperiences = [
@@ -80,7 +79,7 @@ const educationExperiences = [
         isDeveloper: false,
     },
     {
-        title: 'Videregående, Realfag',
+        title: 'Upper Secondary School, Natural Science',
         company: 'Meløy videregående skole',
         date: '',
         location: '',
@@ -174,11 +173,11 @@ const ResumePage = () => {
                                     >
                                         <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
 
-                                            <h2 className={`${index % 2 === 0 ? 'text-right' : 'text-left'} md:text-6xl text-lg md:mb-10 leading-normal md:leading-tight `}>
+                                            <h2 className={`${index % 2 === 0 ? 'text-right' : 'text-left'} md:text-6xl text-lg md:mb-4 leading-normal md:leading-tight `}>
                                                 {exp.title}
                                             </h2>
-                                            <p className="text-gray-600">{exp.company}</p>
-                                            <p className="text-gray-500">{exp.date}</p>
+                                            <p className="md:text-xl font-semibold text-gray-600 dark:text-gray-400">{exp.company}</p>
+                                            <p className="text-gray-600 dark:text-gray-400">{exp.date}</p>
                                             {/*{exp.location && <p className="text-gray-500">{exp.location}</p>}*/}
                                             {exp.description && <p className="mt-2">{exp.description}</p>}
                                         </div>

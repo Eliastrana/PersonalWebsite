@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavBar";
 import Layout from "../components/layout";
 import Image from "next/image";
 import InfoTable from "../components/InfoTable";

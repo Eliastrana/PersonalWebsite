@@ -35,29 +35,6 @@
 }
 
 
-/* Video and Image Styles */
-.videoContainer {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
-
-.videoContainer.fixed {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 75vh; /* Adjust based on initial video height */
-}
-
-.videoContainer.scroll {
-    position: relative;
-    width: 100%;
-    height: auto; /* Let the video have its natural size when scrolling */
-}
-
-/* Add or adjust .fixed and .scroll styles as needed for your design */
-
-
 .videoPlayer,
 .zoomedImage {
     position: absolute;
@@ -85,59 +62,5 @@
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
         text-align: center;
     }
-
-    .videoContainer {
-        padding-top: 0; /* Adjust to cover only 75% of the viewport height */
-
-    }
-
-    .videoPlayer,
-    .zoomedImage {
-        width: 100vw;
-        height: 100vh; /* Adjust to cover only 75% of the viewport height */
-        position: relative; /* Change from fixed to relative for scrolling */
-
-
-    }
-}
-
-/* Hover and Animation Effects */
-.font-change-on-hover {
-    transition: font-family 0.5s ease-in-out;
-}
-
-.highlight-animation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 100%;
-    width: 0;
-    height: 100%;
-    background-color: yellow;
-    transition: width 0.3s ease-in-out, right 0.3s ease-in-out;
-    z-index: -1;
-}
-
-.highlight-animation:hover::before {
-    right: 0;
-    width: 100%;
-}
-
-.highlight-animation:not(:hover)::before {
-    right: 100%;
-    width: 0;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.fadeIn {
-    animation: fadeIn 2s ease-in-out;
 }
 
