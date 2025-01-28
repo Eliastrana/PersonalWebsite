@@ -326,9 +326,13 @@ const Name: React.FC = () => {
     // Function to handle scroll down
     const handleScrollDown = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({
+                top: scrollRef.current.offsetTop + 100, // Adjust '500' to scroll further down
+                behavior: 'smooth',
+            });
         }
     };
+
 
     return (
         <>
