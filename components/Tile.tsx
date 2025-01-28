@@ -81,7 +81,7 @@ const Tile: React.FC<TileProps> = ({
                     <div>
                         <Image
                             key={icon}
-                            src={icon.toUpperCase()}
+                            src={icon}
                             alt={icon}
                             width={100} // Adjust size as needed
                             height={100}
