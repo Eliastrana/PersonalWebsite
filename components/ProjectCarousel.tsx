@@ -88,17 +88,35 @@ const ProjectCarousel: React.FC = () => {
     return (
         <div className="relative w-screen">
 
-
-            {/* Carousel */}
             <div
-                className="relative w-screen overflow-x-auto snap-x snap-mandatory carousel-container"
+                className="relative w-screen carousel-container"
                 onScroll={handleScroll}
+                style={{
+                    overflowX: 'scroll', // Enable horizontal scrolling
+                    scrollbarWidth: 'none', // Firefox
+                    msOverflowStyle: 'none', // IE and Edge
+                    scrollSnapType: 'x mandatory', // Enable auto-snapping
+                }}
             >
+                <style jsx>{`
+                    .carousel-container {
+                        overflow-x: scroll; /* Allow horizontal scrolling */
+                        scroll-snap-type: x mandatory; /* Auto-snapping */
+                    }
+
+                    .carousel-container::-webkit-scrollbar {
+                        display: none; /* Hide scrollbar for WebKit-based browsers */
+                    }
+
+                    .carousel-item {
+                        scroll-snap-align: center; /* Align items to center when snapping */
+                    }
+                `}</style>
                 <div className="flex flex-nowrap h-full">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="w-screen flex-shrink-0 snap-center p-4 pb-0 flex items-center justify-center"
+                            className="w-screen flex-shrink-0 snap-center p-4 pb-0 flex items-center justify-center carousel-item"
                         >
                             <div className="md:p-16 md:pb-0 w-full h-full flex items-center justify-center">
                                 <Tile {...project} />
@@ -107,6 +125,7 @@ const ProjectCarousel: React.FC = () => {
                     ))}
                 </div>
             </div>
+
 
             <div className="flex justify-center gap-4 ">
                 {projects.map((project, index) => (

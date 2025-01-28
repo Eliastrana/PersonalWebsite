@@ -6,10 +6,10 @@ import Frontpageprojectdisplay from "../components/Tile";
 const newPage: React.FC = () => {
     return (
         <div>
-            <Newnavbar />
-            <Name />
-            <Aboutme />
-            <Frontpageprojectdisplay />
+            {/*<Newnavbar />*/}
+            {/*<Name />*/}
+            {/*<Aboutme />*/}
+            {/*<Frontpageprojectdisplay />*/}
 
 
 
