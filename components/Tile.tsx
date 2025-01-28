@@ -78,16 +78,17 @@ const Tile: React.FC<TileProps> = ({
             >
                 <div className="flex flex-col flex-grow md:justify-end">
                     {/* Title and Year */}
-                    <div>
+                    <div className="flex md:flex-col gap-2 items-center md:items-start">
                         <Image
                             key={icon}
                             src={icon}
                             alt={icon}
-                            width={100} // Adjust size as needed
+                            width={100}
                             height={100}
+                            className={`w-20 h-20 md:w-24 md:h-24`}
                         />
                         <h1
-                            className="text-5xl sm:text-8xl font-bold mt-6"
+                            className="text-5xl sm:text-8xl font-bold mt-2 md:mt-6"
                             style={{color: textcolor}}
                         >
                             {title}

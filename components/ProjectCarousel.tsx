@@ -34,7 +34,7 @@ const ProjectCarousel: React.FC = () => {
                 '/assets/gallery/ektetid_showcase/ektetid_showcase.jpg',
             ],
             description:
-                'EkteTid is a BeReal-inspired web application created as a tool for sharing vacation photos with loved ones during the trip itself...',
+                'EkteTid is a web application created as a tool for sharing vacation photos with loved ones during the trip itself. It features a firebase alert system, allowing for mobile notifications through a webapp.',
             link: '/ektetid',
             visit: 'https://ektetid.no',
             logo: [
