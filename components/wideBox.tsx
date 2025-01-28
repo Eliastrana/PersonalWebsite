@@ -29,7 +29,7 @@ const WideBox: React.FC<ContentBoxProps> = ({ title, undertitle, text, location,
 
                 <p className={styles.boxInfoFontP}>{text}</p>
 
-                <h4 className={styles.boxInfoFontH3}>{calltoaction}</h4>
+                <h2 className="md:text-3xl">{calltoaction}</h2>
 
 
             </div>

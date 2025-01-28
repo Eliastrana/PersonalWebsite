@@ -117,7 +117,7 @@ const Tile: React.FC<TileProps> = ({
                             </Link>
                         </div>
                         <h4
-                            className="text-gray-600 dark:text-gray-200 font-medium mt-2"
+                            className="text-gray-600 dark:text-gray-200 text-xl md:text-2xl mt-2"
                             style={{color: textcolor}}
                         >
                             {year}
