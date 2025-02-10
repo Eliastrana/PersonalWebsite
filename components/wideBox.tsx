@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Intro.module.css";
-import {ca} from "date-fns/locale";
+import Image from "next/image";
 
 interface ContentBoxProps {
     title: string;
@@ -34,16 +34,12 @@ const WideBox: React.FC<ContentBoxProps> = ({ title, undertitle, text, location,
 
             </div>
             <div className=" flex justify-center items-center w-full md:w-auto">
-                <img
+                <Image
                     src={imageUrl}
+                    width={500}
+                    height={500}
                     alt=" Content Image"
-                    className=" w-full md:w-auto object-cover md:rounded-r-md rounded-b-lg md:rounded-bl-none" // Adjusted for responsive rounding
-                    style={{
-                        minWidth: "100%", // Ensure it takes the full width on smaller screens
-                    maxWidth: "500px", // Max width on larger screens
-                    height: "auto", // Adjust height automatically
-                    aspectRatio: '1 / 1' // Maintain aspect ratio
-                    }}
+                    className=" w-full md:w-auto object-cover md:rounded-r-md rounded-b-lg md:rounded-bl-none max-h-[400px] md:max-h-[500px]"
                     />
             </div>
         </div>

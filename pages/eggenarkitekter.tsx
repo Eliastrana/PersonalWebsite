@@ -28,11 +28,11 @@ const Eggenarkitekter = () => {
 
             <FadeInSection>
                 <div className="flex flex-col md:flex-row items-center gap-2 mx-4  mb-12 md:mb-0">
-                    <div className="w-2/3 md:w-1/2 mt-28">
-                        <Image src="/assets/gallery/eggen_showcase/EA-logo-epost.png" alt="eggen" width={500} height={500} className="mx-auto"/>
+                    <div className="w-2/3 md:w-1/2 mt-28 ">
+                        <Image src="/assets/gallery/eggen_showcase/EA-logo-epost.svg" alt="eggen" width={500} height={500} className="mx-auto dark:bg-white dark:invert"/>
                     </div>
                     <div className="w-full md:w-1/2 mt-28">
-                        <Image src="/assets/gallery/eggen_showcase/mobilvisning.png" alt="eggen" width={500} height={500} className="mx-auto"/>
+                        <Image src="/assets/gallery/eggen_showcase/eggen_showcase_transparent.png" alt="eggen" width={1000} height={500} className="mx-auto"/>
                     </div>
                 </div>
             </FadeInSection>

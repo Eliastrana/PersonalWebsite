@@ -30,14 +30,17 @@ const EkteTid = () => {
             <FadeInSection>
 
                 <div className="flex flex-col md:flex-row items-center gap-2 mx-4  mb-12 md:mb-0">
-                    <div className="w-2/3 md:w-1/2 mt-28">
-                        <Image src="/assets/gallery/ektetid_showcase/mobil.png" alt="eggen" width={400}
+                    <div className="w-2/3 md:w-1/2 mt-28 md:ml-20">
+                        <Image src="/assets/gallery/ektetid_showcase/ektetid_showcase_transparent.png" alt="eggen"
+                               width={800}
                                height={500} className="mx-auto"/>
                     </div>
                     <div className="w-full md:w-1/2 mt-28">
                         <Image src="/assets/gallery/ektetid_showcase/ektetid_logo.png" alt="eggen" width={300}
                                height={500} className="mx-auto rounded-lg"/>
                     </div>
+
+
                 </div>
             </FadeInSection>
 

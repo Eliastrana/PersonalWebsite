@@ -58,7 +58,7 @@ const ProjectCarousel: React.FC = () => {
             ],
             description:
                 'Meløya.no is a website for the local community on Meløya. The website is built with Sanity and Next.js, and is hosted on Vercel. The website is a hub for local news, events, and information.',
-            link: '/ektetid',
+            link: '/meloyadotno',
             visit: 'https://ektetid.no',
             logo: [
                 '/languageIcons/Sanity-square.png',
@@ -86,10 +86,10 @@ const ProjectCarousel: React.FC = () => {
     };
 
     return (
-        <div className="relative w-screen">
+        <div className=" ">
 
             <div
-                className="relative w-screen carousel-container"
+                className=" carousel-container"
                 onScroll={handleScroll}
                 style={{
                     overflowX: 'scroll', // Enable horizontal scrolling

@@ -27,8 +27,8 @@ const spawnItemsList: SpawnItem[] = [
         imageUrl: '/assets/gallery/ektetid_showcase/ektetid_logo_200.png',
         width: 100,
         height: 100,
-        naturalWidth: 200,    // Replace with the actual natural width of your image
-        naturalHeight: 200    // Replace with the actual natural height of your image
+        naturalWidth: 200,
+        naturalHeight: 200
     },
     { id: 6, type: 'word', content: 'Sanity CMS' },
     { id: 7, type: 'word', content: 'Tailwind' },
@@ -38,14 +38,21 @@ const spawnItemsList: SpawnItem[] = [
         imageUrl: '/assets/gallery/eggen_showcase/eggen_logo.png',
         width: 100,
         height: 100,
-        naturalWidth: 200,    // Replace with the actual natural width of your image
-        naturalHeight: 200    // Replace with the actual natural height of your image
+        naturalWidth: 200,
+        naturalHeight: 200
     },
     { id: 9, type: 'word', content: 'Vue' },
     { id: 10, type: 'word', content: 'Photography' },
-    // Add images with natural dimensions
+    {
+        id: 5,
+        type: 'image',
+        imageUrl: '/assets/gallery/meloyadotno_showcase/meloya_logo.svg',
+        width: 100,
+        height: 100,
+        naturalWidth: 200,
+        naturalHeight: 200
+    },
 
-    // Add more images as needed
 ];
 
 const PhysicsFrontpage: React.FC = () => {
@@ -102,15 +109,15 @@ const PhysicsFrontpage: React.FC = () => {
         // Create ground
         const ground = Matter.Bodies.rectangle(
             sceneRef.current.clientWidth / 2,
-            sceneRef.current.clientHeight + 25, // Positioned below the visible area
+            sceneRef.current.clientHeight + 25,
             sceneRef.current.clientWidth,
             50,
             { isStatic: true }
         );
 
-        // Create left wall
+
         const leftWall = Matter.Bodies.rectangle(
-            -25, // Positioned slightly outside the left boundary
+            -25,
             sceneRef.current.clientHeight / 2,
             50,
             sceneRef.current.clientHeight,
@@ -119,7 +126,7 @@ const PhysicsFrontpage: React.FC = () => {
 
         // Create right wall
         const rightWall = Matter.Bodies.rectangle(
-            sceneRef.current.clientWidth + 25, // Positioned slightly outside the right boundary
+            sceneRef.current.clientWidth + 25,
             sceneRef.current.clientHeight / 2,
             50,
             sceneRef.current.clientHeight,
@@ -344,7 +351,7 @@ const PhysicsFrontpage: React.FC = () => {
                     position: 'relative',
                     margin: '0 auto',
                     width: '90%',
-                    height: '80vh',
+                    height: '70vh',
                     cursor: 'pointer',
                     touchAction: 'pan-y',
                     overflow: 'hidden',
@@ -390,7 +397,7 @@ const PhysicsFrontpage: React.FC = () => {
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        border: 3px solid ${isLightMode ? 'black' : 'white'};
+                        border: 2px solid ${isLightMode ? 'black' : 'white'};
                         border-radius: 10px;
                         box-sizing: border-box;
                         pointer-events: none;
@@ -453,8 +460,8 @@ const PhysicsFrontpage: React.FC = () => {
 
                 <style jsx>{`
                     .scroll-button {
-                        position: absolute;
-                        bottom: 20px;
+                        position: relative;
+                        margin-top: 10px;
                         left: 50%;
                         transform: translateX(-50%);
                         background: none;

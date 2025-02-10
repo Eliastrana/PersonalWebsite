@@ -54,7 +54,7 @@ const Tile: React.FC<TileProps> = ({
             {/* Left Side: Slideshow */}
             <Link
                 href={link}
-                className="relative w-full md:w-2/3 h-64 md:h-[80vh] overflow-hidden"
+                className="relative w-full md:w-2/3 h-64 md:h-[75vh] overflow-hidden"
             >
                 {images.map((src, index) => (
                     <Image
@@ -88,7 +88,7 @@ const Tile: React.FC<TileProps> = ({
                             className={`w-20 h-20 md:w-24 md:h-24`}
                         />
                         <h1
-                            className="text-5xl sm:text-8xl font-bold mt-2 md:mt-6"
+                            className="text-5xl sm:text-6xl font-bold mt-2 md:mt-6"
                             style={{color: textcolor}}
                         >
                             {title}
@@ -126,7 +126,7 @@ const Tile: React.FC<TileProps> = ({
 
                     {/* Logos */}
                     <div
-                        className="inline-flex items-center gap-4 mt-4 rounded-full p-2"
+                        className="inline-flex items-center gap-2 md:gap-4 mt-4 rounded-full p-2"
                         style={{
                             background: 'rgba(255, 255, 255, 0.3)',
                             display: 'inline-flex', // Ensures the width matches the content
@@ -138,9 +138,11 @@ const Tile: React.FC<TileProps> = ({
                                 key={index}
                                 src={src}
                                 alt={`${title} - Logo ${index}`}
-                                width={40} // Adjust size as needed
+                                width={40}
                                 height={40}
+                                className="w-4 h-4 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-8 lg:h-8"
                             />
+
                         ))}
                     </div>
 

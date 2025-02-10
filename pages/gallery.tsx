@@ -3,6 +3,7 @@ import Link from "next/link";
 import Layout from "../components/layout";
 
 const imagesSlider1 = [
+    'assets/gallery/portraits/DSCF2782.jpeg',
     'assets/gallery/portraits/DSCF0583.jpeg',
     'assets/gallery/portraits/DSCF0646.jpeg',
     'assets/gallery/portraits/DSCF0664.jpeg',
@@ -24,6 +25,7 @@ const imagesSlider2 = [
     'assets/gallery/landskape/DSCF9596.jpeg',
     'assets/gallery/landskape/DSCF9664.jpeg',
     'assets/gallery/landskape/DSCF9679.jpeg',
+    'assets/gallery/landskape/DSCF3644.jpeg'
     // Add more images specific to the second slider
 ];
 
