@@ -4,9 +4,6 @@ import React from "react";
 const Aboutme = () => {
     return (
         <div className="flex justify-center mt-10">
-            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 mx-auto w-full">
-                {/* This div spans 1 column by default, spans 2 columns on lg screens,
-            and reverts to 1 column on 2xl screens */}
                 <div className="col-span-1 lg:col-span-2 2xl:col-span-1">
                     <div className="transition-shadow duration-300 border-2 border-black dark:border-white rounded-lg md:m-20 m-5">
                         <WideBox
@@ -15,7 +12,7 @@ const Aboutme = () => {
                             undertitle=""
                             location={"📍 Trondheim, Norway"}
                             education={"🎓 Computer Science, NTNU"}
-                            hobbies={"💻 Next.js, Sanity CMS, Tailwind CSS"}
+                            hobbies={"💻 Next.js, Sanity CMS"}
                             text={`My name is Elias Trana, and I am a student at NTNU Trondheim, studying Computer Engineering.
                     This is my personal website where I will be posting my projects, both personal and school related.
                     
@@ -23,10 +20,8 @@ const Aboutme = () => {
                             calltoaction="Take a look!"
                         />
                     </div>
-                    {/* Dynamic spacing element */}
-                    <div className="pb-0 lg:pb-0"></div>
                 </div>
-            </div>
+
         </div>
     );
 };
