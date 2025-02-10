@@ -69,7 +69,9 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages
           path: ./out
+
 
   # Deployment job
   deploy:
