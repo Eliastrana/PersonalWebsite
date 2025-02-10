@@ -2,6 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Post from '../interfaces/post';
+import Image from 'next/image';
+import DateFormatter from "./date-formatter";
 
 type Props = {
     posts: Post[];
@@ -21,8 +23,10 @@ const NewestPosts = ({ posts }: Props) => {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8  mx-auto w-[90%] md:p-4">
 
-            <div className="md:col-span-3 col-span-1 mt-10 ">
+            <div className="md:col-span-3 col-span-1 mt-10 flex justify-between items-center">
                 <h2 className="text-3xl font-semibold">Newest Posts</h2>
+
+                <a className="underline" href="/blog">Visit blog</a>
             </div>
 
             {newestPosts.map((post) => (
@@ -30,16 +34,18 @@ const NewestPosts = ({ posts }: Props) => {
 
                 <div
                     key={post.slug}
-                    className="border-2 rounded-lg shadow-md overflow-hidden"
+                    className="border-2 rounded-lg border-black dark:border-white overflow-hidden"
                 >
 
                     <Link href={`/posts/${post.slug}`}>
 
                     {post.coverImage && (
 
-                        <img
+                        <Image
                             src={post.coverImage}
                             alt={post.title}
+                            height={200}
+                            width={400}
                             className="w-full h-48 object-cover"
                         />
                     )}
@@ -47,10 +53,14 @@ const NewestPosts = ({ posts }: Props) => {
                         <h2 className="text-xl font-semibold">
                                 <p>{post.title}</p>
                         </h2>
-                        <p className="mt-2 ">{post.excerpt}</p>
-                        <p className="mt-2 text-sm ">
-                            {new Date(post.date).toLocaleDateString()}
+
+                        <p className="text-sm text-gray-700 dark:text-gray-400 mt-2">
+                        <DateFormatter dateString={post.date} />
                         </p>
+
+                        <p className="mt-2 ">{post.excerpt}</p>
+
+
                     </div>
                     </Link>
 
