@@ -33,7 +33,10 @@ const NewestPosts = ({ posts }: Props) => {
                     className="border-2 rounded-lg shadow-md overflow-hidden"
                 >
 
+                    <Link href={`/posts/${post.slug}`}>
+
                     {post.coverImage && (
+
                         <img
                             src={post.coverImage}
                             alt={post.title}
@@ -42,16 +45,17 @@ const NewestPosts = ({ posts }: Props) => {
                     )}
                     <div className="p-4">
                         <h2 className="text-xl font-semibold">
-                            <Link href={`/posts/${post.slug}`}>
                                 <p>{post.title}</p>
-                            </Link>
                         </h2>
                         <p className="mt-2 ">{post.excerpt}</p>
                         <p className="mt-2 text-sm ">
                             {new Date(post.date).toLocaleDateString()}
                         </p>
                     </div>
+                    </Link>
+
                 </div>
+
             ))}
         </div>
     );

@@ -59,7 +59,7 @@ const ProjectCarousel: React.FC = () => {
             description:
                 'Meløya.no is a website for the local community on Meløya. The website is built with Sanity and Next.js, and is hosted on Vercel. The website is a hub for local news, events, and information.',
             link: '/meloyadotno',
-            visit: 'https://ektetid.no',
+            visit: 'https://meloya.no',
             logo: [
                 '/languageIcons/Sanity-square.png',
                 '/languageIcons/vercel.svg',
