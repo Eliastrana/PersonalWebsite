@@ -5,6 +5,29 @@ import Tile from './Tile';
 const ProjectCarousel: React.FC = () => {
     const projects = [
         {
+            title: 'ChatSSB',
+            year: '2025',
+            images: [
+                '/assets/gallery/chatssb_showcase/chatssb_showcase.png',
+            ],
+            description:
+                'ChatSSB changes the way you interact with statistics',
+            link: 'https://chatssb.no',
+            visit: 'https://chatssb.no',
+            logo: [
+                '/languageIcons/vercel.svg',
+                '/languageIcons/next-js.svg',
+                '/languageIcons/typescript.png',
+                '/languageIcons/tailwind.png',
+            ],
+            background_color: '#ffffff',
+            icon: '/assets/gallery/chatssb_showcase/logo.png',
+            textcolor: '#274247',
+
+
+
+        },
+        {
             title: 'Eggen Arkitekter',
             year: '2024',
             images: [

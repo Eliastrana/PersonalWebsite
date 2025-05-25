@@ -12,7 +12,7 @@ const Aboutme = () => {
                             undertitle=""
                             location={"📍 Trondheim, Norway"}
                             education={"🎓 Computer Science, NTNU"}
-                            hobbies={"💻 Next.js, Sanity CMS"}
+                            hobbies={"💻 Fullstack Developer"}
                             text={`My name is Elias Trana, and I am a student at NTNU Trondheim, studying Computer Engineering.
                     This is my personal website where I will be posting my projects, both personal and school related.
                     

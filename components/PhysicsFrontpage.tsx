@@ -17,10 +17,37 @@ type SpawnItem = {
 
 // List of words and images to spawn
 const spawnItemsList: SpawnItem[] = [
+    {
+      id: 0,
+        type: 'image',
+        imageUrl: '/assets/blog/napoli/pizza.png',
+        width: 200,
+        height: 300,
+        naturalWidth: 400,
+        naturalHeight: 600
+    },
+
     { id: 1, type: 'word', content: 'Elias' },
     { id: 2, type: 'word', content: 'Trana' },
-    { id: 3, type: 'word', content: 'Developer' },
-    { id: 4, type: 'word', content: 'Next.js' },
+    {
+        id: 3,
+        type: 'image',
+        imageUrl: '/assets/blog/napoli/smaker.png',
+        width: 200,
+        height: 300,
+        naturalWidth: 400,
+        naturalHeight: 600
+    },
+    // { id: 3, type: 'word', content: 'ChatSSB' },
+    {
+        id: 4,
+        type: 'image',
+        imageUrl: '/assets/gallery/chatssb_showcase/logo.png',
+        width: 100,
+        height: 100,
+        naturalWidth: 200,
+        naturalHeight: 200
+    },
     {
         id: 5,
         type: 'image',
@@ -30,10 +57,9 @@ const spawnItemsList: SpawnItem[] = [
         naturalWidth: 200,
         naturalHeight: 200
     },
-    { id: 6, type: 'word', content: 'Sanity CMS' },
-    { id: 7, type: 'word', content: 'Tailwind' },
+
     {
-        id: 8,
+        id: 6,
         type: 'image',
         imageUrl: '/assets/gallery/eggen_showcase/eggen_logo.png',
         width: 100,
@@ -41,10 +67,9 @@ const spawnItemsList: SpawnItem[] = [
         naturalWidth: 200,
         naturalHeight: 200
     },
-    { id: 9, type: 'word', content: 'Vue' },
-    { id: 10, type: 'word', content: 'Photography' },
+
     {
-        id: 5,
+        id: 7,
         type: 'image',
         imageUrl: '/assets/gallery/meloyadotno_showcase/meloya_logo.svg',
         width: 100,
@@ -52,6 +77,12 @@ const spawnItemsList: SpawnItem[] = [
         naturalWidth: 200,
         naturalHeight: 200
     },
+    //{ id: 4, type: 'word', content: 'Next.js' },
+    // { id: 9, type: 'word', content: 'Vue' },
+    // { id: 10, type: 'word', content: 'Photography' },
+    // { id: 4, type: 'word', content: 'Next.js' },
+    // { id: 6, type: 'word', content: 'Sanity CMS' },
+    // { id: 7, type: 'word', content: 'Tailwind' },
 
 ];
 
