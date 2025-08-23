@@ -4,6 +4,22 @@ import Layout from "../components/layout";
 
 const workExperiences = [
     {
+        title: 'Developer',
+        company: 'Sneii',
+        date: 'June 2025 - now',
+        location: 'Oslo, Norge',
+        description: 'Freelance web developer.',
+        isDeveloper: true,
+    },
+    {
+        title: 'Summer Intern',
+        company: 'Bekk',
+        date: 'June 2025 - August 2025',
+        location: 'Oslo, Norge',
+        description: 'Developed two websites for Nationaltheatret, Ibsenfestival and the International Ibsen Awards.',
+        isDeveloper: true,
+    },
+    {
         title: 'Voulenteer Web Developer',
         company: 'Meløy Grendeutvalg',
         date: 'December 2024 - January 2025',
@@ -12,7 +28,7 @@ const workExperiences = [
         isDeveloper: true,
     },
     {
-        title: 'Webutvikler',
+        title: 'Web Developer',
         company: 'Eggen arkitekter',
         date: 'June 2024 - September 2024',
         location: 'Trondheim, Trøndelag, Norge',
