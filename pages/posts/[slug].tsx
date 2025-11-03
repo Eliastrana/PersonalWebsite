@@ -100,12 +100,12 @@ export default function Post({ post, preview }: Props) {
             }}
             className={`fixed top-1 left-0 z-50`}
         >
-          <img
-              src="/silly_monkey.png"
-              alt="Progress Indicator"
-              className="w-16 h-16" // 50x50px image
-              style={{ width: '50px', height: '50px' }}
-          />
+          {/*<img*/}
+          {/*    src="/silly_monkey.png"*/}
+          {/*    alt="Progress Indicator"*/}
+          {/*    className="w-16 h-16" // 50x50px image*/}
+          {/*    style={{ width: '50px', height: '50px' }}*/}
+          {/*/>*/}
         </div>
 
         <Container>
