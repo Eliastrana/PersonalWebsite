@@ -1,162 +1,112 @@
-import React, { useState, useEffect } from 'react';
+// Tile.tsx
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 type TileProps = {
     title: string;
     year: string;
-    /** Array of images to rotate through */
-    images: string[];
+    images: string[]; // not used (kept for compatibility)
     description: string;
     link: string;
     visit: string;
     logo: string[];
-    background_color: string;
     icon: string;
-    textcolor: string;
 };
 
 const Tile: React.FC<TileProps> = ({
                                        title,
                                        year,
-                                       images,
                                        description,
                                        link,
                                        visit,
                                        logo,
-                                       background_color,
                                        icon,
-                                       textcolor,
                                    }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const safeLogos = useMemo(() => (logo ?? []).slice(0, 6), [logo]);
 
-    // Cycle images every 3 seconds
-    useEffect(() => {
-        if (!images || images.length <= 1) return;
-
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % images.length);
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, [images]);
-
-    // Handle visit button click
-    const handleVisitClick = () => {
+    const onVisit = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
         window.open(visit, '_blank', 'noopener,noreferrer');
     };
 
     return (
-        <div
-            className="flex flex-col md:flex-row w-full border-2 border-black dark:border-white rounded-lg overflow-hidden mb-3"
-            style={{ background: background_color }}
+        <Link
+            href={link}
+            className={[
+                'block h-full rounded-2xl overflow-hidden',
+                'bg-neutral-200 dark:bg-[#272727]',
+                'text-neutral-900 dark:text-neutral-100',
+            ].join(' ')}
+            aria-label={`Open ${title}`}
         >
-            {/* Left Side: Slideshow */}
-            <Link
-                href={link}
-                className="relative w-full md:w-2/3 h-64 md:h-[75vh] overflow-hidden"
-            >
-                {images.map((src, index) => (
-                    <Image
-                        key={index}
-                        src={src}
-                        alt={`${title} - Slide ${index}`}
-                        fill
-                        className={`
-          object-cover transition-opacity duration-1000 ease-in-out 
-          ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}
-        `}
-                        priority={index === 0}
-                    />
-                ))}
-            </Link>
-
-            {/* Right Side: Content */}
-            <div
-                className="w-full md:w-1/2 p-6 flex flex-col justify-between"
-                style={{ color: textcolor }}
-            >
-                <div className="flex flex-col flex-grow md:justify-end">
-                    {/* Title and Year */}
-                    <div className="flex md:flex-col gap-2 items-center md:items-start">
+            <div className="p-4 sm:p-5 flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
                         <Image
-                            key={icon}
                             src={icon}
-                            alt={icon}
-                            width={100}
-                            height={100}
-                            className={`w-20 h-20 md:w-24 md:h-24`}
+                            alt={`${title} icon`}
+                            width={44}
+                            height={44}
+                            className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-contain"
                         />
-                        <h1
-                            className="text-5xl sm:text-6xl font-bold mt-2 md:mt-6"
-                            style={{color: textcolor}}
-                        >
-                            {title}
-                        </h1>
-                    </div>
 
-                    {/* Buttons */}
-                    <div className="flex items-center gap-2 mt-4 justify-between">
-                        <div className="flex">
-                            <button
-                                onClick={handleVisitClick}
-                                className="px-4 py-2 rounded-lg flex items-center underline transition"
-                                style={{color: textcolor}}
-                                aria-label={`Visit ${title}`}
-                            >
-                                Visit
-                            </button>
-                            <Link href={link}>
-                                <button
-                                    className="px-4 py-2 rounded-full flex items-center border transition"
-                                    style={{color: textcolor, borderColor: textcolor}}
-                                    aria-label={`More info about ${title}`}
-                                >
-                                    Info
-                                </button>
-                            </Link>
+                        <div className="min-w-0">
+                            <h3 className="text-base sm:text-lg font-bold tracking-tight truncate">
+                                {title}
+                            </h3>
+                            <p className="text-xs sm:text-sm opacity-70">{year}</p>
                         </div>
-                        <h4
-                            className="text-gray-600 dark:text-gray-200 text-xl md:text-2xl mt-2"
-                            style={{color: textcolor}}
-                        >
-                            {year}
-                        </h4>
                     </div>
 
-                    {/* Logos */}
-                    <div
-                        className="inline-flex items-center gap-2 md:gap-4 mt-4 rounded-full p-2"
-                        style={{
-                            background: 'rgba(255, 255, 255, 0.3)',
-                            display: 'inline-flex', // Ensures the width matches the content
-                            maxWidth: 'fit-content', // Prevents the container from expanding unnecessarily
-                        }}
-                    >
-                        {logo.map((src, index) => (
-                            <Image
-                                key={index}
-                                src={src}
-                                alt={`${title} - Logo ${index}`}
-                                width={40}
-                                height={40}
-                                className="w-4 h-4 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-8 lg:h-8"
-                            />
-
-                        ))}
-                    </div>
-
+                    <span className="text-sm opacity-60">→</span>
                 </div>
 
-                {/* Bottom Section: Description */}
-                <p
-                    className="mt-4 text-gray-700 dark:text-gray-200"
-                    style={{color: textcolor}}
-                >
+                {/* Description */}
+                <p className="mt-3 text-sm sm:text-[15px] leading-snug opacity-90 line-clamp-4">
                     {description}
                 </p>
+
+                {/* Tech logos */}
+                {safeLogos.length > 0 && (
+                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                        {safeLogos.map((src, i) => (
+                            <div
+                                key={src + i}
+                                className="h-8 w-8 rounded-lg flex items-center justify-center"
+                                // subtle, theme-friendly borders
+                            >
+                                <Image
+                                    src={src}
+                                    alt={`${title} tech ${i + 1}`}
+                                    width={18}
+                                    height={18}
+                                    className="w-4 h-4 sm:w-[18px] sm:h-[18px]"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Footer actions */}
+                <div className="mt-auto pt-4 flex items-center justify-between gap-3">
+                    <button
+                        onClick={onVisit}
+                        className={[
+                            'px-3 py-2 rounded-full text-sm font-medium',
+                            'border-2 border-black/70 dark:border-white/70',
+                            'bg-transparent',
+                        ].join(' ')}
+                        aria-label={`Visit ${title}`}
+                    >
+                        Explore ↗
+                    </button>
+
+                </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

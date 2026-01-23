@@ -27,14 +27,7 @@ html {
 }
 
 
-body {
-    cursor: none;
 
-}
-
-html, body, *, *::before, *::after {
-    cursor: none !important;
-}
 
 
 @media (prefers-color-scheme: light) {

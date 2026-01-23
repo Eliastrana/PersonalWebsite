@@ -1,200 +1,152 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Tile from './Tile';
+// ProjectGrid.tsx
+import React from 'react';
+import TileCard from './Tile';
 
-const ProjectCarousel: React.FC = () => {
+const ProjectGrid: React.FC = () => {
     const projects = [
+
+        {
+            title: 'Sneii',
+            year: '2025',
+            images: ['/assets/gallery/sneii_showcase/sneii.jpg'],
+            description:
+                'Sneii is a design agency focused on creating a strong visual identity for buisnissess, backed by a solid web development using real code and modern frameworks.',
+            link: 'https://sneii.no',
+            visit: 'https://sneii.no',
+            logo: [
+            ],
+            icon: '/assets/gallery/sneii_showcase/sneii.jpg',
+        },
         {
             title: 'ChatSSB',
             year: '2025',
-            images: [
-                '/assets/gallery/chatssb_showcase/chatssb_showcase.png',
-            ],
-            description:
-                'ChatSSB changes the way you interact with statistics',
+            images: ['/assets/gallery/chatssb_showcase/chatssb.png'],
+            description: 'ChatSSB changes the way you interact with statistics, by allowing you to access all of SSBs data through simply asking a question. It further allows you to create custom visualizations based on your queries.',
             link: 'https://chatssb.no',
             visit: 'https://chatssb.no',
             logo: [
                 '/languageIcons/vercel.svg',
                 '/languageIcons/next-js.svg',
-                '/languageIcons/typescript.png',
-                '/languageIcons/tailwind.png',
-            ],
-            background_color: '#ffffff',
-            icon: '/assets/gallery/chatssb_showcase/logo.png',
-            textcolor: '#274247',
-
-
-
-        },
-        {
-            title: 'Eggen Arkitekter',
-            year: '2024',
-            images: [
-                '/assets/gallery/eggen_showcase/eggen_showcase.jpg',
-                // '/assets/gallery/eggen_showcase/insidepost.png',
-                // '/assets/gallery/eggen_showcase/folk.png',
-            ],
-            description:
-                'eggen-arkitekter.no is a portfolio website for Eggen Arkitekter. The website is built with Sanity and Next.js, and is hosted on Vercel. The entire website is modular, and all media can be updated easily.',
-            link: '/eggenarkitekter',
-            visit: 'https://eggen-arkitekter.no',
-            logo: [
-                '/languageIcons/Sanity-square.png',
-                '/languageIcons/vercel.svg',
-                '/languageIcons/next-js.svg',
-                '/languageIcons/typescript.png',
-                '/languageIcons/tailwind.png',
-            ],
-            background_color: '#d2e6f6',
-            icon: '/assets/gallery/eggen_showcase/eggen_logo.png',
-            textcolor: '#1f2d37',
-        },
-        {
-            title: 'EkteTid',
-            year: '2024',
-            images: [
-                '/assets/gallery/ektetid_showcase/ektetid_showcase.jpg',
-            ],
-            description:
-                'EkteTid is a web application created as a tool for sharing vacation photos with loved ones during the trip itself. It features a firebase alert system, allowing for mobile notifications through a webapp.',
-            link: '/ektetid',
-            visit: 'https://ektetid.no',
-            logo: [
-                '/languageIcons/Sanity-square.png',
-                '/languageIcons/vercel.svg',
-                '/languageIcons/next-js.svg',
-                '/languageIcons/typescript.png',
-                '/languageIcons/tailwind.png',
                 '/languageIcons/firebase.svg',
-
+                '/languageIcons/typescript.png',
+                '/languageIcons/tailwind.png',
             ],
-            background_color: '#dfd0b9',
-            icon: '/assets/gallery/ektetid_showcase/ektetid_logo_200.png',
-            textcolor: '#372e1f',
+            icon: '/assets/gallery/chatssb_showcase/chatssb.png',
         },
+        // {
+        //     title: 'Eggen Arkitekter',
+        //     year: '2024',
+        //     images: ['/assets/gallery/eggen_showcase/eggen_showcase.jpg'],
+        //     description:
+        //         'eggen-arkitekter.no is a portfolio website for Eggen Arkitekter. The website is built with Sanity and Next.js, and is hosted on Vercel. The entire website is modular, and all media can be updated easily.',
+        //     link: '/eggenarkitekter',
+        //     visit: 'https://eggen-arkitekter.no',
+        //     logo: [
+        //         '/languageIcons/Sanity-square.png',
+        //         '/languageIcons/vercel.svg',
+        //         '/languageIcons/next-js.svg',
+        //         '/languageIcons/typescript.png',
+        //         '/languageIcons/tailwind.png',
+        //     ],
+        //     icon: '/assets/gallery/eggen_showcase/eggen_logo.png',
+        // },
+        // {
+        //     title: 'EkteTid',
+        //     year: '2024',
+        //     images: ['/assets/gallery/ektetid_showcase/ektetid_showcase.jpg'],
+        //     description:
+        //         'EkteTid is a web application created as a tool for sharing vacation photos with loved ones during the trip itself. It features a firebase alert system, allowing for mobile notifications through a webapp.',
+        //     link: '/ektetid',
+        //     visit: 'https://ektetid.no',
+        //     logo: [
+        //         '/languageIcons/Sanity-square.png',
+        //         '/languageIcons/vercel.svg',
+        //         '/languageIcons/next-js.svg',
+        //         '/languageIcons/typescript.png',
+        //         '/languageIcons/tailwind.png',
+        //         '/languageIcons/firebase.svg',
+        //     ],
+        //     icon: '/assets/gallery/ektetid_showcase/ektetid_logo_200.png',
+        // },
         {
             title: 'Meløya.no',
             year: '2024',
-            images: [
-                '/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg',
-            ],
+            images: ['/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg'],
             description:
-                'Meløya.no is a website for the local community on Meløya. The website is built with Sanity and Next.js, and is hosted on Vercel. The website is a hub for local news, events, and information.',
+                'Meløya.no is a website for the local community on Meløya, an island in the north of norway with 100 inhabitants. The website has attracket 25 000 views from 8500 visitors in 6 months.',
             link: '/meloyadotno',
             visit: 'https://meloya.no',
             logo: [
                 '/languageIcons/Sanity-square.png',
                 '/languageIcons/vercel.svg',
                 '/languageIcons/next-js.svg',
+                '/languageIcons/firebase.svg',
                 '/languageIcons/typescript.png',
                 '/languageIcons/tailwind.png',
             ],
-            background_color: '#80876e',
             icon: '/assets/gallery/meloyadotno_showcase/meloya_logo.png',
-            textcolor: '#d7d8d5',
         },
-        // Add more project objects as needed
+
+
+        {
+            title: 'Meløya App',
+            year: '2025',
+            images: ['/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg'],
+            description:
+                'Meløya App is a mobile app based on the meløya.no website, built with React Native. The app provides easy access to local news, events, and services for the Meløya community.',
+            link: 'https://apps.apple.com/no/app/mel%C3%B8ya-app/id6756573425?l=nb',
+            visit: 'https://apps.apple.com/no/app/mel%C3%B8ya-app/id6756573425?l=nb',
+            logo: [
+                '/languageIcons/Sanity-square.png',
+                '/languageIcons/next-js.svg',
+                '/languageIcons/firebase.svg',
+                '/languageIcons/typescript.png',
+            ],
+            icon: '/assets/gallery/meloyadotno_showcase/meloyaapp.jpg',
+        },
+        {
+            title: 'Svelta',
+            year: '2025',
+            images: ['/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg'],
+            description:
+                'Svelta is a social media for cooking and baking, allowing users to share recipies, follow other cooks, and find inspiration for their next meal.',
+            link: 'https://svelta.no',
+            visit: 'https://svelta.no',
+            logo: [
+                '/languageIcons/vercel.svg',
+                '/languageIcons/next-js.svg',
+                '/languageIcons/firebase.svg',
+                '/languageIcons/typescript.png',
+                '/languageIcons/tailwind.png',
+            ],
+            icon: '/assets/gallery/svelta_showcase/bread.jpg',
+        },
+        {
+            title: 'Prosjekt Argus',
+            year: '2024',
+            images: ['/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg'],
+            description:
+                'Prosjekt Argus is my masters thesis project, focused on democratizing access to emergency weather data using modern web technologies and open data sources.',
+            link: 'https://alertall.vercel.app/',
+            visit: 'https://alertall.vercel.app/',
+            logo: [
+
+            ],
+            icon: '/assets/gallery/argus_showcase/icon_argus.png',
+        }
     ];
 
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    // Handle scroll event to update the active index
-    const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
-        const scrollLeft = event.currentTarget.scrollLeft;
-        const width = event.currentTarget.offsetWidth;
-
-        const newIndex = Math.round(scrollLeft / width);
-        setActiveIndex(newIndex);
-    };
-
     return (
-        <div className=" ">
-
-            <div
-                className=" carousel-container"
-                onScroll={handleScroll}
-                style={{
-                    overflowX: 'scroll', // Enable horizontal scrolling
-                    scrollbarWidth: 'none', // Firefox
-                    msOverflowStyle: 'none', // IE and Edge
-                    scrollSnapType: 'x mandatory', // Enable auto-snapping
-                }}
-            >
-                <style jsx>{`
-                    .carousel-container {
-                        overflow-x: scroll; /* Allow horizontal scrolling */
-                        scroll-snap-type: x mandatory; /* Auto-snapping */
-                    }
-
-                    .carousel-container::-webkit-scrollbar {
-                        display: none; /* Hide scrollbar for WebKit-based browsers */
-                    }
-
-                    .carousel-item {
-                        scroll-snap-align: center; /* Align items to center when snapping */
-                    }
-                `}</style>
-                <div className="flex flex-nowrap h-full">
-                    {projects.map((project, index) => (
-                        <div
-                            key={index}
-                            className="w-screen flex-shrink-0 snap-center p-4 pb-0 flex items-center justify-center carousel-item"
-                        >
-                            <div className="md:p-16 md:pb-0 w-full h-full flex items-center justify-center">
-                                <Tile {...project} />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-
-            <div className="flex justify-center gap-4 ">
-                {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        className={`w-auto px-4 h-10 rounded-full border-2 cursor-pointer ${
-                            index === activeIndex
-                                ? 'border-gray-800 dark:bg-white dark:text-black dark:border-gray-200'
-                                : 'border-gray-400 bg-gray-100 dark:bg-transparent dark:border-gray-600'
-                        } flex items-center justify-center transition`}
-                        onClick={() => {
-                            const carousel = document.querySelector(
-                                '.carousel-container'
-                            ) as HTMLDivElement;
-                            if (carousel) {
-                                carousel.scrollTo({
-                                    left: index * carousel.offsetWidth,
-                                    behavior: 'smooth',
-                                });
-                            }
-                        }}
-                    >
-                        <Image
-                            src={project.icon}
-                            alt={`${project.title} Icon`}
-                            width={24}
-                            height={24}
-                            className={` transition ${
-                                index === activeIndex ? 'opacity-100' : 'opacity-50'
-                            }`}
-                        />
-                        <p
-                            className={`ml-2 text-sm transition ${
-                                index === activeIndex
-                                    ? 'block'
-                                    : 'hidden sm:block'
-                            }`}
-                        >
-                            {project.title}
-                        </p>
-                    </div>
+        <section className="w-full md:p-20 p-4">
+            <h1>Current Work</h1>
+            <h3 className=" mb-4">My current projects, being actively maintained</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+                {projects.map((p, i) => (
+                    <TileCard key={i} {...p} />
                 ))}
             </div>
-
-        </div>
+        </section>
     );
 };
 
-export default ProjectCarousel;
+export default ProjectGrid;

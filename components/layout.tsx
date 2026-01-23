@@ -11,7 +11,7 @@ const Layout = ({ preview, children }: Props) => {
   return (
     <>
       <Meta />
-      <div className="min-h-screen border-none">
+      <div className="min-h-screen border-none container mx-auto">
           <Navbar />
           <main>{children}</main>
       </div>

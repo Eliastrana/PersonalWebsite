@@ -15,7 +15,7 @@ type Props = {
 
 const NewPage: React.FC<Props> = ({ allPosts }) => {
     return (
-        <div className="custom-cursor">
+        <div>
             <Layout>
                 <PhysicsFrontpage />
                 <ProjectCarousel />
