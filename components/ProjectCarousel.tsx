@@ -20,7 +20,7 @@ const ProjectGrid: React.FC = () => {
         {
             title: 'ChatSSB',
             year: '2025',
-            images: ['/assets/gallery/chatssb_showcase/chatssb.png'],
+            images: ['/assets/gallery/chatssb_showcase/chatssbpp.png'],
             description: 'ChatSSB changes the way you interact with statistics, by allowing you to access all of SSBs data through simply asking a question. It further allows you to create custom visualizations based on your queries.',
             link: 'https://chatssb.no',
             visit: 'https://chatssb.no',
@@ -31,7 +31,7 @@ const ProjectGrid: React.FC = () => {
                 '/languageIcons/typescript.png',
                 '/languageIcons/tailwind.png',
             ],
-            icon: '/assets/gallery/chatssb_showcase/chatssb.png',
+            icon: '/assets/gallery/chatssb_showcase/chatssbpp.png',
         },
         // {
         //     title: 'Eggen Arkitekter',
