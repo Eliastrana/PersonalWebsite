@@ -87,6 +87,20 @@ const ProjectGrid: React.FC = () => {
             icon: '/assets/gallery/meloyadotno_showcase/meloya_logo.png',
         },
 
+        {
+            title: 'Prosjekt Argus',
+            year: '2025',
+            images: ['/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg'],
+            description:
+                'Prosjekt Argus is my masters thesis project, focused on democratizing access to emergency weather data using modern web technologies and open data sources.',
+            link: 'https://argus.eliastrana.no/',
+            visit: 'https://argus.eliastrana.no/',
+            logo: [
+
+            ],
+            icon: '/assets/gallery/argus_showcase/earth-png.gif',
+        },
+
 
         {
             title: 'Meløya App',
@@ -121,19 +135,6 @@ const ProjectGrid: React.FC = () => {
             ],
             icon: '/assets/gallery/svelta_showcase/bread.jpg',
         },
-        {
-            title: 'Prosjekt Argus',
-            year: '2024',
-            images: ['/assets/gallery/meloyadotno_showcase/macbook_meloyadotno.jpg'],
-            description:
-                'Prosjekt Argus is my masters thesis project, focused on democratizing access to emergency weather data using modern web technologies and open data sources.',
-            link: 'https://alertall.vercel.app/',
-            visit: 'https://alertall.vercel.app/',
-            logo: [
-
-            ],
-            icon: '/assets/gallery/argus_showcase/icon_argus.png',
-        }
     ];
 
     return (
